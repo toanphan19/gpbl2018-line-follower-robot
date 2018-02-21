@@ -3404,9 +3404,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 99: PORTC=0x02;
 "99
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;main.c: 100: wait00(10);
+[; ;main.c: 100: wait00(6);
 "100
-[e ( _wait00 (1 -> -> 10 `i `s ]
+[e ( _wait00 (1 -> -> 6 `i `s ]
 [; ;main.c: 101: PORTC = 0x00;
 "101
 [e = _PORTC -> -> 0 `i `uc ]
@@ -3426,9 +3426,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 106: PORTC=0x01;
 "106
 [e = _PORTC -> -> 1 `i `uc ]
-[; ;main.c: 107: wait00(8.5);
+[; ;main.c: 107: wait00(5);
 "107
-[e ( _wait00 (1 -> .8.5 `s ]
+[e ( _wait00 (1 -> -> 5 `i `s ]
 [; ;main.c: 108: PORTC = 0x00;
 "108
 [e = _PORTC -> -> 0 `i `uc ]
@@ -3445,253 +3445,250 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 113: int turnLeftWide(void) {
 [e :U _turnLeftWide ]
 [f ]
-[; ;main.c: 114: PORTC=0x03;
-"114
-[e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 115: wait00(1);
+[; ;main.c: 115: PORTC=0x03;
 "115
-[e ( _wait00 (1 -> -> 1 `i `s ]
-[; ;main.c: 116: PORTC=0x02;
+[e = _PORTC -> -> 3 `i `uc ]
+[; ;main.c: 116: wait00(1);
 "116
-[e = _PORTC -> -> 2 `i `uc ]
-[; ;main.c: 117: wait00(10);
+[e ( _wait00 (1 -> -> 1 `i `s ]
+[; ;main.c: 117: PORTC=0x02;
 "117
-[e ( _wait00 (1 -> -> 10 `i `s ]
-[; ;main.c: 118: PORTC = 0x00;
+[e = _PORTC -> -> 2 `i `uc ]
+[; ;main.c: 118: wait00(10);
 "118
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 119: wait00(8);
+[e ( _wait00 (1 -> -> 10 `i `s ]
+[; ;main.c: 119: PORTC = 0x00;
 "119
-[e ( _wait00 (1 -> -> 8 `i `s ]
-[; ;main.c: 120: }
+[e = _PORTC -> -> 0 `i `uc ]
+[; ;main.c: 120: wait00(8);
 "120
+[e ( _wait00 (1 -> -> 8 `i `s ]
+[; ;main.c: 127: }
+"127
 [e :UE 344 ]
 }
-"122
+"129
 [v _turnRightWide `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 122: int turnRightWide(void) {
+[; ;main.c: 129: int turnRightWide(void) {
 [e :U _turnRightWide ]
 [f ]
-[; ;main.c: 123: PORTC=0x03;
-"123
+[; ;main.c: 131: PORTC=0x03;
+"131
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 124: wait00(1);
-"124
+[; ;main.c: 132: wait00(1);
+"132
 [e ( _wait00 (1 -> -> 1 `i `s ]
-[; ;main.c: 125: PORTC=0x01;
-"125
+[; ;main.c: 133: PORTC=0x01;
+"133
 [e = _PORTC -> -> 1 `i `uc ]
-[; ;main.c: 126: wait00(8.5);
-"126
+[; ;main.c: 134: wait00(8.5);
+"134
 [e ( _wait00 (1 -> .8.5 `s ]
-[; ;main.c: 127: PORTC = 0x00;
-"127
+[; ;main.c: 135: PORTC = 0x00;
+"135
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 128: wait00(8);
-"128
+[; ;main.c: 136: wait00(8);
+"136
 [e ( _wait00 (1 -> -> 8 `i `s ]
-[; ;main.c: 129: }
-"129
+[; ;main.c: 143: }
+"143
 [e :UE 345 ]
 }
-"132
+"146
 [v _straight `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 132: int straight(void){
+[; ;main.c: 146: int straight(void){
 [e :U _straight ]
 [f ]
-[; ;main.c: 133: PORTC=0x03;
-"133
+[; ;main.c: 147: PORTC=0x03;
+"147
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 134: wait00(10);
-"134
+[; ;main.c: 148: wait00(10);
+"148
 [e ( _wait00 (1 -> -> 10 `i `s ]
-[; ;main.c: 135: PORTC=0x02;
-"135
+[; ;main.c: 149: PORTC=0x02;
+"149
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;main.c: 136: wait00(1);
-"136
+[; ;main.c: 150: wait00(1);
+"150
 [e ( _wait00 (1 -> -> 1 `i `s ]
-[; ;main.c: 137: PORTC=0x00;
-"137
+[; ;main.c: 151: PORTC=0x00;
+"151
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 138: wait00(10);
-"138
+[; ;main.c: 152: wait00(10);
+"152
 [e ( _wait00 (1 -> -> 10 `i `s ]
-[; ;main.c: 139: }
-"139
+[; ;main.c: 153: }
+"153
 [e :UE 346 ]
 }
-"141
+"155
 [v _accelerate `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 141: int accelerate(void) {
+[; ;main.c: 155: int accelerate(void) {
 [e :U _accelerate ]
 [f ]
-[; ;main.c: 142: PORTC=0x03;
-"142
+[; ;main.c: 156: PORTC=0x03;
+"156
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 143: wait00(12);
-"143
-[e ( _wait00 (1 -> -> 12 `i `s ]
-[; ;main.c: 144: PORTC=0x02;
-"144
+[; ;main.c: 157: wait00(10);
+"157
+[e ( _wait00 (1 -> -> 10 `i `s ]
+[; ;main.c: 158: PORTC=0x02;
+"158
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;main.c: 145: wait00(1);
-"145
+[; ;main.c: 159: wait00(1);
+"159
 [e ( _wait00 (1 -> -> 1 `i `s ]
-[; ;main.c: 146: PORTC=0x00;
-"146
+[; ;main.c: 160: PORTC=0x00;
+"160
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 147: wait00(3);
-"147
+[; ;main.c: 161: wait00(3);
+"161
 [e ( _wait00 (1 -> -> 3 `i `s ]
-[; ;main.c: 148: }
-"148
+[; ;main.c: 162: }
+"162
 [e :UE 347 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"151
+"165
 [v _main `(i ~T0 @X0 1 ef ]
-"152
+"166
 {
-[; ;main.c: 151: main(void)
-[; ;main.c: 152: {
+[; ;main.c: 165: main(void)
+[; ;main.c: 166: {
 [e :U _main ]
 [f ]
-[; ;main.c: 154: ADCON1 = 0x0F;
-"154
+[; ;main.c: 168: ADCON1 = 0x0F;
+"168
 [e = _ADCON1 -> -> 15 `i `uc ]
-[; ;main.c: 157: TRISA = 0x20;
-"157
+[; ;main.c: 171: TRISA = 0x20;
+"171
 [e = _TRISA -> -> 32 `i `uc ]
-[; ;main.c: 158: TRISB = 0xFF;
-"158
+[; ;main.c: 172: TRISB = 0xFF;
+"172
 [e = _TRISB -> -> 255 `i `uc ]
-[; ;main.c: 159: TRISC = 0x00;
-"159
+[; ;main.c: 173: TRISC = 0x00;
+"173
 [e = _TRISC -> -> 0 `i `uc ]
-[; ;main.c: 162: PORTA = 0x00;
-"162
+[; ;main.c: 176: PORTA = 0x00;
+"176
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 163: PORTB = 0x00;
-"163
+[; ;main.c: 177: PORTB = 0x00;
+"177
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 164: PORTC = 0x00;
-"164
+[; ;main.c: 178: PORTC = 0x00;
+"178
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 167: while(PORTAbits.RA5==1){
-"167
+[; ;main.c: 181: while(PORTAbits.RA5==1){
+"181
 [e $U 349  ]
 [e :U 350 ]
 {
-[; ;main.c: 168: led_sens();
-"168
+[; ;main.c: 182: led_sens();
+"182
 [e ( _led_sens ..  ]
-"169
+"183
 }
 [e :U 349 ]
-"167
+"181
 [e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 350  ]
 [e :U 351 ]
-"171
+"185
 [v _road_state `E3329 ~T0 @X0 1 a ]
-[; ;main.c: 169: }
-[; ;main.c: 171: enum road_state_codes road_state = on_track;
+[; ;main.c: 183: }
+[; ;main.c: 185: enum road_state_codes road_state = on_track;
 [e = _road_state . `E3329 0 ]
-"172
+"186
 [v _previous_road_state `E3329 ~T0 @X0 1 a ]
-[; ;main.c: 172: enum road_state_codes previous_road_state;
-[; ;main.c: 175: wait00(500);
-"175
-[e ( _wait00 (1 -> -> 500 `i `s ]
-[; ;main.c: 176: while (1) {
-"176
+[; ;main.c: 186: enum road_state_codes previous_road_state;
+[; ;main.c: 189: while (1) {
+"189
 [e :U 353 ]
 {
-[; ;main.c: 177: led_sens();
-"177
+[; ;main.c: 190: led_sens();
+"190
 [e ( _led_sens ..  ]
-[; ;main.c: 179: previous_road_state = road_state;
-"179
+[; ;main.c: 192: previous_road_state = road_state;
+"192
 [e = _previous_road_state _road_state ]
-[; ;main.c: 180: road_state = getRoadState(
-[; ;main.c: 181: PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2,
-[; ;main.c: 182: PORTBbits.RB3, PORTBbits.RB4
-[; ;main.c: 183: );
-"183
+[; ;main.c: 193: road_state = getRoadState(
+[; ;main.c: 194: PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2,
+[; ;main.c: 195: PORTBbits.RB3, PORTBbits.RB4
+[; ;main.c: 196: );
+"196
 [e = _road_state ( _getRoadState (4 , , , , -> . . _PORTBbits 0 0 `s -> . . _PORTBbits 0 1 `s -> . . _PORTBbits 0 2 `s -> . . _PORTBbits 0 3 `s -> . . _PORTBbits 0 4 `s ]
-[; ;main.c: 185: if (road_state == off_track)
-"185
+[; ;main.c: 198: if (road_state == off_track)
+"198
 [e $ ! == -> _road_state `i -> . `E3329 1 `i 355  ]
-[; ;main.c: 186: road_state = previous_road_state;
-"186
+[; ;main.c: 199: road_state = previous_road_state;
+"199
 [e = _road_state _previous_road_state ]
 [e :U 355 ]
-[; ;main.c: 188: switch (road_state) {
-"188
+[; ;main.c: 201: switch (road_state) {
+"201
 [e $U 357  ]
 {
-[; ;main.c: 189: case straight_line:
-"189
-[e :U 358 ]
-[; ;main.c: 190: accelerate();
-"190
-[e ( _accelerate ..  ]
-[; ;main.c: 191: break;
-"191
-[e $U 356  ]
-[; ;main.c: 192: case off_left_little:
-"192
-[e :U 359 ]
-[; ;main.c: 193: turnRightWide();
-"193
-[e ( _turnRightWide ..  ]
-[; ;main.c: 194: break;
-"194
-[e $U 356  ]
-[; ;main.c: 195: case off_right_little:
-"195
-[e :U 360 ]
-[; ;main.c: 196: turnLeftWide();
-"196
-[e ( _turnLeftWide ..  ]
-[; ;main.c: 197: break;
-"197
-[e $U 356  ]
-[; ;main.c: 198: case off_left:
-"198
-[e :U 361 ]
-[; ;main.c: 199: turnRight();
-"199
-[e ( _turnRight ..  ]
-[; ;main.c: 200: break;
-"200
-[e $U 356  ]
-[; ;main.c: 201: case off_right:
-"201
-[e :U 362 ]
-[; ;main.c: 202: turnLeft();
+[; ;main.c: 202: case straight_line:
 "202
-[e ( _turnLeft ..  ]
-[; ;main.c: 203: break;
+[e :U 358 ]
+[; ;main.c: 203: accelerate();
 "203
-[e $U 356  ]
-[; ;main.c: 204: case on_track:
+[e ( _accelerate ..  ]
+[; ;main.c: 204: break;
 "204
-[e :U 363 ]
-[; ;main.c: 205: straight();
+[e $U 356  ]
+[; ;main.c: 205: case off_left_little:
 "205
-[e ( _straight ..  ]
-[; ;main.c: 206: break;
+[e :U 359 ]
+[; ;main.c: 206: turnRightWide();
 "206
-[e $U 356  ]
+[e ( _turnRightWide ..  ]
+[; ;main.c: 207: break;
 "207
-}
-[; ;main.c: 207: }
 [e $U 356  ]
-"188
+[; ;main.c: 208: case off_right_little:
+"208
+[e :U 360 ]
+[; ;main.c: 209: turnLeftWide();
+"209
+[e ( _turnLeftWide ..  ]
+[; ;main.c: 210: break;
+"210
+[e $U 356  ]
+[; ;main.c: 211: case off_left:
+"211
+[e :U 361 ]
+[; ;main.c: 212: turnRight();
+"212
+[e ( _turnRight ..  ]
+[; ;main.c: 213: break;
+"213
+[e $U 356  ]
+[; ;main.c: 214: case off_right:
+"214
+[e :U 362 ]
+[; ;main.c: 215: turnLeft();
+"215
+[e ( _turnLeft ..  ]
+[; ;main.c: 216: break;
+"216
+[e $U 356  ]
+[; ;main.c: 217: case on_track:
+"217
+[e :U 363 ]
+[; ;main.c: 218: straight();
+"218
+[e ( _straight ..  ]
+[; ;main.c: 219: break;
+"219
+[e $U 356  ]
+"220
+}
+[; ;main.c: 220: }
+[e $U 356  ]
+"201
 [e :U 357 ]
 [e [\ _road_state , $ . `E3329 2 358
  , $ . `E3329 5 359
@@ -3700,16 +3697,16 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ . `E3329 4 362
  , $ . `E3329 0 363
  356 ]
-"207
+"220
 [e :U 356 ]
-"209
+"222
 }
 [e :U 352 ]
-"176
+"189
 [e $U 353  ]
 [e :U 354 ]
-[; ;main.c: 209: }
-[; ;main.c: 211: }
-"211
+[; ;main.c: 222: }
+[; ;main.c: 224: }
+"224
 [e :UE 348 ]
 }

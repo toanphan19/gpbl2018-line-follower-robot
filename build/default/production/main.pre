@@ -4353,35 +4353,41 @@ return on_track;
 # 98
 int turnLeft(void) {
 PORTC=0x02;
-wait00(10);
+wait00(6);
 PORTC = 0x00;
 wait00(5);
 }
 
 int turnRight(void) {
 PORTC=0x01;
-wait00(8.5);
+wait00(5);
 PORTC = 0x00;
 wait00(5);
 }
 
 
 int turnLeftWide(void) {
+
 PORTC=0x03;
 wait00(1);
 PORTC=0x02;
 wait00(10);
 PORTC = 0x00;
 wait00(8);
+
+# 127
 }
 
 int turnRightWide(void) {
+
 PORTC=0x03;
 wait00(1);
 PORTC=0x01;
 wait00(8.5);
 PORTC = 0x00;
 wait00(8);
+
+# 143
 }
 
 
@@ -4396,7 +4402,7 @@ wait00(10);
 
 int accelerate(void) {
 PORTC=0x03;
-wait00(12);
+wait00(10);
 PORTC=0x02;
 wait00(1);
 PORTC=0x00;
@@ -4428,7 +4434,6 @@ enum road_state_codes road_state = on_track;
 enum road_state_codes previous_road_state;
 
 
-wait00(500);
 while (1) {
 led_sens();
 
