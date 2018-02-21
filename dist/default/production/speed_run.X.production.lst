@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Wed Feb 21 10:15:55 2018
+                                                                                               Wed Feb 21 10:19:49 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F2553
@@ -454,10 +454,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    440  007CC8  0E01               	movlw	1
    441  007CCA  6E82               	movwf	3970,c	;volatile
    442                           
-   443                           ;main.c: 126: wait00(7);
+   443                           ;main.c: 126: wait00(8.5);
    444  007CCC  0E00               	movlw	0
    445  007CCE  6E02               	movwf	wait00@k+1,c
-   446  007CD0  0E07               	movlw	7
+   446  007CD0  0E08               	movlw	8
    447  007CD2  6E01               	movwf	wait00@k,c
    448  007CD4  EC8F  F03E         	call	_wait00	;wreg free
    449                           
@@ -595,10 +595,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    581  007C96  0E02               	movlw	2
    582  007C98  6E82               	movwf	3970,c	;volatile
    583                           
-   584                           ;main.c: 117: wait00(8.5);
+   584                           ;main.c: 117: wait00(10);
    585  007C9A  0E00               	movlw	0
    586  007C9C  6E02               	movwf	wait00@k+1,c
-   587  007C9E  0E08               	movlw	8
+   587  007C9E  0E0A               	movlw	10
    588  007CA0  6E01               	movwf	wait00@k,c
    589  007CA2  EC8F  F03E         	call	_wait00	;wreg free
    590                           
@@ -1520,7 +1520,7 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Wed Feb 21 10:15:55 2018
+Symbol Table                                                                                   Wed Feb 21 10:19:49 2018
 
                      l21 7D4A                       l22 7D28                       l23 7D40  
                      l32 7EA8                       l50 7FFC                       l43 7F20  

@@ -116,7 +116,7 @@ int turnLeftWide(void) {
     PORTC=0x02; /* right motor on */
     wait00(10);
     PORTC = 0x00;
-    wait00(5);
+    wait00(8);
 }
 
 int turnRightWide(void) {
@@ -125,7 +125,7 @@ int turnRightWide(void) {
     PORTC=0x01; /* left motor on */
     wait00(8.5);
     PORTC = 0x00;
-    wait00(5);
+    wait00(8);
 }
 
 
