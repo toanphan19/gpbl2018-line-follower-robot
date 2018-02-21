@@ -97,14 +97,14 @@ enum road_state_codes getRoadState(short a, short b, short c, short d, short e) 
 
 int turnLeft(void) {
     PORTC=0x02; /* right motor on */
-    wait00(6);
+    wait00(7);
     PORTC = 0x00;
     wait00(5);
 }
 
 int turnRight(void) {
     PORTC=0x01;/* left motor on */
-    wait00(5);
+    wait00(6);
     PORTC = 0x00;
     wait00(5);
 }
@@ -145,11 +145,9 @@ int turnRightWide(void) {
 
 int straight(void){
     PORTC=0x03; /* both motor on */
-    wait00(10); 
-    PORTC=0x02; /* right motor on */
-    wait00(1);
+    wait00(5); 
     PORTC=0x00; /* both motor off */
-    wait00(10); 
+    wait00(8); 
 }
 
 int accelerate(void) {
