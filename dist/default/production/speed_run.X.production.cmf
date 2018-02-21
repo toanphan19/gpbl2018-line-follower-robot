@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\crowe\AppData\Local\Temp\s8co.obj
+$C:\Users\crowe\AppData\Local\Temp\s5m0.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 2000 2000 4 1
 config CONFIG 0 300000 300000 E 1
@@ -203,14 +203,14 @@ $dist/default/production\speed_run.X.production.obj
 7E2A text0 CODE >207:D:\Projects\2018_GPBL\speed_run.X\main.c
 7E2C text0 CODE >188:D:\Projects\2018_GPBL\speed_run.X\main.c
 7E52 text0 CODE >176:D:\Projects\2018_GPBL\speed_run.X\main.c
-2008 cinit CODE >400:C:\Users\crowe\AppData\Local\Temp\s8co.
-2008 cinit CODE >402:C:\Users\crowe\AppData\Local\Temp\s8co.
-2008 cinit CODE >405:C:\Users\crowe\AppData\Local\Temp\s8co.
-2008 cinit CODE >411:C:\Users\crowe\AppData\Local\Temp\s8co.
-2008 cinit CODE >414:C:\Users\crowe\AppData\Local\Temp\s8co.
-200A cinit CODE >415:C:\Users\crowe\AppData\Local\Temp\s8co.
-200C cinit CODE >416:C:\Users\crowe\AppData\Local\Temp\s8co.
-200E cinit CODE >417:C:\Users\crowe\AppData\Local\Temp\s8co.
+2008 cinit CODE >400:C:\Users\crowe\AppData\Local\Temp\s5m0.
+2008 cinit CODE >402:C:\Users\crowe\AppData\Local\Temp\s5m0.
+2008 cinit CODE >405:C:\Users\crowe\AppData\Local\Temp\s5m0.
+2008 cinit CODE >411:C:\Users\crowe\AppData\Local\Temp\s5m0.
+2008 cinit CODE >414:C:\Users\crowe\AppData\Local\Temp\s5m0.
+200A cinit CODE >415:C:\Users\crowe\AppData\Local\Temp\s5m0.
+200C cinit CODE >416:C:\Users\crowe\AppData\Local\Temp\s5m0.
+200E cinit CODE >417:C:\Users\crowe\AppData\Local\Temp\s5m0.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -229,21 +229,21 @@ __Hspace_1 12 0 ABS 0 - dist/default/production\speed_run.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\speed_run.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\speed_run.X.production.obj
 __size_of_led_sens 0 0 ABS 0 - dist/default/production\speed_run.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\crowe\AppData\Local\Temp\s8co.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\crowe\AppData\Local\Temp\s5m0.obj
 __end_of_getRoadState 8000 0 CODE 0 text7 dist/default/production\speed_run.X.production.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\speed_run.X.production.obj
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\speed_run.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\crowe\AppData\Local\Temp\s8co.obj
+___sp 0 0 STACK 2 stack C:\Users\crowe\AppData\Local\Temp\s5m0.obj
 _main 7D60 0 CODE 0 text0 dist/default/production\speed_run.X.production.obj
-start 2000 0 CODE 0 init C:\Users\crowe\AppData\Local\Temp\s8co.obj
+start 2000 0 CODE 0 init C:\Users\crowe\AppData\Local\Temp\s5m0.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\speed_run.X.production.obj
 __Hpowerup 2000 0 CODE 0 powerup dist/default/production\speed_run.X.production.obj
 __size_of_straight 0 0 ABS 0 - dist/default/production\speed_run.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\crowe\AppData\Local\Temp\s8co.obj
-intlevel0 0 0 CODE 0 text C:\Users\crowe\AppData\Local\Temp\s8co.obj
-intlevel1 0 0 CODE 0 text C:\Users\crowe\AppData\Local\Temp\s8co.obj
-intlevel2 0 0 CODE 0 text C:\Users\crowe\AppData\Local\Temp\s8co.obj
-intlevel3 0 0 CODE 0 text C:\Users\crowe\AppData\Local\Temp\s8co.obj
+__accesstop 60 0 ABS 0 - C:\Users\crowe\AppData\Local\Temp\s5m0.obj
+intlevel0 0 0 CODE 0 text C:\Users\crowe\AppData\Local\Temp\s5m0.obj
+intlevel1 0 0 CODE 0 text C:\Users\crowe\AppData\Local\Temp\s5m0.obj
+intlevel2 0 0 CODE 0 text C:\Users\crowe\AppData\Local\Temp\s5m0.obj
+intlevel3 0 0 CODE 0 text C:\Users\crowe\AppData\Local\Temp\s5m0.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\speed_run.X.production.obj
 _led_sens 7CEA 0 CODE 0 text6 dist/default/production\speed_run.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\speed_run.X.production.obj
@@ -251,8 +251,8 @@ __Hclrtext 0 0 ABS 0 clrtext dist/default/production\speed_run.X.production.obj
 __size_of_accelerate 0 0 ABS 0 - dist/default/production\speed_run.X.production.obj
 __end_of_led_sens 7D1E 0 CODE 0 text6 dist/default/production\speed_run.X.production.obj
 _ADCON1 FC1 0 ABS 0 - dist/default/production\speed_run.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\crowe\AppData\Local\Temp\s8co.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\crowe\AppData\Local\Temp\s8co.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\crowe\AppData\Local\Temp\s5m0.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\crowe\AppData\Local\Temp\s5m0.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\speed_run.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\speed_run.X.production.obj
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\speed_run.X.production.obj
@@ -300,7 +300,7 @@ __Htext8 0 0 ABS 0 text8 dist/default/production\speed_run.X.production.obj
 __Htext9 0 0 ABS 0 text9 dist/default/production\speed_run.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\speed_run.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\speed_run.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\crowe\AppData\Local\Temp\s8co.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\crowe\AppData\Local\Temp\s5m0.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\speed_run.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\speed_run.X.production.obj
 __size_of_turnLeftWide 0 0 ABS 0 - dist/default/production\speed_run.X.production.obj
@@ -375,8 +375,8 @@ __Lconfig 300000 0 CONFIG 0 config dist/default/production\speed_run.X.productio
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\speed_run.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\speed_run.X.production.obj
 _turnRightWide 7CB8 0 CODE 0 text1 dist/default/production\speed_run.X.production.obj
-stackhi 7FF 0 ABS 0 - C:\Users\crowe\AppData\Local\Temp\s8co.obj
-stacklo 60 0 ABS 0 - C:\Users\crowe\AppData\Local\Temp\s8co.obj
+stackhi 7FF 0 ABS 0 - C:\Users\crowe\AppData\Local\Temp\s5m0.obj
+stacklo 60 0 ABS 0 - C:\Users\crowe\AppData\Local\Temp\s5m0.obj
 __Lintcode 2000 0 CODE 0 intcode dist/default/production\speed_run.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\speed_run.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\speed_run.X.production.obj
@@ -407,7 +407,7 @@ __ptext7 7E54 0 CODE 0 text7 dist/default/production\speed_run.X.production.obj
 __ptext8 7C22 0 CODE 0 text8 dist/default/production\speed_run.X.production.obj
 __ptext9 7D1E 0 CODE 0 text9 dist/default/production\speed_run.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\speed_run.X.production.obj
-__ramtop 800 0 RAM 0 ramtop C:\Users\crowe\AppData\Local\Temp\s8co.obj
+__ramtop 800 0 RAM 0 ramtop C:\Users\crowe\AppData\Local\Temp\s5m0.obj
 __size_of_wait00 0 0 ABS 0 - dist/default/production\speed_run.X.production.obj
 __Lpowerup 2000 0 CODE 0 powerup dist/default/production\speed_run.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\speed_run.X.production.obj

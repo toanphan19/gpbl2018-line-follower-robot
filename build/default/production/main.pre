@@ -4372,7 +4372,7 @@ wait00(1);
 PORTC=0x02;
 wait00(10);
 PORTC = 0x00;
-wait00(5);
+wait00(8);
 }
 
 int turnRightWide(void) {
@@ -4381,15 +4381,15 @@ wait00(1);
 PORTC=0x01;
 wait00(8.5);
 PORTC = 0x00;
-wait00(5);
+wait00(8);
 }
 
 
 int straight(void){
 PORTC=0x03;
-wait00(8);
+wait00(10);
 PORTC=0x02;
-wait00(0.5);
+wait00(1);
 PORTC=0x00;
 wait00(10);
 }
@@ -4398,9 +4398,9 @@ int accelerate(void) {
 PORTC=0x03;
 wait00(12);
 PORTC=0x02;
-wait00(0.5);
+wait00(1);
 PORTC=0x00;
-wait00(4);
+wait00(3);
 }
 
 

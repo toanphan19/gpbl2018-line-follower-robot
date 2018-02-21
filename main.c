@@ -131,9 +131,9 @@ int turnRightWide(void) {
 
 int straight(void){
     PORTC=0x03; /* both motor on */
-    wait00(8); 
+    wait00(10); 
     PORTC=0x02; /* right motor on */
-    wait00(0.5);
+    wait00(1);
     PORTC=0x00; /* both motor off */
     wait00(10); 
 }
@@ -142,9 +142,9 @@ int accelerate(void) {
     PORTC=0x03; /* both motor on */
     wait00(12);
     PORTC=0x02; /* right motor on */
-    wait00(0.5);
+    wait00(1);
     PORTC=0x00; /* both motor off */
-    wait00(4); 
+    wait00(3); 
 }
 
 
