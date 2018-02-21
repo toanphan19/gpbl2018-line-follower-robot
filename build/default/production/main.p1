@@ -3180,11 +3180,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 326  ]
 [e :U 323 ]
 {
-[; ;main.c: 16: for(i=0;i<3000;i++){
+[; ;main.c: 16: for(i=0;i<300;i++){
 "16
 {
 [e = _i -> -> 0 `i `s ]
-[e $ < -> _i `i -> 3000 `i 327  ]
+[e $ < -> _i `i -> 300 `i 327  ]
 [e $U 328  ]
 [e :U 327 ]
 {
@@ -3192,7 +3192,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "16
 [e ++ _i -> -> 1 `i `s ]
-[e $ < -> _i `i -> 3000 `i 327  ]
+[e $ < -> _i `i -> 300 `i 327  ]
 [e :U 328 ]
 "17
 }
@@ -3404,15 +3404,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 99: PORTC=0x02;
 "99
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;main.c: 100: wait00(7);
+[; ;main.c: 100: wait00(70);
 "100
-[e ( _wait00 (1 -> -> 7 `i `s ]
+[e ( _wait00 (1 -> -> 70 `i `s ]
 [; ;main.c: 101: PORTC = 0x00;
 "101
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 102: wait00(5);
+[; ;main.c: 102: wait00(50);
 "102
-[e ( _wait00 (1 -> -> 5 `i `s ]
+[e ( _wait00 (1 -> -> 50 `i `s ]
 [; ;main.c: 103: }
 "103
 [e :UE 342 ]
@@ -3426,15 +3426,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 106: PORTC=0x01;
 "106
 [e = _PORTC -> -> 1 `i `uc ]
-[; ;main.c: 107: wait00(6);
+[; ;main.c: 107: wait00(60);
 "107
-[e ( _wait00 (1 -> -> 6 `i `s ]
+[e ( _wait00 (1 -> -> 60 `i `s ]
 [; ;main.c: 108: PORTC = 0x00;
 "108
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 109: wait00(5);
+[; ;main.c: 109: wait00(50);
 "109
-[e ( _wait00 (1 -> -> 5 `i `s ]
+[e ( _wait00 (1 -> -> 50 `i `s ]
 [; ;main.c: 110: }
 "110
 [e :UE 343 ]
@@ -3448,21 +3448,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 115: PORTC=0x03;
 "115
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 116: wait00(1);
+[; ;main.c: 116: wait00(10);
 "116
-[e ( _wait00 (1 -> -> 1 `i `s ]
+[e ( _wait00 (1 -> -> 10 `i `s ]
 [; ;main.c: 117: PORTC=0x02;
 "117
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;main.c: 118: wait00(10);
+[; ;main.c: 118: wait00(100);
 "118
-[e ( _wait00 (1 -> -> 10 `i `s ]
+[e ( _wait00 (1 -> -> 100 `i `s ]
 [; ;main.c: 119: PORTC = 0x00;
 "119
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 120: wait00(5);
+[; ;main.c: 120: wait00(50);
 "120
-[e ( _wait00 (1 -> -> 5 `i `s ]
+[e ( _wait00 (1 -> -> 50 `i `s ]
 [; ;main.c: 127: }
 "127
 [e :UE 344 ]
@@ -3476,21 +3476,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 131: PORTC=0x03;
 "131
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 132: wait00(1);
+[; ;main.c: 132: wait00(10);
 "132
-[e ( _wait00 (1 -> -> 1 `i `s ]
+[e ( _wait00 (1 -> -> 10 `i `s ]
 [; ;main.c: 133: PORTC=0x01;
 "133
 [e = _PORTC -> -> 1 `i `uc ]
-[; ;main.c: 134: wait00(8.5);
+[; ;main.c: 134: wait00(85);
 "134
-[e ( _wait00 (1 -> .8.5 `s ]
+[e ( _wait00 (1 -> -> 85 `i `s ]
 [; ;main.c: 135: PORTC = 0x00;
 "135
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 136: wait00(5);
+[; ;main.c: 136: wait00(50);
 "136
-[e ( _wait00 (1 -> -> 5 `i `s ]
+[e ( _wait00 (1 -> -> 50 `i `s ]
 [; ;main.c: 143: }
 "143
 [e :UE 345 ]
@@ -3504,15 +3504,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 147: PORTC=0x03;
 "147
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 148: wait00(5);
+[; ;main.c: 148: wait00(50);
 "148
-[e ( _wait00 (1 -> -> 5 `i `s ]
+[e ( _wait00 (1 -> -> 50 `i `s ]
 [; ;main.c: 149: PORTC=0x00;
 "149
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 150: wait00(8);
+[; ;main.c: 150: wait00(80);
 "150
-[e ( _wait00 (1 -> -> 8 `i `s ]
+[e ( _wait00 (1 -> -> 80 `i `s ]
 [; ;main.c: 151: }
 "151
 [e :UE 346 ]
@@ -3526,21 +3526,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 154: PORTC=0x03;
 "154
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 155: wait00(12);
+[; ;main.c: 155: wait00(120);
 "155
-[e ( _wait00 (1 -> -> 12 `i `s ]
+[e ( _wait00 (1 -> -> 120 `i `s ]
 [; ;main.c: 156: PORTC=0x02;
 "156
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;main.c: 157: wait00(1);
+[; ;main.c: 157: wait00(10);
 "157
-[e ( _wait00 (1 -> -> 1 `i `s ]
+[e ( _wait00 (1 -> -> 10 `i `s ]
 [; ;main.c: 158: PORTC=0x00;
 "158
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 159: wait00(2);
+[; ;main.c: 159: wait00(20);
 "159
-[e ( _wait00 (1 -> -> 2 `i `s ]
+[e ( _wait00 (1 -> -> 20 `i `s ]
 [; ;main.c: 160: }
 "160
 [e :UE 347 ]

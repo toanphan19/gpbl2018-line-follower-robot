@@ -9,11 +9,11 @@
 
 wait00(short k)
 { 	 
-/*Wait time about (~ k * 0.01 sec.) */ 		 
+/*Wait time about (~ k * 1 ms.) */ 		 
     short i; 		 
     short j; /* Declaration of 16 bit variables 	*/ 	 
-    for(j=0;j<k;j++){ /*(~ k * 3000) times iteration */ 	 
-		for(i=0;i<3000;i++){ 	 
+    for(j=0;j<k;j++){ /*(~ k * 300) times iteration */ 	 
+		for(i=0;i<300;i++){ 	 
 		}	 
 	} 		 
 } 	
@@ -97,27 +97,27 @@ enum road_state_codes getRoadState(short a, short b, short c, short d, short e) 
 
 int turnLeft(void) {
     PORTC=0x02; /* right motor on */
-    wait00(7);
+    wait00(70);
     PORTC = 0x00;
-    wait00(5);
+    wait00(50);
 }
 
 int turnRight(void) {
     PORTC=0x01;/* left motor on */
-    wait00(6);
+    wait00(60);
     PORTC = 0x00;
-    wait00(5);
+    wait00(50);
 }
 
 
 int turnLeftWide(void) {
     
     PORTC=0x03; // both motor on
-    wait00(1);
-    PORTC=0x02; // right motor on
     wait00(10);
+    PORTC=0x02; // right motor on
+    wait00(100);
     PORTC = 0x00;
-    wait00(5);
+    wait00(50);
     /*
     PORTC=0x02; // right motor on
     wait00(6);
@@ -129,11 +129,11 @@ int turnLeftWide(void) {
 int turnRightWide(void) {
     
     PORTC=0x03; // both motor on
-    wait00(1);
+    wait00(10);
     PORTC=0x01; // left motor on
-    wait00(8.5);
+    wait00(85);
     PORTC = 0x00;
-    wait00(5);
+    wait00(50);
     /*
     PORTC=0x01; // left motor on
     wait00(5);
@@ -145,18 +145,18 @@ int turnRightWide(void) {
 
 int straight(void){
     PORTC=0x03; /* both motor on */
-    wait00(5); 
+    wait00(50); 
     PORTC=0x00; /* both motor off */
-    wait00(8); 
+    wait00(80); 
 }
 
 int accelerate(void) {
     PORTC=0x03; /* both motor on */
-    wait00(12);
+    wait00(120);
     PORTC=0x02; /* right motor on */
-    wait00(1);
+    wait00(10);
     PORTC=0x00; /* both motor off */
-    wait00(2); 
+    wait00(20); 
 }
 
 
