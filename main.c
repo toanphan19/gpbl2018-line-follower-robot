@@ -7,7 +7,7 @@
 #include <xc.h>
 #include <p18f2553.h>
 
-#define MAXSIZE 4
+#define MAXSIZE 5
 
 
 wait00(short k)
@@ -59,11 +59,11 @@ enum road_state_codes getRoadState(short a, short b, short c, short d, short e) 
      } 
      
      // White Background
-     if (a == 1 && b == 0 && c == 1
+     if (a == 1 && b == 0 // && c == 1
              && d == 1 && e == 1) {
          return off_right_little; 
      } 
-     if (a == 1 && b == 1 && c == 1
+     if (a == 1 && b == 1 // && c == 1
              && d == 0 && e == 1) {
          return off_left_little;
      } 
@@ -102,14 +102,14 @@ int turnLeft(void) {
     PORTC=0x02; /* right motor on */
     wait00(50);
     PORTC = 0x00;
-    wait00(50);
+    wait00(60);
 }
 
 int turnRight(void) {
     PORTC=0x01;/* left motor on */
     wait00(40);
     PORTC = 0x00;
-    wait00(55);
+    wait00(60);
 }
 
 
@@ -134,7 +134,7 @@ int turnRightSmall(void) {
 
 int straight(void){
     PORTC=0x03; /* both motor on */
-    wait00(40);
+    wait00(48);
     PORTC=0x02; /* right motor on */
     wait00(4);
     PORTC=0x00; /* both motor off */
@@ -145,9 +145,9 @@ int accelerate(void) {
     PORTC=0x03; /* both motor on */
     wait00(60);
     PORTC=0x02; /* right motor on */
-    wait00(6);
+    wait00(5);
     PORTC=0x00; /* both motor off */
-    wait00(10); 
+    wait00(5); 
 }
 
 
