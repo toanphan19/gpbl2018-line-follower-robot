@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Wed Feb 21 16:57:10 2018
+                                                                                               Wed Feb 21 21:32:45 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F2553
@@ -9,1375 +9,1564 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
      3                           	opt	pw 120
      4                           	opt	lm
      5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
-     6                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
-     7                           	psect	text0,global,reloc=2,class=CODE,delta=1
-     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
-     9                           	psect	text2,global,reloc=2,class=CODE,delta=1
-    10                           	psect	text3,global,reloc=2,class=CODE,delta=1
-    11                           	psect	text4,global,reloc=2,class=CODE,delta=1
-    12                           	psect	text5,global,reloc=2,class=CODE,delta=1
-    13                           	psect	text6,global,reloc=2,class=CODE,delta=1
-    14                           	psect	text7,global,reloc=2,class=CODE,delta=1
-    15                           	psect	text8,global,reloc=2,class=CODE,delta=1
-    16                           	psect	text9,global,reloc=2,class=CODE,delta=1
-    17                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
-    18                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
-    19  0000                     
-    20                           ; Version 1.45
-    21                           ; Generated 16/11/2017 GMT
-    22                           ; 
-    23                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    24                           ; All rights reserved.
-    25                           ; 
-    26                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
-      +                          ip").
+     6                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    19                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    20                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    21  0000                     
+    22                           ; Version 1.45
+    23                           ; Generated 16/11/2017 GMT
+    24                           ; 
+    25                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    26                           ; All rights reserved.
     27                           ; 
-    28                           ; Redistribution and use in source and binary forms, with or without modification, are
-    29                           ; permitted provided that the following conditions are met:
-    30                           ; 
-    31                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    28                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    29                           ; 
+    30                           ; Redistribution and use in source and binary forms, with or without modification, are
+    31                           ; permitted provided that the following conditions are met:
+    32                           ; 
+    33                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    32                           ;        conditions and the following disclaimer.
-    33                           ; 
-    34                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    34                           ;        conditions and the following disclaimer.
+    35                           ; 
+    36                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    35                           ;        of conditions and the following disclaimer in the documentation and/or other
-    36                           ;        materials provided with the distribution.
-    37                           ; 
-    38                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    37                           ;        of conditions and the following disclaimer in the documentation and/or other
+    38                           ;        materials provided with the distribution.
+    39                           ; 
+    40                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    39                           ;        software without specific prior written permission.
-    40                           ; 
-    41                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    42                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    41                           ;        software without specific prior written permission.
+    42                           ; 
+    43                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    44                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    43                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    45                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    44                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    45                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    46                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    46                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    47                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    48                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    47                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    49                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    48                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    49                           ; 
-    50                           ; 
-    51                           ; Code-generator required, PIC18F2553 Definitions
+    50                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    51                           ; 
     52                           ; 
-    53                           ; SFR Addresses
-    54  0000                     _PORTB	set	3969
-    55  0000                     _PORTA	set	3968
-    56  0000                     _TRISC	set	3988
-    57  0000                     _TRISB	set	3987
-    58  0000                     _TRISA	set	3986
-    59  0000                     _ADCON1	set	4033
-    60  0000                     _PORTC	set	3970
-    61  0000                     _PORTBbits	set	3969
-    62  0000                     _PORTAbits	set	3968
-    63                           
-    64                           ; #config settings
+    53                           ; Code-generator required, PIC18F2553 Definitions
+    54                           ; 
+    55                           ; SFR Addresses
+    56  0000                     _PORTB	set	3969
+    57  0000                     _PORTA	set	3968
+    58  0000                     _TRISC	set	3988
+    59  0000                     _TRISB	set	3987
+    60  0000                     _TRISA	set	3986
+    61  0000                     _ADCON1	set	4033
+    62  0000                     _PORTC	set	3970
+    63  0000                     _PORTBbits	set	3969
+    64  0000                     _PORTAbits	set	3968
     65                           
-    66                           	psect	cinit
-    67  002008                     __pcinit:
-    68                           	opt stack 0
-    69  002008                     start_initialization:
+    66                           ; #config settings
+    67                           
+    68                           	psect	cinit
+    69  007B48                     __pcinit:
     70                           	opt stack 0
-    71  002008                     __initialization:
+    71  007B48                     start_initialization:
     72                           	opt stack 0
-    73  002008                     end_of_initialization:
+    73  007B48                     __initialization:
     74                           	opt stack 0
-    75  002008                     __end_of__initialization:
-    76                           	opt stack 0
-    77  002008  0E00               	movlw	low (__Lmediumconst shr (0+16))
-    78  00200A  6EF8               	movwf	tblptru,c
-    79  00200C  0100               	movlb	0
-    80  00200E  EFA7  F03E         	goto	_main	;jump to C main() function
-    81                           tblptru	equ	0xFF8
-    82                           
-    83                           	psect	cstackCOMRAM
-    84  000001                     __pcstackCOMRAM:
-    85                           	opt stack 0
-    86  000001                     wait00@k:
-    87                           	opt stack 0
-    88  000001                     getRoadState@a:
-    89                           	opt stack 0
+    75                           
+    76                           ; Clear objects allocated to COMRAM (4 bytes)
+    77  007B48  6A16               	clrf	(__pbssCOMRAM+3)& (0+255),c
+    78  007B4A  6A15               	clrf	(__pbssCOMRAM+2)& (0+255),c
+    79  007B4C  6A14               	clrf	(__pbssCOMRAM+1)& (0+255),c
+    80  007B4E  6A13               	clrf	__pbssCOMRAM& (0+255),c
+    81  007B50                     end_of_initialization:
+    82                           	opt stack 0
+    83  007B50                     __end_of__initialization:
+    84                           	opt stack 0
+    85  007B50  0E00               	movlw	low (__Lmediumconst shr (0+16))
+    86  007B52  6EF8               	movwf	tblptru,c
+    87  007B54  0100               	movlb	0
+    88  007B56  EF91  F03E         	goto	_main	;jump to C main() function
+    89                           tblptru	equ	0xFF8
     90                           
-    91                           ; 2 bytes @ 0x0
-    92  000001                     	ds	2
-    93  000003                     ??_wait00:
-    94  000003                     getRoadState@b:
+    91                           	psect	bssCOMRAM
+    92  000013                     __pbssCOMRAM:
+    93                           	opt stack 0
+    94  000013                     _states:
     95                           	opt stack 0
-    96                           
-    97                           ; 2 bytes @ 0x2
-    98  000003                     	ds	1
-    99  000004                     wait00@j:
-   100                           	opt stack 0
-   101                           
-   102                           ; 2 bytes @ 0x3
-   103  000004                     	ds	1
-   104  000005                     getRoadState@c:
+    96  000013                     	ds	4
+    97                           tblptru	equ	0xFF8
+    98                           
+    99                           	psect	cstackCOMRAM
+   100  000001                     __pcstackCOMRAM:
+   101                           	opt stack 0
+   102  000001                     ?_isAllStraight:
+   103                           	opt stack 0
+   104  000001                     wait00@k:
    105                           	opt stack 0
-   106                           
-   107                           ; 2 bytes @ 0x4
-   108  000005                     	ds	1
-   109  000006                     wait00@i:
-   110                           	opt stack 0
-   111                           
-   112                           ; 2 bytes @ 0x5
-   113  000006                     	ds	1
-   114  000007                     getRoadState@d:
+   106  000001                     isAllStraight@states:
+   107                           	opt stack 0
+   108  000001                     getRoadState@a:
+   109                           	opt stack 0
+   110                           
+   111                           ; 2 bytes @ 0x0
+   112  000001                     	ds	2
+   113  000003                     ??_wait00:
+   114  000003                     getRoadState@b:
    115                           	opt stack 0
    116                           
-   117                           ; 2 bytes @ 0x6
-   118  000007                     	ds	1
-   119  000008                     
-   120                           ; 1 bytes @ 0x7
-   121  000008                     	ds	1
-   122  000009                     getRoadState@e:
-   123                           	opt stack 0
-   124                           
-   125                           ; 2 bytes @ 0x8
-   126  000009                     	ds	2
-   127  00000B                     ??_main:
+   117                           ; 2 bytes @ 0x2
+   118  000003                     	ds	1
+   119  000004                     wait00@j:
+   120                           	opt stack 0
+   121  000004                     isAllStraight@i:
+   122                           	opt stack 0
+   123                           
+   124                           ; 2 bytes @ 0x3
+   125  000004                     	ds	1
+   126  000005                     getRoadState@c:
+   127                           	opt stack 0
    128                           
-   129                           ; 1 bytes @ 0xA
-   130  00000B                     	ds	5
-   131  000010                     main@previous_road_state:
+   129                           ; 2 bytes @ 0x4
+   130  000005                     	ds	1
+   131  000006                     wait00@i:
    132                           	opt stack 0
    133                           
-   134                           ; 1 bytes @ 0xF
-   135  000010                     	ds	1
-   136  000011                     main@road_state:
+   134                           ; 2 bytes @ 0x5
+   135  000006                     	ds	1
+   136  000007                     getRoadState@d:
    137                           	opt stack 0
    138                           
-   139                           ; 1 bytes @ 0x10
-   140  000011                     	ds	1
-   141                           tblptru	equ	0xFF8
-   142                           
-   143 ;;
-   144 ;;Main: autosize = 0, tempsize = 5, incstack = 0, save=0
-   145 ;;
-   146 ;; *************** function _main *****************
-   147 ;; Defined at:
-   148 ;;		line 154 in file "main.c"
-   149 ;; Parameters:    Size  Location     Type
-   150 ;;		None
-   151 ;; Auto vars:     Size  Location     Type
-   152 ;;  road_state      1   16[COMRAM] enum E3329
-   153 ;;  previous_roa    1   15[COMRAM] enum E3329
-   154 ;; Return value:  Size  Location     Type
-   155 ;;                  2   72[None  ] int 
-   156 ;; Registers used:
-   157 ;;		wreg, status,2, status,0, cstack
-   158 ;; Tracked objects:
-   159 ;;		On entry : 0/0
-   160 ;;		On exit  : 0/0
-   161 ;;		Unchanged: 0/0
-   162 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   163 ;;      Params:         0       0       0       0       0       0       0       0       0
-   164 ;;      Locals:         2       0       0       0       0       0       0       0       0
-   165 ;;      Temps:          5       0       0       0       0       0       0       0       0
-   166 ;;      Totals:         7       0       0       0       0       0       0       0       0
-   167 ;;Total ram usage:        7 bytes
-   168 ;; Hardware stack levels required when called:    2
-   169 ;; This function calls:
-   170 ;;		_accelerate
-   171 ;;		_getRoadState
-   172 ;;		_led_sens
-   173 ;;		_straight
-   174 ;;		_turnLeft
-   175 ;;		_turnLeftSmall
-   176 ;;		_turnRight
-   177 ;;		_turnRightSmall
-   178 ;; This function is called by:
-   179 ;;		Startup code after reset
-   180 ;; This function uses a non-reentrant model
-   181 ;;
-   182                           
-   183                           	psect	text0
-   184  007D4E                     __ptext0:
-   185                           	opt stack 0
-   186  007D4E                     _main:
-   187                           	opt stack 29
-   188                           
-   189                           ;main.c: 157: ADCON1 = 0x0F;
-   190                           
-   191                           ;incstack = 0
-   192  007D4E  0E0F               	movlw	15
-   193  007D50  6EC1               	movwf	4033,c	;volatile
-   194                           
-   195                           ;main.c: 160: TRISA = 0x20;
-   196  007D52  0E20               	movlw	32
-   197  007D54  6E92               	movwf	3986,c	;volatile
-   198                           
-   199                           ;main.c: 161: TRISB = 0xFF;
-   200  007D56  6893               	setf	3987,c	;volatile
-   201                           
-   202                           ;main.c: 162: TRISC = 0x00;
-   203  007D58  0E00               	movlw	0
-   204  007D5A  6E94               	movwf	3988,c	;volatile
-   205                           
-   206                           ;main.c: 165: PORTA = 0x00;
-   207  007D5C  0E00               	movlw	0
-   208  007D5E  6E80               	movwf	3968,c	;volatile
-   209                           
-   210                           ;main.c: 166: PORTB = 0x00;
-   211  007D60  0E00               	movlw	0
-   212  007D62  6E81               	movwf	3969,c	;volatile
-   213                           
-   214                           ;main.c: 167: PORTC = 0x00;
-   215  007D64  0E00               	movlw	0
-   216  007D66  6E82               	movwf	3970,c	;volatile
-   217                           
-   218                           ;main.c: 170: while(PORTAbits.RA5==1){
-   219  007D68  D002               	goto	l73
-   220  007D6A                     
-   221                           ;main.c: 171: led_sens();
-   222  007D6A  EC6C  F03E         	call	_led_sens	;wreg free
-   223  007D6E                     l73:
-   224  007D6E  BA80               	btfsc	3968,5,c	;volatile
-   225  007D70  D7FC               	goto	l74
-   226                           
-   227                           ;main.c: 172: }
-   228                           ;main.c: 174: enum road_state_codes road_state = on_track;
-   229  007D72  0E00               	movlw	0
-   230  007D74  6E11               	movwf	main@road_state,c
-   231  007D76                     
-   232                           ;main.c: 179: led_sens();
-   233  007D76  EC6C  F03E         	call	_led_sens	;wreg free
-   234                           
-   235                           ;main.c: 181: previous_road_state = road_state;
-   236  007D7A  C011  F010         	movff	main@road_state,main@previous_road_state
+   139                           ; 2 bytes @ 0x6
+   140  000007                     	ds	1
+   141  000008                     
+   142                           ; 1 bytes @ 0x7
+   143  000008                     	ds	1
+   144  000009                     getRoadState@e:
+   145                           	opt stack 0
+   146                           
+   147                           ; 2 bytes @ 0x8
+   148  000009                     	ds	2
+   149  00000B                     ??_main:
+   150                           
+   151                           ; 1 bytes @ 0xA
+   152  00000B                     	ds	5
+   153  000010                     main@current:
+   154                           	opt stack 0
+   155                           
+   156                           ; 2 bytes @ 0xF
+   157  000010                     	ds	2
+   158  000012                     main@road_state:
+   159                           	opt stack 0
+   160                           
+   161                           ; 1 bytes @ 0x11
+   162  000012                     	ds	1
+   163                           tblptru	equ	0xFF8
+   164                           
+   165 ;;
+   166 ;;Main: autosize = 0, tempsize = 5, incstack = 0, save=0
+   167 ;;
+   168 ;; *************** function _main *****************
+   169 ;; Defined at:
+   170 ;;		line 165 in file "main.c"
+   171 ;; Parameters:    Size  Location     Type
+   172 ;;		None
+   173 ;; Auto vars:     Size  Location     Type
+   174 ;;  current         2   15[COMRAM] int 
+   175 ;;  road_state      1   17[COMRAM] enum E3329
+   176 ;;  previous_roa    1    0        enum E3329
+   177 ;; Return value:  Size  Location     Type
+   178 ;;                  2   80[None  ] int 
+   179 ;; Registers used:
+   180 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   181 ;; Tracked objects:
+   182 ;;		On entry : 0/0
+   183 ;;		On exit  : 0/0
+   184 ;;		Unchanged: 0/0
+   185 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   186 ;;      Params:         0       0       0       0       0       0       0       0       0
+   187 ;;      Locals:         3       0       0       0       0       0       0       0       0
+   188 ;;      Temps:          5       0       0       0       0       0       0       0       0
+   189 ;;      Totals:         8       0       0       0       0       0       0       0       0
+   190 ;;Total ram usage:        8 bytes
+   191 ;; Hardware stack levels required when called:    2
+   192 ;; This function calls:
+   193 ;;		_accelerate
+   194 ;;		_getRoadState
+   195 ;;		_isAllStraight
+   196 ;;		_led_sens
+   197 ;;		_straight
+   198 ;;		_turnLeft
+   199 ;;		_turnLeftSmall
+   200 ;;		_turnRight
+   201 ;;		_turnRightSmall
+   202 ;; This function is called by:
+   203 ;;		Startup code after reset
+   204 ;; This function uses a non-reentrant model
+   205 ;;
+   206                           
+   207                           	psect	text0
+   208  007D22                     __ptext0:
+   209                           	opt stack 0
+   210  007D22                     _main:
+   211                           	opt stack 29
+   212                           
+   213                           ;main.c: 168: ADCON1 = 0x0F;
+   214                           
+   215                           ;incstack = 0
+   216  007D22  0E0F               	movlw	15
+   217  007D24  6EC1               	movwf	4033,c	;volatile
+   218                           
+   219                           ;main.c: 171: TRISA = 0x20;
+   220  007D26  0E20               	movlw	32
+   221  007D28  6E92               	movwf	3986,c	;volatile
+   222                           
+   223                           ;main.c: 172: TRISB = 0xFF;
+   224  007D2A  6893               	setf	3987,c	;volatile
+   225                           
+   226                           ;main.c: 173: TRISC = 0x00;
+   227  007D2C  0E00               	movlw	0
+   228  007D2E  6E94               	movwf	3988,c	;volatile
+   229                           
+   230                           ;main.c: 176: PORTA = 0x00;
+   231  007D30  0E00               	movlw	0
+   232  007D32  6E80               	movwf	3968,c	;volatile
+   233                           
+   234                           ;main.c: 177: PORTB = 0x00;
+   235  007D34  0E00               	movlw	0
+   236  007D36  6E81               	movwf	3969,c	;volatile
    237                           
-   238                           ;main.c: 182: road_state = getRoadState(
-   239                           ;main.c: 183: PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2,
-   240                           ;main.c: 184: PORTBbits.RB3, PORTBbits.RB4
-   241                           ;main.c: 185: );
-   242  007D7E  A081               	btfss	3969,0,c	;volatile
-   243  007D80  D003               	goto	u1210
-   244  007D82  6A0B               	clrf	??_main& (0+255),c
-   245  007D84  2A0B               	incf	??_main& (0+255),f,c
-   246  007D86  D001               	goto	u1218
-   247  007D88                     u1210:
-   248  007D88  6A0B               	clrf	??_main& (0+255),c
-   249  007D8A                     u1218:
-   250  007D8A  500B               	movf	??_main,w,c
-   251  007D8C  6E01               	movwf	getRoadState@a,c
-   252  007D8E  6A02               	clrf	getRoadState@a+1,c
-   253  007D90  A281               	btfss	3969,1,c	;volatile
-   254  007D92  D003               	goto	u1220
-   255  007D94  6A0C               	clrf	(??_main+1)& (0+255),c
-   256  007D96  2A0C               	incf	(??_main+1)& (0+255),f,c
-   257  007D98  D001               	goto	u1228
-   258  007D9A                     u1220:
-   259  007D9A  6A0C               	clrf	(??_main+1)& (0+255),c
-   260  007D9C                     u1228:
-   261  007D9C  500C               	movf	??_main+1,w,c
-   262  007D9E  6E03               	movwf	getRoadState@b,c
-   263  007DA0  6A04               	clrf	getRoadState@b+1,c
-   264  007DA2  A481               	btfss	3969,2,c	;volatile
-   265  007DA4  D003               	goto	u1230
-   266  007DA6  6A0D               	clrf	(??_main+2)& (0+255),c
-   267  007DA8  2A0D               	incf	(??_main+2)& (0+255),f,c
-   268  007DAA  D001               	goto	u1238
-   269  007DAC                     u1230:
-   270  007DAC  6A0D               	clrf	(??_main+2)& (0+255),c
-   271  007DAE                     u1238:
-   272  007DAE  500D               	movf	??_main+2,w,c
-   273  007DB0  6E05               	movwf	getRoadState@c,c
-   274  007DB2  6A06               	clrf	getRoadState@c+1,c
-   275  007DB4  A681               	btfss	3969,3,c	;volatile
-   276  007DB6  D003               	goto	u1240
-   277  007DB8  6A0E               	clrf	(??_main+3)& (0+255),c
-   278  007DBA  2A0E               	incf	(??_main+3)& (0+255),f,c
-   279  007DBC  D001               	goto	u1248
-   280  007DBE                     u1240:
-   281  007DBE  6A0E               	clrf	(??_main+3)& (0+255),c
-   282  007DC0                     u1248:
-   283  007DC0  500E               	movf	??_main+3,w,c
-   284  007DC2  6E07               	movwf	getRoadState@d,c
-   285  007DC4  6A08               	clrf	getRoadState@d+1,c
-   286  007DC6  A881               	btfss	3969,4,c	;volatile
-   287  007DC8  D003               	goto	u1250
-   288  007DCA  6A0F               	clrf	(??_main+4)& (0+255),c
-   289  007DCC  2A0F               	incf	(??_main+4)& (0+255),f,c
-   290  007DCE  D001               	goto	u1258
-   291  007DD0                     u1250:
-   292  007DD0  6A0F               	clrf	(??_main+4)& (0+255),c
-   293  007DD2                     u1258:
-   294  007DD2  500F               	movf	??_main+4,w,c
-   295  007DD4  6E09               	movwf	getRoadState@e,c
-   296  007DD6  6A0A               	clrf	getRoadState@e+1,c
-   297  007DD8  EC22  F03F         	call	_getRoadState	;wreg free
-   298  007DDC  6E11               	movwf	main@road_state,c
-   299                           
-   300                           ;main.c: 187: if (road_state == off_track)
-   301  007DDE  0411               	decf	main@road_state,w,c
-   302  007DE0  A4D8               	btfss	status,2,c
-   303  007DE2  D01C               	goto	l78
-   304                           
-   305                           ;main.c: 188: road_state = previous_road_state;
-   306  007DE4  C010  F011         	movff	main@previous_road_state,main@road_state
-   307                           
-   308                           ;main.c: 190: switch (road_state) {
-   309  007DE8  D019               	goto	l78
-   310  007DEA                     
-   311                           ;main.c: 192: if (previous_road_state == straight_line)
-   312  007DEA  0E02               	movlw	2
-   313  007DEC  1810               	xorwf	main@previous_road_state,w,c
-   314  007DEE  A4D8               	btfss	status,2,c
-   315  007DF0  D003               	goto	l80
-   316                           
-   317                           ;main.c: 193: accelerate();
-   318  007DF2  EC08  F03E         	call	_accelerate	;wreg free
-   319  007DF6  D7BF               	goto	l76
-   320  007DF8                     l80:
-   321                           
-   322                           ;main.c: 194: else
-   323                           ;main.c: 195: straight();
-   324  007DF8  EC21  F03E         	call	_straight	;wreg free
+   238                           ;main.c: 178: PORTC = 0x00;
+   239  007D38  0E00               	movlw	0
+   240  007D3A  6E82               	movwf	3970,c	;volatile
+   241                           
+   242                           ;main.c: 181: while(PORTAbits.RA5==1){
+   243  007D3C  D002               	goto	l81
+   244  007D3E                     
+   245                           ;main.c: 182: led_sens();
+   246  007D3E  EC33  F03E         	call	_led_sens	;wreg free
+   247  007D42                     l81:
+   248  007D42  BA80               	btfsc	3968,5,c	;volatile
+   249  007D44  D7FC               	goto	l82
+   250                           
+   251                           ;main.c: 183: }
+   252                           ;main.c: 185: enum road_state_codes road_state = on_track;
+   253  007D46  0E00               	movlw	0
+   254  007D48  6E12               	movwf	main@road_state,c
+   255                           
+   256                           ;main.c: 186: enum road_state_codes previous_road_state;
+   257                           ;main.c: 187: int current = -1;
+   258  007D4A  6810               	setf	main@current,c
+   259  007D4C  6811               	setf	main@current+1,c
+   260  007D4E                     
+   261                           ;main.c: 191: led_sens();
+   262  007D4E  EC33  F03E         	call	_led_sens	;wreg free
+   263                           
+   264                           ;main.c: 193: road_state = getRoadState(
+   265                           ;main.c: 194: PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2,
+   266                           ;main.c: 195: PORTBbits.RB3, PORTBbits.RB4
+   267                           ;main.c: 196: );
+   268  007D52  A081               	btfss	3969,0,c	;volatile
+   269  007D54  D003               	goto	u1230
+   270  007D56  6A0B               	clrf	??_main& (0+255),c
+   271  007D58  2A0B               	incf	??_main& (0+255),f,c
+   272  007D5A  D001               	goto	u1238
+   273  007D5C                     u1230:
+   274  007D5C  6A0B               	clrf	??_main& (0+255),c
+   275  007D5E                     u1238:
+   276  007D5E  500B               	movf	??_main,w,c
+   277  007D60  6E01               	movwf	getRoadState@a,c
+   278  007D62  6A02               	clrf	getRoadState@a+1,c
+   279  007D64  A281               	btfss	3969,1,c	;volatile
+   280  007D66  D003               	goto	u1240
+   281  007D68  6A0C               	clrf	(??_main+1)& (0+255),c
+   282  007D6A  2A0C               	incf	(??_main+1)& (0+255),f,c
+   283  007D6C  D001               	goto	u1248
+   284  007D6E                     u1240:
+   285  007D6E  6A0C               	clrf	(??_main+1)& (0+255),c
+   286  007D70                     u1248:
+   287  007D70  500C               	movf	??_main+1,w,c
+   288  007D72  6E03               	movwf	getRoadState@b,c
+   289  007D74  6A04               	clrf	getRoadState@b+1,c
+   290  007D76  A481               	btfss	3969,2,c	;volatile
+   291  007D78  D003               	goto	u1250
+   292  007D7A  6A0D               	clrf	(??_main+2)& (0+255),c
+   293  007D7C  2A0D               	incf	(??_main+2)& (0+255),f,c
+   294  007D7E  D001               	goto	u1258
+   295  007D80                     u1250:
+   296  007D80  6A0D               	clrf	(??_main+2)& (0+255),c
+   297  007D82                     u1258:
+   298  007D82  500D               	movf	??_main+2,w,c
+   299  007D84  6E05               	movwf	getRoadState@c,c
+   300  007D86  6A06               	clrf	getRoadState@c+1,c
+   301  007D88  A681               	btfss	3969,3,c	;volatile
+   302  007D8A  D003               	goto	u1260
+   303  007D8C  6A0E               	clrf	(??_main+3)& (0+255),c
+   304  007D8E  2A0E               	incf	(??_main+3)& (0+255),f,c
+   305  007D90  D001               	goto	u1268
+   306  007D92                     u1260:
+   307  007D92  6A0E               	clrf	(??_main+3)& (0+255),c
+   308  007D94                     u1268:
+   309  007D94  500E               	movf	??_main+3,w,c
+   310  007D96  6E07               	movwf	getRoadState@d,c
+   311  007D98  6A08               	clrf	getRoadState@d+1,c
+   312  007D9A  A881               	btfss	3969,4,c	;volatile
+   313  007D9C  D003               	goto	u1270
+   314  007D9E  6A0F               	clrf	(??_main+4)& (0+255),c
+   315  007DA0  2A0F               	incf	(??_main+4)& (0+255),f,c
+   316  007DA2  D001               	goto	u1278
+   317  007DA4                     u1270:
+   318  007DA4  6A0F               	clrf	(??_main+4)& (0+255),c
+   319  007DA6                     u1278:
+   320  007DA6  500F               	movf	??_main+4,w,c
+   321  007DA8  6E09               	movwf	getRoadState@e,c
+   322  007DAA  6A0A               	clrf	getRoadState@e+1,c
+   323  007DAC  EC2A  F03F         	call	_getRoadState	;wreg free
+   324  007DB0  6E12               	movwf	main@road_state,c
    325                           
-   326                           ;main.c: 196: break;
-   327  007DFC  D7BC               	goto	l76
-   328  007DFE                     
-   329                           ;main.c: 198: turnRightSmall();
-   330  007DFE  EC53  F03E         	call	_turnRightSmall	;wreg free
-   331                           
-   332                           ;main.c: 199: break;
-   333  007E02  D7B9               	goto	l76
-   334  007E04                     
-   335                           ;main.c: 201: turnLeftSmall();
-   336  007E04  EC3A  F03E         	call	_turnLeftSmall	;wreg free
-   337                           
-   338                           ;main.c: 202: break;
-   339  007E08  D7B6               	goto	l76
-   340  007E0A                     
-   341                           ;main.c: 204: turnRight();
-   342  007E0A  ECF7  F03D         	call	_turnRight	;wreg free
-   343                           
-   344                           ;main.c: 205: break;
-   345  007E0E  D7B3               	goto	l76
-   346  007E10                     
-   347                           ;main.c: 207: turnLeft();
-   348  007E10  ECE6  F03D         	call	_turnLeft	;wreg free
-   349                           
-   350                           ;main.c: 208: break;
-   351  007E14  D7B0               	goto	l76
-   352  007E16                     
-   353                           ;main.c: 210: straight();
-   354  007E16  EC21  F03E         	call	_straight	;wreg free
-   355                           
-   356                           ;main.c: 212: }
-   357                           
-   358                           ;main.c: 211: break;
-   359  007E1A  D7AD               	goto	l76
-   360  007E1C                     l78:
-   361  007E1C  5011               	movf	main@road_state,w,c
+   326                           ;main.c: 198: if (road_state == off_track)
+   327  007DB2  0412               	decf	main@road_state,w,c
+   328  007DB4  A4D8               	btfss	status,2,c
+   329  007DB6  D008               	goto	l85
+   330                           
+   331                           ;main.c: 199: road_state = states[current];
+   332  007DB8  0E13               	movlw	low _states
+   333  007DBA  2410               	addwf	main@current,w,c
+   334  007DBC  6ED9               	movwf	fsr2l,c
+   335  007DBE  0E00               	movlw	high _states
+   336  007DC0  2011               	addwfc	main@current+1,w,c
+   337  007DC2  6EDA               	movwf	fsr2h,c
+   338  007DC4  50DF               	movf	indf2,w,c
+   339  007DC6  6E12               	movwf	main@road_state,c
+   340  007DC8                     l85:
+   341                           
+   342                           ;main.c: 200: current = (current + 1) % 4;
+   343  007DC8  0E01               	movlw	1
+   344  007DCA  2410               	addwf	main@current,w,c
+   345  007DCC  6E0B               	movwf	??_main& (0+255),c
+   346  007DCE  0E00               	movlw	0
+   347  007DD0  2011               	addwfc	main@current+1,w,c
+   348  007DD2  6E0C               	movwf	(??_main+1)& (0+255),c
+   349  007DD4  0E03               	movlw	3
+   350  007DD6  140B               	andwf	??_main,w,c
+   351  007DD8  6E10               	movwf	main@current,c
+   352  007DDA  6A11               	clrf	main@current+1,c
+   353                           
+   354                           ;main.c: 201: states[current] = road_state;
+   355  007DDC  0E13               	movlw	low _states
+   356  007DDE  2410               	addwf	main@current,w,c
+   357  007DE0  6ED9               	movwf	fsr2l,c
+   358  007DE2  0E00               	movlw	high _states
+   359  007DE4  2011               	addwfc	main@current+1,w,c
+   360  007DE6  6EDA               	movwf	fsr2h,c
+   361  007DE8  C012  FFDF         	movff	main@road_state,indf2
    362                           
-   363                           ; Switch size 1, requested type "space"
-   364                           ; Number of cases is 6, Range of values is 0 to 6
-   365                           ; switch strategies available:
-   366                           ; Name         Instructions Cycles
-   367                           ; simple_byte           19    10 (average)
-   368                           ;	Chosen strategy is simple_byte
-   369  007E1E  0A00               	xorlw	0	; case 0
-   370  007E20  B4D8               	btfsc	status,2,c
-   371  007E22  D7F9               	goto	l87
-   372  007E24  0A02               	xorlw	2	; case 2
-   373  007E26  B4D8               	btfsc	status,2,c
-   374  007E28  D7E0               	goto	l79
-   375  007E2A  0A01               	xorlw	1	; case 3
-   376  007E2C  B4D8               	btfsc	status,2,c
-   377  007E2E  D7EA               	goto	l84
-   378  007E30  0A07               	xorlw	7	; case 4
-   379  007E32  B4D8               	btfsc	status,2,c
-   380  007E34  D7ED               	goto	l86
-   381  007E36  0A01               	xorlw	1	; case 5
-   382  007E38  B4D8               	btfsc	status,2,c
-   383  007E3A  D7E1               	goto	l83
-   384  007E3C  0A03               	xorlw	3	; case 6
-   385  007E3E  B4D8               	btfsc	status,2,c
-   386  007E40  D7E4               	goto	l85
-   387  007E42  D799               	goto	l76
-   388  007E44                     __end_of_main:
-   389                           	opt stack 0
-   390                           tblptru	equ	0xFF8
-   391                           status	equ	0xFD8
-   392                           
-   393 ;; *************** function _turnRightSmall *****************
-   394 ;; Defined at:
-   395 ;;		line 125 in file "main.c"
-   396 ;; Parameters:    Size  Location     Type
-   397 ;;		None
-   398 ;; Auto vars:     Size  Location     Type
-   399 ;;		None
-   400 ;; Return value:  Size  Location     Type
-   401 ;;                  2   61[None  ] int 
-   402 ;; Registers used:
-   403 ;;		wreg, status,2, status,0, cstack
-   404 ;; Tracked objects:
-   405 ;;		On entry : 0/0
-   406 ;;		On exit  : 0/0
-   407 ;;		Unchanged: 0/0
-   408 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   409 ;;      Params:         0       0       0       0       0       0       0       0       0
-   410 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   411 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   412 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   413 ;;Total ram usage:        0 bytes
-   414 ;; Hardware stack levels used:    1
-   415 ;; Hardware stack levels required when called:    1
-   416 ;; This function calls:
-   417 ;;		_wait00
-   418 ;; This function is called by:
-   419 ;;		_main
-   420 ;; This function uses a non-reentrant model
-   421 ;;
+   363                           ;main.c: 203: switch (road_state) {
+   364  007DEC  D01F               	goto	l86
+   365  007DEE                     
+   366                           ;main.c: 205: if (isAllStraight(states))
+   367  007DEE  0E13               	movlw	low _states
+   368  007DF0  6E01               	movwf	isAllStraight@states,c
+   369  007DF2  0E00               	movlw	high _states
+   370  007DF4  6E02               	movwf	isAllStraight@states+1,c
+   371  007DF6  EC6E  F03E         	call	_isAllStraight	;wreg free
+   372  007DFA  5001               	movf	?_isAllStraight,w,c
+   373  007DFC  1002               	iorwf	?_isAllStraight+1,w,c
+   374  007DFE  B4D8               	btfsc	status,2,c
+   375  007E00  D003               	goto	l88
+   376                           
+   377                           ;main.c: 206: accelerate();
+   378  007E02  ECCF  F03D         	call	_accelerate	;wreg free
+   379  007E06  D7A3               	goto	l84
+   380  007E08                     l88:
+   381                           
+   382                           ;main.c: 207: else
+   383                           ;main.c: 208: straight();
+   384  007E08  ECE8  F03D         	call	_straight	;wreg free
+   385                           
+   386                           ;main.c: 209: break;
+   387  007E0C  D7A0               	goto	l84
+   388  007E0E                     
+   389                           ;main.c: 211: turnRightSmall();
+   390  007E0E  EC1A  F03E         	call	_turnRightSmall	;wreg free
+   391                           
+   392                           ;main.c: 212: break;
+   393  007E12  D79D               	goto	l84
+   394  007E14                     
+   395                           ;main.c: 214: turnLeftSmall();
+   396  007E14  EC01  F03E         	call	_turnLeftSmall	;wreg free
+   397                           
+   398                           ;main.c: 215: break;
+   399  007E18  D79A               	goto	l84
+   400  007E1A                     
+   401                           ;main.c: 217: turnRight();
+   402  007E1A  ECBE  F03D         	call	_turnRight	;wreg free
+   403                           
+   404                           ;main.c: 218: break;
+   405  007E1E  D797               	goto	l84
+   406  007E20                     
+   407                           ;main.c: 220: turnLeft();
+   408  007E20  ECAD  F03D         	call	_turnLeft	;wreg free
+   409                           
+   410                           ;main.c: 221: break;
+   411  007E24  D794               	goto	l84
+   412  007E26                     
+   413                           ;main.c: 223: straight();
+   414  007E26  ECE8  F03D         	call	_straight	;wreg free
+   415                           
+   416                           ;main.c: 225: }
+   417                           
+   418                           ;main.c: 224: break;
+   419  007E2A  D791               	goto	l84
+   420  007E2C                     l86:
+   421  007E2C  5012               	movf	main@road_state,w,c
    422                           
-   423                           	psect	text1
-   424  007CA6                     __ptext1:
-   425                           	opt stack 0
-   426  007CA6                     _turnRightSmall:
-   427                           	opt stack 29
-   428                           
-   429                           ;main.c: 126: PORTC=0x03;
-   430                           
-   431                           ;incstack = 0
-   432  007CA6  0E03               	movlw	3
-   433  007CA8  6E82               	movwf	3970,c	;volatile
-   434                           
-   435                           ;main.c: 127: wait00(5);
-   436  007CAA  0E00               	movlw	0
-   437  007CAC  6E02               	movwf	wait00@k+1,c
-   438  007CAE  0E05               	movlw	5
-   439  007CB0  6E01               	movwf	wait00@k,c
-   440  007CB2  EC86  F03E         	call	_wait00	;wreg free
-   441                           
-   442                           ;main.c: 128: PORTC=0x01;
-   443  007CB6  0E01               	movlw	1
-   444  007CB8  6E82               	movwf	3970,c	;volatile
-   445                           
-   446                           ;main.c: 129: wait00(40);
-   447  007CBA  0E00               	movlw	0
-   448  007CBC  6E02               	movwf	wait00@k+1,c
-   449  007CBE  0E28               	movlw	40
-   450  007CC0  6E01               	movwf	wait00@k,c
-   451  007CC2  EC86  F03E         	call	_wait00	;wreg free
-   452                           
-   453                           ;main.c: 130: PORTC = 0x00;
-   454  007CC6  0E00               	movlw	0
-   455  007CC8  6E82               	movwf	3970,c	;volatile
-   456                           
-   457                           ;main.c: 131: wait00(50);
-   458  007CCA  0E00               	movlw	0
-   459  007CCC  6E02               	movwf	wait00@k+1,c
-   460  007CCE  0E32               	movlw	50
-   461  007CD0  6E01               	movwf	wait00@k,c
-   462  007CD2  EC86  F03E         	call	_wait00	;wreg free
-   463  007CD6  0012               	return		;funcret
-   464  007CD8                     __end_of_turnRightSmall:
-   465                           	opt stack 0
-   466                           tblptru	equ	0xFF8
-   467                           status	equ	0xFD8
-   468                           
-   469 ;; *************** function _turnRight *****************
-   470 ;; Defined at:
-   471 ;;		line 108 in file "main.c"
-   472 ;; Parameters:    Size  Location     Type
-   473 ;;		None
-   474 ;; Auto vars:     Size  Location     Type
-   475 ;;		None
-   476 ;; Return value:  Size  Location     Type
-   477 ;;                  2   55[None  ] int 
-   478 ;; Registers used:
-   479 ;;		wreg, status,2, status,0, cstack
-   480 ;; Tracked objects:
-   481 ;;		On entry : 0/0
-   482 ;;		On exit  : 0/0
-   483 ;;		Unchanged: 0/0
-   484 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   485 ;;      Params:         0       0       0       0       0       0       0       0       0
-   486 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   487 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   488 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   489 ;;Total ram usage:        0 bytes
-   490 ;; Hardware stack levels used:    1
-   491 ;; Hardware stack levels required when called:    1
-   492 ;; This function calls:
-   493 ;;		_wait00
-   494 ;; This function is called by:
-   495 ;;		_main
-   496 ;; This function uses a non-reentrant model
-   497 ;;
-   498                           
-   499                           	psect	text2
-   500  007BEE                     __ptext2:
-   501                           	opt stack 0
-   502  007BEE                     _turnRight:
-   503                           	opt stack 29
+   423                           ; Switch size 1, requested type "space"
+   424                           ; Number of cases is 6, Range of values is 0 to 6
+   425                           ; switch strategies available:
+   426                           ; Name         Instructions Cycles
+   427                           ; simple_byte           19    10 (average)
+   428                           ;	Chosen strategy is simple_byte
+   429  007E2E  0A00               	xorlw	0	; case 0
+   430  007E30  B4D8               	btfsc	status,2,c
+   431  007E32  D7F9               	goto	l95
+   432  007E34  0A02               	xorlw	2	; case 2
+   433  007E36  B4D8               	btfsc	status,2,c
+   434  007E38  D7DA               	goto	l87
+   435  007E3A  0A01               	xorlw	1	; case 3
+   436  007E3C  B4D8               	btfsc	status,2,c
+   437  007E3E  D7EA               	goto	l92
+   438  007E40  0A07               	xorlw	7	; case 4
+   439  007E42  B4D8               	btfsc	status,2,c
+   440  007E44  D7ED               	goto	l94
+   441  007E46  0A01               	xorlw	1	; case 5
+   442  007E48  B4D8               	btfsc	status,2,c
+   443  007E4A  D7E1               	goto	l91
+   444  007E4C  0A03               	xorlw	3	; case 6
+   445  007E4E  B4D8               	btfsc	status,2,c
+   446  007E50  D7E4               	goto	l93
+   447  007E52  D77D               	goto	l84
+   448  007E54                     __end_of_main:
+   449                           	opt stack 0
+   450                           tblptru	equ	0xFF8
+   451                           indf2	equ	0xFDF
+   452                           fsr2h	equ	0xFDA
+   453                           fsr2l	equ	0xFD9
+   454                           status	equ	0xFD8
+   455                           
+   456 ;; *************** function _turnRightSmall *****************
+   457 ;; Defined at:
+   458 ;;		line 136 in file "main.c"
+   459 ;; Parameters:    Size  Location     Type
+   460 ;;		None
+   461 ;; Auto vars:     Size  Location     Type
+   462 ;;		None
+   463 ;; Return value:  Size  Location     Type
+   464 ;;                  2   69[None  ] int 
+   465 ;; Registers used:
+   466 ;;		wreg, status,2, status,0, cstack
+   467 ;; Tracked objects:
+   468 ;;		On entry : 0/0
+   469 ;;		On exit  : 0/0
+   470 ;;		Unchanged: 0/0
+   471 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   472 ;;      Params:         0       0       0       0       0       0       0       0       0
+   473 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   474 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   475 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   476 ;;Total ram usage:        0 bytes
+   477 ;; Hardware stack levels used:    1
+   478 ;; Hardware stack levels required when called:    1
+   479 ;; This function calls:
+   480 ;;		_wait00
+   481 ;; This function is called by:
+   482 ;;		_main
+   483 ;; This function uses a non-reentrant model
+   484 ;;
+   485                           
+   486                           	psect	text1
+   487  007C34                     __ptext1:
+   488                           	opt stack 0
+   489  007C34                     _turnRightSmall:
+   490                           	opt stack 29
+   491                           
+   492                           ;main.c: 137: PORTC=0x03;
+   493                           
+   494                           ;incstack = 0
+   495  007C34  0E03               	movlw	3
+   496  007C36  6E82               	movwf	3970,c	;volatile
+   497                           
+   498                           ;main.c: 138: wait00(5);
+   499  007C38  0E00               	movlw	0
+   500  007C3A  6E02               	movwf	wait00@k+1,c
+   501  007C3C  0E05               	movlw	5
+   502  007C3E  6E01               	movwf	wait00@k,c
+   503  007C40  EC4D  F03E         	call	_wait00	;wreg free
    504                           
-   505                           ;main.c: 109: PORTC=0x01;
-   506                           
-   507                           ;incstack = 0
-   508  007BEE  0E01               	movlw	1
-   509  007BF0  6E82               	movwf	3970,c	;volatile
-   510                           
-   511                           ;main.c: 110: wait00(20);
-   512  007BF2  0E00               	movlw	0
-   513  007BF4  6E02               	movwf	wait00@k+1,c
-   514  007BF6  0E14               	movlw	20
-   515  007BF8  6E01               	movwf	wait00@k,c
-   516  007BFA  EC86  F03E         	call	_wait00	;wreg free
-   517                           
-   518                           ;main.c: 111: PORTC = 0x00;
-   519  007BFE  0E00               	movlw	0
-   520  007C00  6E82               	movwf	3970,c	;volatile
-   521                           
-   522                           ;main.c: 112: wait00(25);
-   523  007C02  0E00               	movlw	0
-   524  007C04  6E02               	movwf	wait00@k+1,c
-   525  007C06  0E19               	movlw	25
-   526  007C08  6E01               	movwf	wait00@k,c
-   527  007C0A  EC86  F03E         	call	_wait00	;wreg free
-   528  007C0E  0012               	return		;funcret
-   529  007C10                     __end_of_turnRight:
-   530                           	opt stack 0
-   531                           tblptru	equ	0xFF8
-   532                           status	equ	0xFD8
-   533                           
-   534 ;; *************** function _turnLeftSmall *****************
-   535 ;; Defined at:
-   536 ;;		line 116 in file "main.c"
-   537 ;; Parameters:    Size  Location     Type
-   538 ;;		None
-   539 ;; Auto vars:     Size  Location     Type
-   540 ;;		None
-   541 ;; Return value:  Size  Location     Type
-   542 ;;                  2   58[None  ] int 
-   543 ;; Registers used:
-   544 ;;		wreg, status,2, status,0, cstack
-   545 ;; Tracked objects:
-   546 ;;		On entry : 0/0
-   547 ;;		On exit  : 0/0
-   548 ;;		Unchanged: 0/0
-   549 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   550 ;;      Params:         0       0       0       0       0       0       0       0       0
-   551 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   552 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   553 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   554 ;;Total ram usage:        0 bytes
-   555 ;; Hardware stack levels used:    1
-   556 ;; Hardware stack levels required when called:    1
-   557 ;; This function calls:
-   558 ;;		_wait00
-   559 ;; This function is called by:
-   560 ;;		_main
-   561 ;; This function uses a non-reentrant model
-   562 ;;
-   563                           
-   564                           	psect	text3
-   565  007C74                     __ptext3:
-   566                           	opt stack 0
-   567  007C74                     _turnLeftSmall:
-   568                           	opt stack 29
-   569                           
-   570                           ;main.c: 117: PORTC=0x03;
-   571                           
-   572                           ;incstack = 0
-   573  007C74  0E03               	movlw	3
-   574  007C76  6E82               	movwf	3970,c	;volatile
-   575                           
-   576                           ;main.c: 118: wait00(5);
-   577  007C78  0E00               	movlw	0
-   578  007C7A  6E02               	movwf	wait00@k+1,c
-   579  007C7C  0E05               	movlw	5
-   580  007C7E  6E01               	movwf	wait00@k,c
-   581  007C80  EC86  F03E         	call	_wait00	;wreg free
-   582                           
-   583                           ;main.c: 119: PORTC=0x02;
-   584  007C84  0E02               	movlw	2
-   585  007C86  6E82               	movwf	3970,c	;volatile
-   586                           
-   587                           ;main.c: 120: wait00(50);
-   588  007C88  0E00               	movlw	0
-   589  007C8A  6E02               	movwf	wait00@k+1,c
-   590  007C8C  0E32               	movlw	50
-   591  007C8E  6E01               	movwf	wait00@k,c
-   592  007C90  EC86  F03E         	call	_wait00	;wreg free
-   593                           
-   594                           ;main.c: 121: PORTC = 0x00;
-   595  007C94  0E00               	movlw	0
-   596  007C96  6E82               	movwf	3970,c	;volatile
-   597                           
-   598                           ;main.c: 122: wait00(50);
-   599  007C98  0E00               	movlw	0
-   600  007C9A  6E02               	movwf	wait00@k+1,c
-   601  007C9C  0E32               	movlw	50
-   602  007C9E  6E01               	movwf	wait00@k,c
-   603  007CA0  EC86  F03E         	call	_wait00	;wreg free
-   604  007CA4  0012               	return		;funcret
-   605  007CA6                     __end_of_turnLeftSmall:
-   606                           	opt stack 0
-   607                           tblptru	equ	0xFF8
-   608                           status	equ	0xFD8
-   609                           
-   610 ;; *************** function _turnLeft *****************
-   611 ;; Defined at:
-   612 ;;		line 101 in file "main.c"
-   613 ;; Parameters:    Size  Location     Type
-   614 ;;		None
-   615 ;; Auto vars:     Size  Location     Type
-   616 ;;		None
-   617 ;; Return value:  Size  Location     Type
-   618 ;;                  2   52[None  ] int 
-   619 ;; Registers used:
-   620 ;;		wreg, status,2, status,0, cstack
-   621 ;; Tracked objects:
-   622 ;;		On entry : 0/0
-   623 ;;		On exit  : 0/0
-   624 ;;		Unchanged: 0/0
-   625 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   626 ;;      Params:         0       0       0       0       0       0       0       0       0
-   627 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   628 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   629 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   630 ;;Total ram usage:        0 bytes
-   631 ;; Hardware stack levels used:    1
-   632 ;; Hardware stack levels required when called:    1
-   633 ;; This function calls:
-   634 ;;		_wait00
-   635 ;; This function is called by:
-   636 ;;		_main
-   637 ;; This function uses a non-reentrant model
-   638 ;;
-   639                           
-   640                           	psect	text4
-   641  007BCC                     __ptext4:
-   642                           	opt stack 0
-   643  007BCC                     _turnLeft:
-   644                           	opt stack 29
-   645                           
-   646                           ;main.c: 102: PORTC=0x02;
-   647                           
-   648                           ;incstack = 0
-   649  007BCC  0E02               	movlw	2
-   650  007BCE  6E82               	movwf	3970,c	;volatile
+   505                           ;main.c: 139: PORTC=0x01;
+   506  007C44  0E01               	movlw	1
+   507  007C46  6E82               	movwf	3970,c	;volatile
+   508                           
+   509                           ;main.c: 140: wait00(40);
+   510  007C48  0E00               	movlw	0
+   511  007C4A  6E02               	movwf	wait00@k+1,c
+   512  007C4C  0E28               	movlw	40
+   513  007C4E  6E01               	movwf	wait00@k,c
+   514  007C50  EC4D  F03E         	call	_wait00	;wreg free
+   515                           
+   516                           ;main.c: 141: PORTC = 0x00;
+   517  007C54  0E00               	movlw	0
+   518  007C56  6E82               	movwf	3970,c	;volatile
+   519                           
+   520                           ;main.c: 142: wait00(50);
+   521  007C58  0E00               	movlw	0
+   522  007C5A  6E02               	movwf	wait00@k+1,c
+   523  007C5C  0E32               	movlw	50
+   524  007C5E  6E01               	movwf	wait00@k,c
+   525  007C60  EC4D  F03E         	call	_wait00	;wreg free
+   526  007C64  0012               	return		;funcret
+   527  007C66                     __end_of_turnRightSmall:
+   528                           	opt stack 0
+   529                           tblptru	equ	0xFF8
+   530                           indf2	equ	0xFDF
+   531                           fsr2h	equ	0xFDA
+   532                           fsr2l	equ	0xFD9
+   533                           status	equ	0xFD8
+   534                           
+   535 ;; *************** function _turnRight *****************
+   536 ;; Defined at:
+   537 ;;		line 119 in file "main.c"
+   538 ;; Parameters:    Size  Location     Type
+   539 ;;		None
+   540 ;; Auto vars:     Size  Location     Type
+   541 ;;		None
+   542 ;; Return value:  Size  Location     Type
+   543 ;;                  2   63[None  ] int 
+   544 ;; Registers used:
+   545 ;;		wreg, status,2, status,0, cstack
+   546 ;; Tracked objects:
+   547 ;;		On entry : 0/0
+   548 ;;		On exit  : 0/0
+   549 ;;		Unchanged: 0/0
+   550 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   551 ;;      Params:         0       0       0       0       0       0       0       0       0
+   552 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   553 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   554 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   555 ;;Total ram usage:        0 bytes
+   556 ;; Hardware stack levels used:    1
+   557 ;; Hardware stack levels required when called:    1
+   558 ;; This function calls:
+   559 ;;		_wait00
+   560 ;; This function is called by:
+   561 ;;		_main
+   562 ;; This function uses a non-reentrant model
+   563 ;;
+   564                           
+   565                           	psect	text2
+   566  007B7C                     __ptext2:
+   567                           	opt stack 0
+   568  007B7C                     _turnRight:
+   569                           	opt stack 29
+   570                           
+   571                           ;main.c: 120: PORTC=0x01;
+   572                           
+   573                           ;incstack = 0
+   574  007B7C  0E01               	movlw	1
+   575  007B7E  6E82               	movwf	3970,c	;volatile
+   576                           
+   577                           ;main.c: 121: wait00(40);
+   578  007B80  0E00               	movlw	0
+   579  007B82  6E02               	movwf	wait00@k+1,c
+   580  007B84  0E28               	movlw	40
+   581  007B86  6E01               	movwf	wait00@k,c
+   582  007B88  EC4D  F03E         	call	_wait00	;wreg free
+   583                           
+   584                           ;main.c: 122: PORTC = 0x00;
+   585  007B8C  0E00               	movlw	0
+   586  007B8E  6E82               	movwf	3970,c	;volatile
+   587                           
+   588                           ;main.c: 123: wait00(50);
+   589  007B90  0E00               	movlw	0
+   590  007B92  6E02               	movwf	wait00@k+1,c
+   591  007B94  0E32               	movlw	50
+   592  007B96  6E01               	movwf	wait00@k,c
+   593  007B98  EC4D  F03E         	call	_wait00	;wreg free
+   594  007B9C  0012               	return		;funcret
+   595  007B9E                     __end_of_turnRight:
+   596                           	opt stack 0
+   597                           tblptru	equ	0xFF8
+   598                           indf2	equ	0xFDF
+   599                           fsr2h	equ	0xFDA
+   600                           fsr2l	equ	0xFD9
+   601                           status	equ	0xFD8
+   602                           
+   603 ;; *************** function _turnLeftSmall *****************
+   604 ;; Defined at:
+   605 ;;		line 127 in file "main.c"
+   606 ;; Parameters:    Size  Location     Type
+   607 ;;		None
+   608 ;; Auto vars:     Size  Location     Type
+   609 ;;		None
+   610 ;; Return value:  Size  Location     Type
+   611 ;;                  2   66[None  ] int 
+   612 ;; Registers used:
+   613 ;;		wreg, status,2, status,0, cstack
+   614 ;; Tracked objects:
+   615 ;;		On entry : 0/0
+   616 ;;		On exit  : 0/0
+   617 ;;		Unchanged: 0/0
+   618 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   619 ;;      Params:         0       0       0       0       0       0       0       0       0
+   620 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   621 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   622 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   623 ;;Total ram usage:        0 bytes
+   624 ;; Hardware stack levels used:    1
+   625 ;; Hardware stack levels required when called:    1
+   626 ;; This function calls:
+   627 ;;		_wait00
+   628 ;; This function is called by:
+   629 ;;		_main
+   630 ;; This function uses a non-reentrant model
+   631 ;;
+   632                           
+   633                           	psect	text3
+   634  007C02                     __ptext3:
+   635                           	opt stack 0
+   636  007C02                     _turnLeftSmall:
+   637                           	opt stack 29
+   638                           
+   639                           ;main.c: 128: PORTC=0x03;
+   640                           
+   641                           ;incstack = 0
+   642  007C02  0E03               	movlw	3
+   643  007C04  6E82               	movwf	3970,c	;volatile
+   644                           
+   645                           ;main.c: 129: wait00(5);
+   646  007C06  0E00               	movlw	0
+   647  007C08  6E02               	movwf	wait00@k+1,c
+   648  007C0A  0E05               	movlw	5
+   649  007C0C  6E01               	movwf	wait00@k,c
+   650  007C0E  EC4D  F03E         	call	_wait00	;wreg free
    651                           
-   652                           ;main.c: 103: wait00(25);
-   653  007BD0  0E00               	movlw	0
-   654  007BD2  6E02               	movwf	wait00@k+1,c
-   655  007BD4  0E19               	movlw	25
-   656  007BD6  6E01               	movwf	wait00@k,c
-   657  007BD8  EC86  F03E         	call	_wait00	;wreg free
-   658                           
-   659                           ;main.c: 104: PORTC = 0x00;
-   660  007BDC  0E00               	movlw	0
-   661  007BDE  6E82               	movwf	3970,c	;volatile
+   652                           ;main.c: 130: PORTC=0x02;
+   653  007C12  0E02               	movlw	2
+   654  007C14  6E82               	movwf	3970,c	;volatile
+   655                           
+   656                           ;main.c: 131: wait00(50);
+   657  007C16  0E00               	movlw	0
+   658  007C18  6E02               	movwf	wait00@k+1,c
+   659  007C1A  0E32               	movlw	50
+   660  007C1C  6E01               	movwf	wait00@k,c
+   661  007C1E  EC4D  F03E         	call	_wait00	;wreg free
    662                           
-   663                           ;main.c: 105: wait00(25);
-   664  007BE0  0E00               	movlw	0
-   665  007BE2  6E02               	movwf	wait00@k+1,c
-   666  007BE4  0E19               	movlw	25
-   667  007BE6  6E01               	movwf	wait00@k,c
-   668  007BE8  EC86  F03E         	call	_wait00	;wreg free
-   669  007BEC  0012               	return		;funcret
-   670  007BEE                     __end_of_turnLeft:
-   671                           	opt stack 0
-   672                           tblptru	equ	0xFF8
-   673                           status	equ	0xFD8
-   674                           
-   675 ;; *************** function _straight *****************
-   676 ;; Defined at:
-   677 ;;		line 135 in file "main.c"
-   678 ;; Parameters:    Size  Location     Type
-   679 ;;		None
-   680 ;; Auto vars:     Size  Location     Type
-   681 ;;		None
-   682 ;; Return value:  Size  Location     Type
-   683 ;;                  2   64[None  ] int 
-   684 ;; Registers used:
-   685 ;;		wreg, status,2, status,0, cstack
-   686 ;; Tracked objects:
-   687 ;;		On entry : 0/0
-   688 ;;		On exit  : 0/0
-   689 ;;		Unchanged: 0/0
-   690 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   691 ;;      Params:         0       0       0       0       0       0       0       0       0
-   692 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   693 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   694 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   695 ;;Total ram usage:        0 bytes
-   696 ;; Hardware stack levels used:    1
-   697 ;; Hardware stack levels required when called:    1
-   698 ;; This function calls:
-   699 ;;		_wait00
-   700 ;; This function is called by:
-   701 ;;		_main
-   702 ;; This function uses a non-reentrant model
-   703 ;;
-   704                           
-   705                           	psect	text5
-   706  007C42                     __ptext5:
-   707                           	opt stack 0
-   708  007C42                     _straight:
-   709                           	opt stack 29
-   710                           
-   711                           ;main.c: 136: PORTC=0x03;
-   712                           
-   713                           ;incstack = 0
-   714  007C42  0E03               	movlw	3
-   715  007C44  6E82               	movwf	3970,c	;volatile
-   716                           
-   717                           ;main.c: 137: wait00(40);
-   718  007C46  0E00               	movlw	0
-   719  007C48  6E02               	movwf	wait00@k+1,c
-   720  007C4A  0E28               	movlw	40
-   721  007C4C  6E01               	movwf	wait00@k,c
-   722  007C4E  EC86  F03E         	call	_wait00	;wreg free
+   663                           ;main.c: 132: PORTC = 0x00;
+   664  007C22  0E00               	movlw	0
+   665  007C24  6E82               	movwf	3970,c	;volatile
+   666                           
+   667                           ;main.c: 133: wait00(50);
+   668  007C26  0E00               	movlw	0
+   669  007C28  6E02               	movwf	wait00@k+1,c
+   670  007C2A  0E32               	movlw	50
+   671  007C2C  6E01               	movwf	wait00@k,c
+   672  007C2E  EC4D  F03E         	call	_wait00	;wreg free
+   673  007C32  0012               	return		;funcret
+   674  007C34                     __end_of_turnLeftSmall:
+   675                           	opt stack 0
+   676                           tblptru	equ	0xFF8
+   677                           indf2	equ	0xFDF
+   678                           fsr2h	equ	0xFDA
+   679                           fsr2l	equ	0xFD9
+   680                           status	equ	0xFD8
+   681                           
+   682 ;; *************** function _turnLeft *****************
+   683 ;; Defined at:
+   684 ;;		line 112 in file "main.c"
+   685 ;; Parameters:    Size  Location     Type
+   686 ;;		None
+   687 ;; Auto vars:     Size  Location     Type
+   688 ;;		None
+   689 ;; Return value:  Size  Location     Type
+   690 ;;                  2   60[None  ] int 
+   691 ;; Registers used:
+   692 ;;		wreg, status,2, status,0, cstack
+   693 ;; Tracked objects:
+   694 ;;		On entry : 0/0
+   695 ;;		On exit  : 0/0
+   696 ;;		Unchanged: 0/0
+   697 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   698 ;;      Params:         0       0       0       0       0       0       0       0       0
+   699 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   700 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   701 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   702 ;;Total ram usage:        0 bytes
+   703 ;; Hardware stack levels used:    1
+   704 ;; Hardware stack levels required when called:    1
+   705 ;; This function calls:
+   706 ;;		_wait00
+   707 ;; This function is called by:
+   708 ;;		_main
+   709 ;; This function uses a non-reentrant model
+   710 ;;
+   711                           
+   712                           	psect	text4
+   713  007B5A                     __ptext4:
+   714                           	opt stack 0
+   715  007B5A                     _turnLeft:
+   716                           	opt stack 29
+   717                           
+   718                           ;main.c: 113: PORTC=0x02;
+   719                           
+   720                           ;incstack = 0
+   721  007B5A  0E02               	movlw	2
+   722  007B5C  6E82               	movwf	3970,c	;volatile
    723                           
-   724                           ;main.c: 138: PORTC=0x02;
-   725  007C52  0E02               	movlw	2
-   726  007C54  6E82               	movwf	3970,c	;volatile
-   727                           
-   728                           ;main.c: 139: wait00(4);
-   729  007C56  0E00               	movlw	0
-   730  007C58  6E02               	movwf	wait00@k+1,c
-   731  007C5A  0E04               	movlw	4
-   732  007C5C  6E01               	movwf	wait00@k,c
-   733  007C5E  EC86  F03E         	call	_wait00	;wreg free
+   724                           ;main.c: 114: wait00(50);
+   725  007B5E  0E00               	movlw	0
+   726  007B60  6E02               	movwf	wait00@k+1,c
+   727  007B62  0E32               	movlw	50
+   728  007B64  6E01               	movwf	wait00@k,c
+   729  007B66  EC4D  F03E         	call	_wait00	;wreg free
+   730                           
+   731                           ;main.c: 115: PORTC = 0x00;
+   732  007B6A  0E00               	movlw	0
+   733  007B6C  6E82               	movwf	3970,c	;volatile
    734                           
-   735                           ;main.c: 140: PORTC=0x00;
-   736  007C62  0E00               	movlw	0
-   737  007C64  6E82               	movwf	3970,c	;volatile
-   738                           
-   739                           ;main.c: 141: wait00(60);
-   740  007C66  0E00               	movlw	0
-   741  007C68  6E02               	movwf	wait00@k+1,c
-   742  007C6A  0E3C               	movlw	60
-   743  007C6C  6E01               	movwf	wait00@k,c
-   744  007C6E  EC86  F03E         	call	_wait00	;wreg free
-   745  007C72  0012               	return		;funcret
-   746  007C74                     __end_of_straight:
-   747                           	opt stack 0
-   748                           tblptru	equ	0xFF8
-   749                           status	equ	0xFD8
-   750                           
-   751 ;; *************** function _led_sens *****************
-   752 ;; Defined at:
-   753 ;;		line 24 in file "main.c"
-   754 ;; Parameters:    Size  Location     Type
-   755 ;;		None
-   756 ;; Auto vars:     Size  Location     Type
-   757 ;;		None
-   758 ;; Return value:  Size  Location     Type
-   759 ;;                  2   28[None  ] int 
-   760 ;; Registers used:
-   761 ;;		None
-   762 ;; Tracked objects:
-   763 ;;		On entry : 0/0
-   764 ;;		On exit  : 0/0
-   765 ;;		Unchanged: 0/0
-   766 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   767 ;;      Params:         0       0       0       0       0       0       0       0       0
-   768 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   769 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   770 ;;      Totals:         0       0       0       0       0       0       0       0       0
-   771 ;;Total ram usage:        0 bytes
-   772 ;; Hardware stack levels used:    1
+   735                           ;main.c: 116: wait00(50);
+   736  007B6E  0E00               	movlw	0
+   737  007B70  6E02               	movwf	wait00@k+1,c
+   738  007B72  0E32               	movlw	50
+   739  007B74  6E01               	movwf	wait00@k,c
+   740  007B76  EC4D  F03E         	call	_wait00	;wreg free
+   741  007B7A  0012               	return		;funcret
+   742  007B7C                     __end_of_turnLeft:
+   743                           	opt stack 0
+   744                           tblptru	equ	0xFF8
+   745                           indf2	equ	0xFDF
+   746                           fsr2h	equ	0xFDA
+   747                           fsr2l	equ	0xFD9
+   748                           status	equ	0xFD8
+   749                           
+   750 ;; *************** function _straight *****************
+   751 ;; Defined at:
+   752 ;;		line 146 in file "main.c"
+   753 ;; Parameters:    Size  Location     Type
+   754 ;;		None
+   755 ;; Auto vars:     Size  Location     Type
+   756 ;;		None
+   757 ;; Return value:  Size  Location     Type
+   758 ;;                  2   72[None  ] int 
+   759 ;; Registers used:
+   760 ;;		wreg, status,2, status,0, cstack
+   761 ;; Tracked objects:
+   762 ;;		On entry : 0/0
+   763 ;;		On exit  : 0/0
+   764 ;;		Unchanged: 0/0
+   765 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   766 ;;      Params:         0       0       0       0       0       0       0       0       0
+   767 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   768 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   769 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   770 ;;Total ram usage:        0 bytes
+   771 ;; Hardware stack levels used:    1
+   772 ;; Hardware stack levels required when called:    1
    773 ;; This function calls:
-   774 ;;		Nothing
+   774 ;;		_wait00
    775 ;; This function is called by:
    776 ;;		_main
    777 ;; This function uses a non-reentrant model
    778 ;;
    779                           
-   780                           	psect	text6
-   781  007CD8                     __ptext6:
+   780                           	psect	text5
+   781  007BD0                     __ptext5:
    782                           	opt stack 0
-   783  007CD8                     _led_sens:
-   784                           	opt stack 30
+   783  007BD0                     _straight:
+   784                           	opt stack 29
    785                           
-   786                           ;main.c: 26: PORTAbits.RA0 = PORTBbits.RB0;
+   786                           ;main.c: 147: PORTC=0x03;
    787                           
    788                           ;incstack = 0
-   789  007CD8  A081               	btfss	3969,0,c	;volatile
-   790  007CDA  D002               	bra	u45
-   791  007CDC  8080               	bsf	3968,0,c	;volatile
-   792  007CDE  D001               	bra	u47
-   793  007CE0                     u45:
-   794  007CE0  9080               	bcf	3968,0,c	;volatile
-   795  007CE2                     u47:
-   796                           
-   797                           ;main.c: 27: PORTAbits.RA1 = PORTBbits.RB1;
-   798  007CE2  A281               	btfss	3969,1,c	;volatile
-   799  007CE4  D002               	bra	u55
-   800  007CE6  8280               	bsf	3968,1,c	;volatile
-   801  007CE8  D001               	bra	u57
-   802  007CEA                     u55:
-   803  007CEA  9280               	bcf	3968,1,c	;volatile
-   804  007CEC                     u57:
-   805                           
-   806                           ;main.c: 28: PORTAbits.RA2 = PORTBbits.RB2;
-   807  007CEC  A481               	btfss	3969,2,c	;volatile
-   808  007CEE  D002               	bra	u65
-   809  007CF0  8480               	bsf	3968,2,c	;volatile
-   810  007CF2  D001               	bra	u67
-   811  007CF4                     u65:
-   812  007CF4  9480               	bcf	3968,2,c	;volatile
-   813  007CF6                     u67:
-   814                           
-   815                           ;main.c: 29: PORTAbits.RA3 = PORTBbits.RB3;
-   816  007CF6  A681               	btfss	3969,3,c	;volatile
-   817  007CF8  D002               	bra	u75
-   818  007CFA  8680               	bsf	3968,3,c	;volatile
-   819  007CFC  D001               	bra	u77
-   820  007CFE                     u75:
-   821  007CFE  9680               	bcf	3968,3,c	;volatile
-   822  007D00                     u77:
-   823                           
-   824                           ;main.c: 30: PORTAbits.RA4 = PORTBbits.RB4;
-   825  007D00  A881               	btfss	3969,4,c	;volatile
-   826  007D02  D002               	bra	u85
-   827  007D04  8880               	bsf	3968,4,c	;volatile
-   828  007D06  D001               	bra	u87
-   829  007D08                     u85:
-   830  007D08  9880               	bcf	3968,4,c	;volatile
-   831  007D0A                     u87:
-   832  007D0A  0012               	return		;funcret
-   833  007D0C                     __end_of_led_sens:
-   834                           	opt stack 0
-   835                           tblptru	equ	0xFF8
-   836                           status	equ	0xFD8
-   837                           
-   838 ;; *************** function _getRoadState *****************
-   839 ;; Defined at:
-   840 ;;		line 44 in file "main.c"
-   841 ;; Parameters:    Size  Location     Type
-   842 ;;  a               2    0[COMRAM] short 
-   843 ;;  b               2    2[COMRAM] short 
-   844 ;;  c               2    4[COMRAM] short 
-   845 ;;  d               2    6[COMRAM] short 
-   846 ;;  e               2    8[COMRAM] short 
-   847 ;; Auto vars:     Size  Location     Type
-   848 ;;		None
-   849 ;; Return value:  Size  Location     Type
-   850 ;;                  1    wreg      enum E3329
-   851 ;; Registers used:
-   852 ;;		wreg, status,2, status,0
-   853 ;; Tracked objects:
-   854 ;;		On entry : 0/0
-   855 ;;		On exit  : 0/0
-   856 ;;		Unchanged: 0/0
-   857 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-   858 ;;      Params:        10       0       0       0       0       0       0       0       0
-   859 ;;      Locals:         0       0       0       0       0       0       0       0       0
-   860 ;;      Temps:          0       0       0       0       0       0       0       0       0
-   861 ;;      Totals:        10       0       0       0       0       0       0       0       0
-   862 ;;Total ram usage:       10 bytes
-   863 ;; Hardware stack levels used:    1
-   864 ;; This function calls:
-   865 ;;		Nothing
-   866 ;; This function is called by:
-   867 ;;		_main
-   868 ;; This function uses a non-reentrant model
-   869 ;;
-   870                           
-   871                           	psect	text7
-   872  007E44                     __ptext7:
-   873                           	opt stack 0
-   874  007E44                     _getRoadState:
-   875                           	opt stack 30
-   876                           
-   877                           ;main.c: 45: if ( (a == 1 && b == 1 && c == 1
-   878                           ;main.c: 46: && d == 1 && e == 1)
-   879                           ;main.c: 47: || (a == 0 && b == 0 && c == 0
-   880                           ;main.c: 48: && d == 0 && e == 0)) {
-   881                           
-   882                           ;incstack = 0
-   883  007E44  0401               	decf	getRoadState@a,w,c
-   884  007E46  1002               	iorwf	getRoadState@a+1,w,c
-   885  007E48  A4D8               	btfss	status,2,c
-   886  007E4A  D010               	goto	u740
-   887  007E4C  0403               	decf	getRoadState@b,w,c
-   888  007E4E  1004               	iorwf	getRoadState@b+1,w,c
-   889  007E50  A4D8               	btfss	status,2,c
-   890  007E52  D00C               	goto	u740
-   891  007E54  0405               	decf	getRoadState@c,w,c
-   892  007E56  1006               	iorwf	getRoadState@c+1,w,c
-   893  007E58  A4D8               	btfss	status,2,c
-   894  007E5A  D008               	goto	u740
-   895  007E5C  0407               	decf	getRoadState@d,w,c
-   896  007E5E  1008               	iorwf	getRoadState@d+1,w,c
-   897  007E60  A4D8               	btfss	status,2,c
-   898  007E62  D004               	goto	u740
-   899  007E64  0409               	decf	getRoadState@e,w,c
-   900  007E66  100A               	iorwf	getRoadState@e+1,w,c
-   901  007E68  B4D8               	btfsc	status,2,c
-   902  007E6A  D014               	goto	u790
-   903  007E6C                     u740:
-   904  007E6C  5001               	movf	getRoadState@a,w,c
-   905  007E6E  1002               	iorwf	getRoadState@a+1,w,c
-   906  007E70  A4D8               	btfss	status,2,c
-   907  007E72  D012               	goto	l32
-   908  007E74  5003               	movf	getRoadState@b,w,c
-   909  007E76  1004               	iorwf	getRoadState@b+1,w,c
-   910  007E78  A4D8               	btfss	status,2,c
-   911  007E7A  D00E               	goto	l32
-   912  007E7C  5005               	movf	getRoadState@c,w,c
-   913  007E7E  1006               	iorwf	getRoadState@c+1,w,c
-   914  007E80  A4D8               	btfss	status,2,c
-   915  007E82  D00A               	goto	l32
-   916  007E84  5007               	movf	getRoadState@d,w,c
-   917  007E86  1008               	iorwf	getRoadState@d+1,w,c
-   918  007E88  A4D8               	btfss	status,2,c
-   919  007E8A  D006               	goto	l32
-   920  007E8C  5009               	movf	getRoadState@e,w,c
-   921  007E8E  100A               	iorwf	getRoadState@e+1,w,c
-   922  007E90  A4D8               	btfss	status,2,c
-   923  007E92  D002               	goto	l32
-   924  007E94                     u790:
-   925                           
-   926                           ;main.c: 49: return off_track;
-   927  007E94  0E01               	movlw	1
-   928  007E96  0012               	return	
-   929  007E98                     l32:
-   930                           
-   931                           ;main.c: 50: }
-   932                           ;main.c: 52: if ( (c == 0
-   933                           ;main.c: 53: && a == 1 && b == 1
-   934                           ;main.c: 54: && d == 1 && e == 1)
-   935                           ;main.c: 55: || (c == 1
-   936                           ;main.c: 56: && a == 0 && b == 0
-   937                           ;main.c: 57: && d == 0 && e == 0)) {
-   938  007E98  5005               	movf	getRoadState@c,w,c
-   939  007E9A  1006               	iorwf	getRoadState@c+1,w,c
-   940  007E9C  A4D8               	btfss	status,2,c
-   941  007E9E  D010               	goto	u840
-   942  007EA0  0401               	decf	getRoadState@a,w,c
-   943  007EA2  1002               	iorwf	getRoadState@a+1,w,c
-   944  007EA4  A4D8               	btfss	status,2,c
-   945  007EA6  D00C               	goto	u840
-   946  007EA8  0403               	decf	getRoadState@b,w,c
-   947  007EAA  1004               	iorwf	getRoadState@b+1,w,c
-   948  007EAC  A4D8               	btfss	status,2,c
-   949  007EAE  D008               	goto	u840
-   950  007EB0  0407               	decf	getRoadState@d,w,c
-   951  007EB2  1008               	iorwf	getRoadState@d+1,w,c
-   952  007EB4  A4D8               	btfss	status,2,c
-   953  007EB6  D004               	goto	u840
-   954  007EB8  0409               	decf	getRoadState@e,w,c
-   955  007EBA  100A               	iorwf	getRoadState@e+1,w,c
-   956  007EBC  B4D8               	btfsc	status,2,c
-   957  007EBE  D014               	goto	u890
-   958  007EC0                     u840:
-   959  007EC0  0405               	decf	getRoadState@c,w,c
-   960  007EC2  1006               	iorwf	getRoadState@c+1,w,c
-   961  007EC4  A4D8               	btfss	status,2,c
-   962  007EC6  D012               	goto	l38
-   963  007EC8  5001               	movf	getRoadState@a,w,c
-   964  007ECA  1002               	iorwf	getRoadState@a+1,w,c
-   965  007ECC  A4D8               	btfss	status,2,c
-   966  007ECE  D00E               	goto	l38
-   967  007ED0  5003               	movf	getRoadState@b,w,c
-   968  007ED2  1004               	iorwf	getRoadState@b+1,w,c
-   969  007ED4  A4D8               	btfss	status,2,c
-   970  007ED6  D00A               	goto	l38
-   971  007ED8  5007               	movf	getRoadState@d,w,c
-   972  007EDA  1008               	iorwf	getRoadState@d+1,w,c
-   973  007EDC  A4D8               	btfss	status,2,c
-   974  007EDE  D006               	goto	l38
-   975  007EE0  5009               	movf	getRoadState@e,w,c
-   976  007EE2  100A               	iorwf	getRoadState@e+1,w,c
-   977  007EE4  A4D8               	btfss	status,2,c
-   978  007EE6  D002               	goto	l38
-   979  007EE8                     u890:
-   980                           
-   981                           ;main.c: 58: return straight_line;
-   982  007EE8  0E02               	movlw	2
-   983  007EEA  0012               	return	
-   984  007EEC                     l38:
-   985                           
-   986                           ;main.c: 59: }
-   987                           ;main.c: 62: if (a == 1 && b == 0 && c == 1
-   988                           ;main.c: 63: && d == 1 && e == 1) {
-   989  007EEC  0401               	decf	getRoadState@a,w,c
-   990  007EEE  1002               	iorwf	getRoadState@a+1,w,c
-   991  007EF0  A4D8               	btfss	status,2,c
-   992  007EF2  D012               	goto	l43
-   993  007EF4  5003               	movf	getRoadState@b,w,c
-   994  007EF6  1004               	iorwf	getRoadState@b+1,w,c
-   995  007EF8  A4D8               	btfss	status,2,c
-   996  007EFA  D00E               	goto	l43
-   997  007EFC  0405               	decf	getRoadState@c,w,c
-   998  007EFE  1006               	iorwf	getRoadState@c+1,w,c
-   999  007F00  A4D8               	btfss	status,2,c
-  1000  007F02  D00A               	goto	l43
-  1001  007F04  0407               	decf	getRoadState@d,w,c
-  1002  007F06  1008               	iorwf	getRoadState@d+1,w,c
-  1003  007F08  A4D8               	btfss	status,2,c
-  1004  007F0A  D006               	goto	l43
-  1005  007F0C  0409               	decf	getRoadState@e,w,c
-  1006  007F0E  100A               	iorwf	getRoadState@e+1,w,c
-  1007  007F10  A4D8               	btfss	status,2,c
-  1008  007F12  D002               	goto	l43
-  1009                           
-  1010                           ;main.c: 64: return off_right_little;
-  1011  007F14  0E03               	movlw	3
-  1012  007F16  0012               	return	
-  1013  007F18                     l43:
+   789  007BD0  0E03               	movlw	3
+   790  007BD2  6E82               	movwf	3970,c	;volatile
+   791                           
+   792                           ;main.c: 148: wait00(40);
+   793  007BD4  0E00               	movlw	0
+   794  007BD6  6E02               	movwf	wait00@k+1,c
+   795  007BD8  0E28               	movlw	40
+   796  007BDA  6E01               	movwf	wait00@k,c
+   797  007BDC  EC4D  F03E         	call	_wait00	;wreg free
+   798                           
+   799                           ;main.c: 149: PORTC=0x02;
+   800  007BE0  0E02               	movlw	2
+   801  007BE2  6E82               	movwf	3970,c	;volatile
+   802                           
+   803                           ;main.c: 150: wait00(4);
+   804  007BE4  0E00               	movlw	0
+   805  007BE6  6E02               	movwf	wait00@k+1,c
+   806  007BE8  0E04               	movlw	4
+   807  007BEA  6E01               	movwf	wait00@k,c
+   808  007BEC  EC4D  F03E         	call	_wait00	;wreg free
+   809                           
+   810                           ;main.c: 151: PORTC=0x00;
+   811  007BF0  0E00               	movlw	0
+   812  007BF2  6E82               	movwf	3970,c	;volatile
+   813                           
+   814                           ;main.c: 152: wait00(60);
+   815  007BF4  0E00               	movlw	0
+   816  007BF6  6E02               	movwf	wait00@k+1,c
+   817  007BF8  0E3C               	movlw	60
+   818  007BFA  6E01               	movwf	wait00@k,c
+   819  007BFC  EC4D  F03E         	call	_wait00	;wreg free
+   820  007C00  0012               	return		;funcret
+   821  007C02                     __end_of_straight:
+   822                           	opt stack 0
+   823                           tblptru	equ	0xFF8
+   824                           indf2	equ	0xFDF
+   825                           fsr2h	equ	0xFDA
+   826                           fsr2l	equ	0xFD9
+   827                           status	equ	0xFD8
+   828                           
+   829 ;; *************** function _led_sens *****************
+   830 ;; Defined at:
+   831 ;;		line 24 in file "main.c"
+   832 ;; Parameters:    Size  Location     Type
+   833 ;;		None
+   834 ;; Auto vars:     Size  Location     Type
+   835 ;;		None
+   836 ;; Return value:  Size  Location     Type
+   837 ;;                  2   28[None  ] int 
+   838 ;; Registers used:
+   839 ;;		None
+   840 ;; Tracked objects:
+   841 ;;		On entry : 0/0
+   842 ;;		On exit  : 0/0
+   843 ;;		Unchanged: 0/0
+   844 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   845 ;;      Params:         0       0       0       0       0       0       0       0       0
+   846 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   847 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   848 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   849 ;;Total ram usage:        0 bytes
+   850 ;; Hardware stack levels used:    1
+   851 ;; This function calls:
+   852 ;;		Nothing
+   853 ;; This function is called by:
+   854 ;;		_main
+   855 ;; This function uses a non-reentrant model
+   856 ;;
+   857                           
+   858                           	psect	text6
+   859  007C66                     __ptext6:
+   860                           	opt stack 0
+   861  007C66                     _led_sens:
+   862                           	opt stack 30
+   863                           
+   864                           ;main.c: 26: PORTAbits.RA0 = PORTBbits.RB0;
+   865                           
+   866                           ;incstack = 0
+   867  007C66  A081               	btfss	3969,0,c	;volatile
+   868  007C68  D002               	bra	u45
+   869  007C6A  8080               	bsf	3968,0,c	;volatile
+   870  007C6C  D001               	bra	u47
+   871  007C6E                     u45:
+   872  007C6E  9080               	bcf	3968,0,c	;volatile
+   873  007C70                     u47:
+   874                           
+   875                           ;main.c: 27: PORTAbits.RA1 = PORTBbits.RB1;
+   876  007C70  A281               	btfss	3969,1,c	;volatile
+   877  007C72  D002               	bra	u55
+   878  007C74  8280               	bsf	3968,1,c	;volatile
+   879  007C76  D001               	bra	u57
+   880  007C78                     u55:
+   881  007C78  9280               	bcf	3968,1,c	;volatile
+   882  007C7A                     u57:
+   883                           
+   884                           ;main.c: 28: PORTAbits.RA2 = PORTBbits.RB2;
+   885  007C7A  A481               	btfss	3969,2,c	;volatile
+   886  007C7C  D002               	bra	u65
+   887  007C7E  8480               	bsf	3968,2,c	;volatile
+   888  007C80  D001               	bra	u67
+   889  007C82                     u65:
+   890  007C82  9480               	bcf	3968,2,c	;volatile
+   891  007C84                     u67:
+   892                           
+   893                           ;main.c: 29: PORTAbits.RA3 = PORTBbits.RB3;
+   894  007C84  A681               	btfss	3969,3,c	;volatile
+   895  007C86  D002               	bra	u75
+   896  007C88  8680               	bsf	3968,3,c	;volatile
+   897  007C8A  D001               	bra	u77
+   898  007C8C                     u75:
+   899  007C8C  9680               	bcf	3968,3,c	;volatile
+   900  007C8E                     u77:
+   901                           
+   902                           ;main.c: 30: PORTAbits.RA4 = PORTBbits.RB4;
+   903  007C8E  A881               	btfss	3969,4,c	;volatile
+   904  007C90  D002               	bra	u85
+   905  007C92  8880               	bsf	3968,4,c	;volatile
+   906  007C94  D001               	bra	u87
+   907  007C96                     u85:
+   908  007C96  9880               	bcf	3968,4,c	;volatile
+   909  007C98                     u87:
+   910  007C98  0012               	return		;funcret
+   911  007C9A                     __end_of_led_sens:
+   912                           	opt stack 0
+   913                           tblptru	equ	0xFF8
+   914                           indf2	equ	0xFDF
+   915                           fsr2h	equ	0xFDA
+   916                           fsr2l	equ	0xFD9
+   917                           status	equ	0xFD8
+   918                           
+   919 ;; *************** function _isAllStraight *****************
+   920 ;; Defined at:
+   921 ;;		line 46 in file "main.c"
+   922 ;; Parameters:    Size  Location     Type
+   923 ;;  states          2    0[COMRAM] PTR enum E3329
+   924 ;;		 -> states(4), 
+   925 ;; Auto vars:     Size  Location     Type
+   926 ;;  i               2    3[COMRAM] int 
+   927 ;; Return value:  Size  Location     Type
+   928 ;;                  2    0[COMRAM] int 
+   929 ;; Registers used:
+   930 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+   931 ;; Tracked objects:
+   932 ;;		On entry : 0/0
+   933 ;;		On exit  : 0/0
+   934 ;;		Unchanged: 0/0
+   935 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   936 ;;      Params:         2       0       0       0       0       0       0       0       0
+   937 ;;      Locals:         2       0       0       0       0       0       0       0       0
+   938 ;;      Temps:          1       0       0       0       0       0       0       0       0
+   939 ;;      Totals:         5       0       0       0       0       0       0       0       0
+   940 ;;Total ram usage:        5 bytes
+   941 ;; Hardware stack levels used:    1
+   942 ;; This function calls:
+   943 ;;		Nothing
+   944 ;; This function is called by:
+   945 ;;		_main
+   946 ;; This function uses a non-reentrant model
+   947 ;;
+   948                           
+   949                           	psect	text7
+   950  007CDC                     __ptext7:
+   951                           	opt stack 0
+   952  007CDC                     _isAllStraight:
+   953                           	opt stack 30
+   954                           
+   955                           ;main.c: 47: for (int i = 0; i < 4; i++) {
+   956                           
+   957                           ;incstack = 0
+   958  007CDC  0E00               	movlw	0
+   959  007CDE  6E05               	movwf	isAllStraight@i+1,c
+   960  007CE0  0E00               	movlw	0
+   961  007CE2  6E04               	movwf	isAllStraight@i,c
+   962  007CE4                     l1012:
+   963  007CE4  BE05               	btfsc	isAllStraight@i+1,7,c
+   964  007CE6  D006               	goto	l34
+   965  007CE8  5005               	movf	isAllStraight@i+1,w,c
+   966  007CEA  E116               	bnz	l1026
+   967  007CEC  0E04               	movlw	4
+   968  007CEE  5C04               	subwf	isAllStraight@i,w,c
+   969  007CF0  B0D8               	btfsc	status,0,c
+   970  007CF2  D012               	goto	u730
+   971  007CF4                     l34:
+   972                           
+   973                           ;main.c: 48: if (states[i] != straight_line) {
+   974  007CF4  5004               	movf	isAllStraight@i,w,c
+   975  007CF6  2401               	addwf	isAllStraight@states,w,c
+   976  007CF8  6ED9               	movwf	fsr2l,c
+   977  007CFA  5005               	movf	isAllStraight@i+1,w,c
+   978  007CFC  2002               	addwfc	isAllStraight@states+1,w,c
+   979  007CFE  6EDA               	movwf	fsr2h,c
+   980  007D00  0E02               	movlw	2
+   981  007D02  18DE               	xorwf	postinc2,w,c
+   982  007D04  B4D8               	btfsc	status,2,c
+   983  007D06  D005               	goto	l36
+   984                           
+   985                           ;main.c: 49: return 0;
+   986  007D08  0E00               	movlw	0
+   987  007D0A  6E02               	movwf	?_isAllStraight+1,c
+   988  007D0C  0E00               	movlw	0
+   989  007D0E  6E01               	movwf	?_isAllStraight,c
+   990  007D10  0012               	return	
+   991  007D12                     l36:
+   992  007D12  4A04               	infsnz	isAllStraight@i,f,c
+   993  007D14  2A05               	incf	isAllStraight@i+1,f,c
+   994  007D16  D7E6               	goto	l1012
+   995  007D18                     u730:
+   996  007D18                     l1026:
+   997                           
+   998                           ;main.c: 50: }
+   999                           ;main.c: 51: }
+  1000                           ;main.c: 52: return 1;
+  1001  007D18  0E00               	movlw	0
+  1002  007D1A  6E02               	movwf	?_isAllStraight+1,c
+  1003  007D1C  0E01               	movlw	1
+  1004  007D1E  6E01               	movwf	?_isAllStraight,c
+  1005  007D20  0012               	return	
+  1006  007D22                     __end_of_isAllStraight:
+  1007                           	opt stack 0
+  1008                           tblptru	equ	0xFF8
+  1009                           indf2	equ	0xFDF
+  1010                           postinc2	equ	0xFDE
+  1011                           fsr2h	equ	0xFDA
+  1012                           fsr2l	equ	0xFD9
+  1013                           status	equ	0xFD8
   1014                           
-  1015                           ;main.c: 65: }
-  1016                           ;main.c: 66: if (a == 1 && b == 1 && c == 1
-  1017                           ;main.c: 67: && d == 0 && e == 1) {
-  1018  007F18  0401               	decf	getRoadState@a,w,c
-  1019  007F1A  1002               	iorwf	getRoadState@a+1,w,c
-  1020  007F1C  A4D8               	btfss	status,2,c
-  1021  007F1E  D012               	goto	l44
-  1022  007F20  0403               	decf	getRoadState@b,w,c
-  1023  007F22  1004               	iorwf	getRoadState@b+1,w,c
-  1024  007F24  A4D8               	btfss	status,2,c
-  1025  007F26  D00E               	goto	l44
-  1026  007F28  0405               	decf	getRoadState@c,w,c
-  1027  007F2A  1006               	iorwf	getRoadState@c+1,w,c
-  1028  007F2C  A4D8               	btfss	status,2,c
-  1029  007F2E  D00A               	goto	l44
-  1030  007F30  5007               	movf	getRoadState@d,w,c
-  1031  007F32  1008               	iorwf	getRoadState@d+1,w,c
-  1032  007F34  A4D8               	btfss	status,2,c
-  1033  007F36  D006               	goto	l44
-  1034  007F38  0409               	decf	getRoadState@e,w,c
-  1035  007F3A  100A               	iorwf	getRoadState@e+1,w,c
-  1036  007F3C  A4D8               	btfss	status,2,c
-  1037  007F3E  D002               	goto	l44
-  1038                           
-  1039                           ;main.c: 68: return off_left_little;
-  1040  007F40  0E05               	movlw	5
-  1041  007F42  0012               	return	
-  1042  007F44                     l44:
-  1043                           
-  1044                           ;main.c: 69: }
-  1045                           ;main.c: 70: if (a == 0 && c == 1 && e == 1) {
-  1046  007F44  5001               	movf	getRoadState@a,w,c
-  1047  007F46  1002               	iorwf	getRoadState@a+1,w,c
-  1048  007F48  A4D8               	btfss	status,2,c
-  1049  007F4A  D00A               	goto	l45
-  1050  007F4C  0405               	decf	getRoadState@c,w,c
-  1051  007F4E  1006               	iorwf	getRoadState@c+1,w,c
-  1052  007F50  A4D8               	btfss	status,2,c
-  1053  007F52  D006               	goto	l45
-  1054  007F54  0409               	decf	getRoadState@e,w,c
-  1055  007F56  100A               	iorwf	getRoadState@e+1,w,c
-  1056  007F58  A4D8               	btfss	status,2,c
-  1057  007F5A  D002               	goto	l45
+  1015 ;; *************** function _getRoadState *****************
+  1016 ;; Defined at:
+  1017 ;;		line 55 in file "main.c"
+  1018 ;; Parameters:    Size  Location     Type
+  1019 ;;  a               2    0[COMRAM] short 
+  1020 ;;  b               2    2[COMRAM] short 
+  1021 ;;  c               2    4[COMRAM] short 
+  1022 ;;  d               2    6[COMRAM] short 
+  1023 ;;  e               2    8[COMRAM] short 
+  1024 ;; Auto vars:     Size  Location     Type
+  1025 ;;		None
+  1026 ;; Return value:  Size  Location     Type
+  1027 ;;                  1    wreg      enum E3329
+  1028 ;; Registers used:
+  1029 ;;		wreg, status,2, status,0
+  1030 ;; Tracked objects:
+  1031 ;;		On entry : 0/0
+  1032 ;;		On exit  : 0/0
+  1033 ;;		Unchanged: 0/0
+  1034 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1035 ;;      Params:        10       0       0       0       0       0       0       0       0
+  1036 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1037 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1038 ;;      Totals:        10       0       0       0       0       0       0       0       0
+  1039 ;;Total ram usage:       10 bytes
+  1040 ;; Hardware stack levels used:    1
+  1041 ;; This function calls:
+  1042 ;;		Nothing
+  1043 ;; This function is called by:
+  1044 ;;		_main
+  1045 ;; This function uses a non-reentrant model
+  1046 ;;
+  1047                           
+  1048                           	psect	text8
+  1049  007E54                     __ptext8:
+  1050                           	opt stack 0
+  1051  007E54                     _getRoadState:
+  1052                           	opt stack 30
+  1053                           
+  1054                           ;main.c: 56: if ( (a == 1 && b == 1 && c == 1
+  1055                           ;main.c: 57: && d == 1 && e == 1)
+  1056                           ;main.c: 58: || (a == 0 && b == 0 && c == 0
+  1057                           ;main.c: 59: && d == 0 && e == 0)) {
   1058                           
-  1059                           ;main.c: 71: return off_right;
-  1060  007F5C  0E04               	movlw	4
-  1061  007F5E  0012               	return	
-  1062  007F60                     l45:
-  1063                           
-  1064                           ;main.c: 72: }
-  1065                           ;main.c: 73: if (a == 1 && c == 1 && e == 0) {
-  1066  007F60  0401               	decf	getRoadState@a,w,c
-  1067  007F62  1002               	iorwf	getRoadState@a+1,w,c
-  1068  007F64  A4D8               	btfss	status,2,c
-  1069  007F66  D00A               	goto	l46
-  1070  007F68  0405               	decf	getRoadState@c,w,c
-  1071  007F6A  1006               	iorwf	getRoadState@c+1,w,c
-  1072  007F6C  A4D8               	btfss	status,2,c
-  1073  007F6E  D006               	goto	l46
-  1074  007F70  5009               	movf	getRoadState@e,w,c
-  1075  007F72  100A               	iorwf	getRoadState@e+1,w,c
-  1076  007F74  A4D8               	btfss	status,2,c
-  1077  007F76  D002               	goto	l46
-  1078                           
-  1079                           ;main.c: 74: return off_left;
-  1080  007F78  0E06               	movlw	6
-  1081  007F7A  0012               	return	
-  1082  007F7C                     l46:
-  1083                           
-  1084                           ;main.c: 75: }
-  1085                           ;main.c: 78: if (a == 0 && b == 1
-  1086                           ;main.c: 79: && d == 0 && e == 0) {
-  1087  007F7C  5001               	movf	getRoadState@a,w,c
-  1088  007F7E  1002               	iorwf	getRoadState@a+1,w,c
-  1089  007F80  A4D8               	btfss	status,2,c
-  1090  007F82  D00E               	goto	l47
-  1091  007F84  0403               	decf	getRoadState@b,w,c
-  1092  007F86  1004               	iorwf	getRoadState@b+1,w,c
-  1093  007F88  A4D8               	btfss	status,2,c
-  1094  007F8A  D00A               	goto	l47
-  1095  007F8C  5007               	movf	getRoadState@d,w,c
-  1096  007F8E  1008               	iorwf	getRoadState@d+1,w,c
-  1097  007F90  A4D8               	btfss	status,2,c
-  1098  007F92  D006               	goto	l47
-  1099  007F94  5009               	movf	getRoadState@e,w,c
-  1100  007F96  100A               	iorwf	getRoadState@e+1,w,c
-  1101  007F98  A4D8               	btfss	status,2,c
-  1102  007F9A  D002               	goto	l47
-  1103                           
-  1104                           ;main.c: 80: return off_right_little;
-  1105  007F9C  0E03               	movlw	3
-  1106  007F9E  0012               	return	
-  1107  007FA0                     l47:
-  1108                           
-  1109                           ;main.c: 81: }
-  1110                           ;main.c: 82: if (a == 0 && b == 0
-  1111                           ;main.c: 83: && d == 1 && e == 0) {
-  1112  007FA0  5001               	movf	getRoadState@a,w,c
-  1113  007FA2  1002               	iorwf	getRoadState@a+1,w,c
-  1114  007FA4  A4D8               	btfss	status,2,c
-  1115  007FA6  D00E               	goto	l48
-  1116  007FA8  5003               	movf	getRoadState@b,w,c
-  1117  007FAA  1004               	iorwf	getRoadState@b+1,w,c
-  1118  007FAC  A4D8               	btfss	status,2,c
-  1119  007FAE  D00A               	goto	l48
-  1120  007FB0  0407               	decf	getRoadState@d,w,c
-  1121  007FB2  1008               	iorwf	getRoadState@d+1,w,c
-  1122  007FB4  A4D8               	btfss	status,2,c
-  1123  007FB6  D006               	goto	l48
-  1124  007FB8  5009               	movf	getRoadState@e,w,c
-  1125  007FBA  100A               	iorwf	getRoadState@e+1,w,c
-  1126  007FBC  A4D8               	btfss	status,2,c
-  1127  007FBE  D002               	goto	l48
-  1128                           
-  1129                           ;main.c: 84: return off_left_little;
-  1130  007FC0  0E05               	movlw	5
-  1131  007FC2  0012               	return	
-  1132  007FC4                     l48:
-  1133                           
-  1134                           ;main.c: 85: }
-  1135                           ;main.c: 86: if (a == 1 && c == 0 && e == 0) {
-  1136  007FC4  0401               	decf	getRoadState@a,w,c
-  1137  007FC6  1002               	iorwf	getRoadState@a+1,w,c
-  1138  007FC8  A4D8               	btfss	status,2,c
-  1139  007FCA  D00A               	goto	l49
-  1140  007FCC  5005               	movf	getRoadState@c,w,c
-  1141  007FCE  1006               	iorwf	getRoadState@c+1,w,c
-  1142  007FD0  A4D8               	btfss	status,2,c
-  1143  007FD2  D006               	goto	l49
-  1144  007FD4  5009               	movf	getRoadState@e,w,c
-  1145  007FD6  100A               	iorwf	getRoadState@e+1,w,c
-  1146  007FD8  A4D8               	btfss	status,2,c
-  1147  007FDA  D002               	goto	l49
-  1148                           
-  1149                           ;main.c: 87: return off_right;
-  1150  007FDC  0E04               	movlw	4
-  1151  007FDE  0012               	return	
-  1152  007FE0                     l49:
-  1153                           
-  1154                           ;main.c: 88: }
-  1155                           ;main.c: 89: if (a == 0 && c == 0 && e == 1) {
-  1156  007FE0  5001               	movf	getRoadState@a,w,c
-  1157  007FE2  1002               	iorwf	getRoadState@a+1,w,c
-  1158  007FE4  A4D8               	btfss	status,2,c
-  1159  007FE6  D00A               	goto	l50
-  1160  007FE8  5005               	movf	getRoadState@c,w,c
-  1161  007FEA  1006               	iorwf	getRoadState@c+1,w,c
-  1162  007FEC  A4D8               	btfss	status,2,c
-  1163  007FEE  D006               	goto	l50
-  1164  007FF0  0409               	decf	getRoadState@e,w,c
-  1165  007FF2  100A               	iorwf	getRoadState@e+1,w,c
-  1166  007FF4  A4D8               	btfss	status,2,c
-  1167  007FF6  D002               	goto	l50
-  1168                           
-  1169                           ;main.c: 90: return off_left;
-  1170  007FF8  0E06               	movlw	6
-  1171  007FFA  0012               	return	
-  1172  007FFC                     l50:
-  1173                           
-  1174                           ;main.c: 91: }
-  1175                           ;main.c: 93: return on_track;
-  1176  007FFC  0E00               	movlw	0
-  1177  007FFE  0012               	return	
-  1178  008000                     __end_of_getRoadState:
-  1179                           	opt stack 0
-  1180                           tblptru	equ	0xFF8
-  1181                           status	equ	0xFD8
+  1059                           ;incstack = 0
+  1060  007E54  0401               	decf	getRoadState@a,w,c
+  1061  007E56  1002               	iorwf	getRoadState@a+1,w,c
+  1062  007E58  A4D8               	btfss	status,2,c
+  1063  007E5A  D010               	goto	u780
+  1064  007E5C  0403               	decf	getRoadState@b,w,c
+  1065  007E5E  1004               	iorwf	getRoadState@b+1,w,c
+  1066  007E60  A4D8               	btfss	status,2,c
+  1067  007E62  D00C               	goto	u780
+  1068  007E64  0405               	decf	getRoadState@c,w,c
+  1069  007E66  1006               	iorwf	getRoadState@c+1,w,c
+  1070  007E68  A4D8               	btfss	status,2,c
+  1071  007E6A  D008               	goto	u780
+  1072  007E6C  0407               	decf	getRoadState@d,w,c
+  1073  007E6E  1008               	iorwf	getRoadState@d+1,w,c
+  1074  007E70  A4D8               	btfss	status,2,c
+  1075  007E72  D004               	goto	u780
+  1076  007E74  0409               	decf	getRoadState@e,w,c
+  1077  007E76  100A               	iorwf	getRoadState@e+1,w,c
+  1078  007E78  B4D8               	btfsc	status,2,c
+  1079  007E7A  D014               	goto	u830
+  1080  007E7C                     u780:
+  1081  007E7C  5001               	movf	getRoadState@a,w,c
+  1082  007E7E  1002               	iorwf	getRoadState@a+1,w,c
+  1083  007E80  A4D8               	btfss	status,2,c
+  1084  007E82  D012               	goto	l40
+  1085  007E84  5003               	movf	getRoadState@b,w,c
+  1086  007E86  1004               	iorwf	getRoadState@b+1,w,c
+  1087  007E88  A4D8               	btfss	status,2,c
+  1088  007E8A  D00E               	goto	l40
+  1089  007E8C  5005               	movf	getRoadState@c,w,c
+  1090  007E8E  1006               	iorwf	getRoadState@c+1,w,c
+  1091  007E90  A4D8               	btfss	status,2,c
+  1092  007E92  D00A               	goto	l40
+  1093  007E94  5007               	movf	getRoadState@d,w,c
+  1094  007E96  1008               	iorwf	getRoadState@d+1,w,c
+  1095  007E98  A4D8               	btfss	status,2,c
+  1096  007E9A  D006               	goto	l40
+  1097  007E9C  5009               	movf	getRoadState@e,w,c
+  1098  007E9E  100A               	iorwf	getRoadState@e+1,w,c
+  1099  007EA0  A4D8               	btfss	status,2,c
+  1100  007EA2  D002               	goto	l40
+  1101  007EA4                     u830:
+  1102                           
+  1103                           ;main.c: 60: return off_track;
+  1104  007EA4  0E01               	movlw	1
+  1105  007EA6  0012               	return	
+  1106  007EA8                     l40:
+  1107                           
+  1108                           ;main.c: 61: }
+  1109                           ;main.c: 63: if ( (c == 0
+  1110                           ;main.c: 64: && a == 1 && b == 1
+  1111                           ;main.c: 65: && d == 1 && e == 1)
+  1112                           ;main.c: 66: || (c == 1
+  1113                           ;main.c: 67: && a == 0 && b == 0
+  1114                           ;main.c: 68: && d == 0 && e == 0)) {
+  1115  007EA8  5005               	movf	getRoadState@c,w,c
+  1116  007EAA  1006               	iorwf	getRoadState@c+1,w,c
+  1117  007EAC  A4D8               	btfss	status,2,c
+  1118  007EAE  D010               	goto	u880
+  1119  007EB0  0401               	decf	getRoadState@a,w,c
+  1120  007EB2  1002               	iorwf	getRoadState@a+1,w,c
+  1121  007EB4  A4D8               	btfss	status,2,c
+  1122  007EB6  D00C               	goto	u880
+  1123  007EB8  0403               	decf	getRoadState@b,w,c
+  1124  007EBA  1004               	iorwf	getRoadState@b+1,w,c
+  1125  007EBC  A4D8               	btfss	status,2,c
+  1126  007EBE  D008               	goto	u880
+  1127  007EC0  0407               	decf	getRoadState@d,w,c
+  1128  007EC2  1008               	iorwf	getRoadState@d+1,w,c
+  1129  007EC4  A4D8               	btfss	status,2,c
+  1130  007EC6  D004               	goto	u880
+  1131  007EC8  0409               	decf	getRoadState@e,w,c
+  1132  007ECA  100A               	iorwf	getRoadState@e+1,w,c
+  1133  007ECC  B4D8               	btfsc	status,2,c
+  1134  007ECE  D014               	goto	u930
+  1135  007ED0                     u880:
+  1136  007ED0  0405               	decf	getRoadState@c,w,c
+  1137  007ED2  1006               	iorwf	getRoadState@c+1,w,c
+  1138  007ED4  A4D8               	btfss	status,2,c
+  1139  007ED6  D012               	goto	l46
+  1140  007ED8  5001               	movf	getRoadState@a,w,c
+  1141  007EDA  1002               	iorwf	getRoadState@a+1,w,c
+  1142  007EDC  A4D8               	btfss	status,2,c
+  1143  007EDE  D00E               	goto	l46
+  1144  007EE0  5003               	movf	getRoadState@b,w,c
+  1145  007EE2  1004               	iorwf	getRoadState@b+1,w,c
+  1146  007EE4  A4D8               	btfss	status,2,c
+  1147  007EE6  D00A               	goto	l46
+  1148  007EE8  5007               	movf	getRoadState@d,w,c
+  1149  007EEA  1008               	iorwf	getRoadState@d+1,w,c
+  1150  007EEC  A4D8               	btfss	status,2,c
+  1151  007EEE  D006               	goto	l46
+  1152  007EF0  5009               	movf	getRoadState@e,w,c
+  1153  007EF2  100A               	iorwf	getRoadState@e+1,w,c
+  1154  007EF4  A4D8               	btfss	status,2,c
+  1155  007EF6  D002               	goto	l46
+  1156  007EF8                     u930:
+  1157                           
+  1158                           ;main.c: 69: return straight_line;
+  1159  007EF8  0E02               	movlw	2
+  1160  007EFA  0012               	return	
+  1161  007EFC                     l46:
+  1162                           
+  1163                           ;main.c: 70: }
+  1164                           ;main.c: 73: if (a == 1 && b == 0
+  1165                           ;main.c: 74: && d == 1 && e == 1) {
+  1166  007EFC  0401               	decf	getRoadState@a,w,c
+  1167  007EFE  1002               	iorwf	getRoadState@a+1,w,c
+  1168  007F00  A4D8               	btfss	status,2,c
+  1169  007F02  D00E               	goto	l51
+  1170  007F04  5003               	movf	getRoadState@b,w,c
+  1171  007F06  1004               	iorwf	getRoadState@b+1,w,c
+  1172  007F08  A4D8               	btfss	status,2,c
+  1173  007F0A  D00A               	goto	l51
+  1174  007F0C  0407               	decf	getRoadState@d,w,c
+  1175  007F0E  1008               	iorwf	getRoadState@d+1,w,c
+  1176  007F10  A4D8               	btfss	status,2,c
+  1177  007F12  D006               	goto	l51
+  1178  007F14  0409               	decf	getRoadState@e,w,c
+  1179  007F16  100A               	iorwf	getRoadState@e+1,w,c
+  1180  007F18  A4D8               	btfss	status,2,c
+  1181  007F1A  D002               	goto	l51
   1182                           
-  1183 ;; *************** function _accelerate *****************
-  1184 ;; Defined at:
-  1185 ;;		line 144 in file "main.c"
-  1186 ;; Parameters:    Size  Location     Type
-  1187 ;;		None
-  1188 ;; Auto vars:     Size  Location     Type
-  1189 ;;		None
-  1190 ;; Return value:  Size  Location     Type
-  1191 ;;                  2   67[None  ] int 
-  1192 ;; Registers used:
-  1193 ;;		wreg, status,2, status,0, cstack
-  1194 ;; Tracked objects:
-  1195 ;;		On entry : 0/0
-  1196 ;;		On exit  : 0/0
-  1197 ;;		Unchanged: 0/0
-  1198 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-  1199 ;;      Params:         0       0       0       0       0       0       0       0       0
-  1200 ;;      Locals:         0       0       0       0       0       0       0       0       0
-  1201 ;;      Temps:          0       0       0       0       0       0       0       0       0
-  1202 ;;      Totals:         0       0       0       0       0       0       0       0       0
-  1203 ;;Total ram usage:        0 bytes
-  1204 ;; Hardware stack levels used:    1
-  1205 ;; Hardware stack levels required when called:    1
-  1206 ;; This function calls:
-  1207 ;;		_wait00
-  1208 ;; This function is called by:
-  1209 ;;		_main
-  1210 ;; This function uses a non-reentrant model
-  1211 ;;
+  1183                           ;main.c: 75: return off_right_little;
+  1184  007F1C  0E03               	movlw	3
+  1185  007F1E  0012               	return	
+  1186  007F20                     l51:
+  1187                           
+  1188                           ;main.c: 76: }
+  1189                           ;main.c: 77: if (a == 1 && b == 1
+  1190                           ;main.c: 78: && d == 0 && e == 1) {
+  1191  007F20  0401               	decf	getRoadState@a,w,c
+  1192  007F22  1002               	iorwf	getRoadState@a+1,w,c
+  1193  007F24  A4D8               	btfss	status,2,c
+  1194  007F26  D00E               	goto	l52
+  1195  007F28  0403               	decf	getRoadState@b,w,c
+  1196  007F2A  1004               	iorwf	getRoadState@b+1,w,c
+  1197  007F2C  A4D8               	btfss	status,2,c
+  1198  007F2E  D00A               	goto	l52
+  1199  007F30  5007               	movf	getRoadState@d,w,c
+  1200  007F32  1008               	iorwf	getRoadState@d+1,w,c
+  1201  007F34  A4D8               	btfss	status,2,c
+  1202  007F36  D006               	goto	l52
+  1203  007F38  0409               	decf	getRoadState@e,w,c
+  1204  007F3A  100A               	iorwf	getRoadState@e+1,w,c
+  1205  007F3C  A4D8               	btfss	status,2,c
+  1206  007F3E  D002               	goto	l52
+  1207                           
+  1208                           ;main.c: 79: return off_left_little;
+  1209  007F40  0E05               	movlw	5
+  1210  007F42  0012               	return	
+  1211  007F44                     l52:
   1212                           
-  1213                           	psect	text8
-  1214  007C10                     __ptext8:
-  1215                           	opt stack 0
-  1216  007C10                     _accelerate:
-  1217                           	opt stack 29
-  1218                           
-  1219                           ;main.c: 145: PORTC=0x03;
-  1220                           
-  1221                           ;incstack = 0
-  1222  007C10  0E03               	movlw	3
-  1223  007C12  6E82               	movwf	3970,c	;volatile
-  1224                           
-  1225                           ;main.c: 146: wait00(60);
-  1226  007C14  0E00               	movlw	0
-  1227  007C16  6E02               	movwf	wait00@k+1,c
-  1228  007C18  0E3C               	movlw	60
-  1229  007C1A  6E01               	movwf	wait00@k,c
-  1230  007C1C  EC86  F03E         	call	_wait00	;wreg free
-  1231                           
-  1232                           ;main.c: 147: PORTC=0x02;
-  1233  007C20  0E02               	movlw	2
-  1234  007C22  6E82               	movwf	3970,c	;volatile
-  1235                           
-  1236                           ;main.c: 148: wait00(6);
-  1237  007C24  0E00               	movlw	0
-  1238  007C26  6E02               	movwf	wait00@k+1,c
-  1239  007C28  0E06               	movlw	6
-  1240  007C2A  6E01               	movwf	wait00@k,c
-  1241  007C2C  EC86  F03E         	call	_wait00	;wreg free
-  1242                           
-  1243                           ;main.c: 149: PORTC=0x00;
-  1244  007C30  0E00               	movlw	0
-  1245  007C32  6E82               	movwf	3970,c	;volatile
-  1246                           
-  1247                           ;main.c: 150: wait00(10);
-  1248  007C34  0E00               	movlw	0
-  1249  007C36  6E02               	movwf	wait00@k+1,c
-  1250  007C38  0E0A               	movlw	10
-  1251  007C3A  6E01               	movwf	wait00@k,c
-  1252  007C3C  EC86  F03E         	call	_wait00	;wreg free
-  1253  007C40  0012               	return		;funcret
-  1254  007C42                     __end_of_accelerate:
-  1255                           	opt stack 0
-  1256                           tblptru	equ	0xFF8
-  1257                           status	equ	0xFD8
-  1258                           
-  1259 ;; *************** function _wait00 *****************
-  1260 ;; Defined at:
-  1261 ;;		line 13 in file "main.c"
-  1262 ;; Parameters:    Size  Location     Type
-  1263 ;;  k               2    0[COMRAM] short 
-  1264 ;; Auto vars:     Size  Location     Type
-  1265 ;;  i               2    5[COMRAM] short 
-  1266 ;;  j               2    3[COMRAM] short 
-  1267 ;; Return value:  Size  Location     Type
-  1268 ;;                  2    0[COMRAM] int 
-  1269 ;; Registers used:
-  1270 ;;		wreg, status,2, status,0
-  1271 ;; Tracked objects:
-  1272 ;;		On entry : 0/0
-  1273 ;;		On exit  : 0/0
-  1274 ;;		Unchanged: 0/0
-  1275 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-  1276 ;;      Params:         2       0       0       0       0       0       0       0       0
-  1277 ;;      Locals:         4       0       0       0       0       0       0       0       0
-  1278 ;;      Temps:          1       0       0       0       0       0       0       0       0
-  1279 ;;      Totals:         7       0       0       0       0       0       0       0       0
-  1280 ;;Total ram usage:        7 bytes
-  1281 ;; Hardware stack levels used:    1
-  1282 ;; This function calls:
-  1283 ;;		Nothing
-  1284 ;; This function is called by:
-  1285 ;;		_turnLeft
-  1286 ;;		_turnRight
-  1287 ;;		_turnLeftSmall
-  1288 ;;		_turnRightSmall
-  1289 ;;		_straight
-  1290 ;;		_accelerate
-  1291 ;; This function uses a non-reentrant model
-  1292 ;;
-  1293                           
-  1294                           	psect	text9
-  1295  007D0C                     __ptext9:
-  1296                           	opt stack 0
-  1297  007D0C                     _wait00:
-  1298                           	opt stack 29
-  1299                           
-  1300                           ;main.c: 16: short i;
-  1301                           ;main.c: 17: short j;
-  1302                           ;main.c: 18: for(j=0;j<k;j++){
-  1303                           
-  1304                           ;incstack = 0
-  1305  007D0C  0E00               	movlw	0
-  1306  007D0E  6E05               	movwf	wait00@j+1,c
-  1307  007D10  0E00               	movlw	0
-  1308  007D12  6E04               	movwf	wait00@j,c
-  1309  007D14  D011               	goto	l21
-  1310  007D16                     
-  1311                           ;main.c: 19: for(i=0;i<300;i++){
-  1312  007D16  0E00               	movlw	0
-  1313  007D18  6E07               	movwf	wait00@i+1,c
-  1314  007D1A  0E00               	movlw	0
-  1315  007D1C  6E06               	movwf	wait00@i,c
-  1316  007D1E                     l970:
-  1317  007D1E  BE07               	btfsc	wait00@i+1,7,c
-  1318  007D20  D006               	goto	l23
-  1319  007D22  0E2C               	movlw	44
-  1320  007D24  5C06               	subwf	wait00@i,w,c
-  1321  007D26  0E01               	movlw	1
-  1322  007D28  5807               	subwfb	wait00@i+1,w,c
-  1323  007D2A  B0D8               	btfsc	status,0,c
-  1324  007D2C  D003               	goto	u680
-  1325  007D2E                     l23:
-  1326  007D2E  4A06               	infsnz	wait00@i,f,c
-  1327  007D30  2A07               	incf	wait00@i+1,f,c
-  1328  007D32  D7F5               	goto	l970
-  1329  007D34                     u680:
-  1330  007D34  4A04               	infsnz	wait00@j,f,c
-  1331  007D36  2A05               	incf	wait00@j+1,f,c
-  1332  007D38                     l21:
-  1333  007D38  5001               	movf	wait00@k,w,c
-  1334  007D3A  5C04               	subwf	wait00@j,w,c
-  1335  007D3C  5005               	movf	wait00@j+1,w,c
-  1336  007D3E  0A80               	xorlw	128
-  1337  007D40  6E03               	movwf	??_wait00& (0+255),c
-  1338  007D42  5002               	movf	wait00@k+1,w,c
-  1339  007D44  0A80               	xorlw	128
-  1340  007D46  5803               	subwfb	??_wait00& (0+255),w,c
-  1341  007D48  B0D8               	btfsc	status,0,c
-  1342  007D4A  0012               	return	
-  1343  007D4C  D7E4               	goto	l22
-  1344  007D4E                     __end_of_wait00:
-  1345                           	opt stack 0
-  1346  0000                     tblptru	equ	0xFF8
-  1347                           status	equ	0xFD8
-  1348                           tblptru	equ	0xFF8
-  1349                           status	equ	0xFD8
-  1350                           
-  1351                           	psect	rparam
-  1352  0000                     tblptru	equ	0xFF8
-  1353                           status	equ	0xFD8
+  1213                           ;main.c: 80: }
+  1214                           ;main.c: 81: if (a == 0 && c == 1 && e == 1) {
+  1215  007F44  5001               	movf	getRoadState@a,w,c
+  1216  007F46  1002               	iorwf	getRoadState@a+1,w,c
+  1217  007F48  A4D8               	btfss	status,2,c
+  1218  007F4A  D00A               	goto	l53
+  1219  007F4C  0405               	decf	getRoadState@c,w,c
+  1220  007F4E  1006               	iorwf	getRoadState@c+1,w,c
+  1221  007F50  A4D8               	btfss	status,2,c
+  1222  007F52  D006               	goto	l53
+  1223  007F54  0409               	decf	getRoadState@e,w,c
+  1224  007F56  100A               	iorwf	getRoadState@e+1,w,c
+  1225  007F58  A4D8               	btfss	status,2,c
+  1226  007F5A  D002               	goto	l53
+  1227                           
+  1228                           ;main.c: 82: return off_right;
+  1229  007F5C  0E04               	movlw	4
+  1230  007F5E  0012               	return	
+  1231  007F60                     l53:
+  1232                           
+  1233                           ;main.c: 83: }
+  1234                           ;main.c: 84: if (a == 1 && c == 1 && e == 0) {
+  1235  007F60  0401               	decf	getRoadState@a,w,c
+  1236  007F62  1002               	iorwf	getRoadState@a+1,w,c
+  1237  007F64  A4D8               	btfss	status,2,c
+  1238  007F66  D00A               	goto	l54
+  1239  007F68  0405               	decf	getRoadState@c,w,c
+  1240  007F6A  1006               	iorwf	getRoadState@c+1,w,c
+  1241  007F6C  A4D8               	btfss	status,2,c
+  1242  007F6E  D006               	goto	l54
+  1243  007F70  5009               	movf	getRoadState@e,w,c
+  1244  007F72  100A               	iorwf	getRoadState@e+1,w,c
+  1245  007F74  A4D8               	btfss	status,2,c
+  1246  007F76  D002               	goto	l54
+  1247                           
+  1248                           ;main.c: 85: return off_left;
+  1249  007F78  0E06               	movlw	6
+  1250  007F7A  0012               	return	
+  1251  007F7C                     l54:
+  1252                           
+  1253                           ;main.c: 86: }
+  1254                           ;main.c: 89: if (a == 0 && b == 1
+  1255                           ;main.c: 90: && d == 0 && e == 0) {
+  1256  007F7C  5001               	movf	getRoadState@a,w,c
+  1257  007F7E  1002               	iorwf	getRoadState@a+1,w,c
+  1258  007F80  A4D8               	btfss	status,2,c
+  1259  007F82  D00E               	goto	l55
+  1260  007F84  0403               	decf	getRoadState@b,w,c
+  1261  007F86  1004               	iorwf	getRoadState@b+1,w,c
+  1262  007F88  A4D8               	btfss	status,2,c
+  1263  007F8A  D00A               	goto	l55
+  1264  007F8C  5007               	movf	getRoadState@d,w,c
+  1265  007F8E  1008               	iorwf	getRoadState@d+1,w,c
+  1266  007F90  A4D8               	btfss	status,2,c
+  1267  007F92  D006               	goto	l55
+  1268  007F94  5009               	movf	getRoadState@e,w,c
+  1269  007F96  100A               	iorwf	getRoadState@e+1,w,c
+  1270  007F98  A4D8               	btfss	status,2,c
+  1271  007F9A  D002               	goto	l55
+  1272                           
+  1273                           ;main.c: 91: return off_right_little;
+  1274  007F9C  0E03               	movlw	3
+  1275  007F9E  0012               	return	
+  1276  007FA0                     l55:
+  1277                           
+  1278                           ;main.c: 92: }
+  1279                           ;main.c: 93: if (a == 0 && b == 0
+  1280                           ;main.c: 94: && d == 1 && e == 0) {
+  1281  007FA0  5001               	movf	getRoadState@a,w,c
+  1282  007FA2  1002               	iorwf	getRoadState@a+1,w,c
+  1283  007FA4  A4D8               	btfss	status,2,c
+  1284  007FA6  D00E               	goto	l56
+  1285  007FA8  5003               	movf	getRoadState@b,w,c
+  1286  007FAA  1004               	iorwf	getRoadState@b+1,w,c
+  1287  007FAC  A4D8               	btfss	status,2,c
+  1288  007FAE  D00A               	goto	l56
+  1289  007FB0  0407               	decf	getRoadState@d,w,c
+  1290  007FB2  1008               	iorwf	getRoadState@d+1,w,c
+  1291  007FB4  A4D8               	btfss	status,2,c
+  1292  007FB6  D006               	goto	l56
+  1293  007FB8  5009               	movf	getRoadState@e,w,c
+  1294  007FBA  100A               	iorwf	getRoadState@e+1,w,c
+  1295  007FBC  A4D8               	btfss	status,2,c
+  1296  007FBE  D002               	goto	l56
+  1297                           
+  1298                           ;main.c: 95: return off_left_little;
+  1299  007FC0  0E05               	movlw	5
+  1300  007FC2  0012               	return	
+  1301  007FC4                     l56:
+  1302                           
+  1303                           ;main.c: 96: }
+  1304                           ;main.c: 97: if (a == 1 && c == 0 && e == 0) {
+  1305  007FC4  0401               	decf	getRoadState@a,w,c
+  1306  007FC6  1002               	iorwf	getRoadState@a+1,w,c
+  1307  007FC8  A4D8               	btfss	status,2,c
+  1308  007FCA  D00A               	goto	l57
+  1309  007FCC  5005               	movf	getRoadState@c,w,c
+  1310  007FCE  1006               	iorwf	getRoadState@c+1,w,c
+  1311  007FD0  A4D8               	btfss	status,2,c
+  1312  007FD2  D006               	goto	l57
+  1313  007FD4  5009               	movf	getRoadState@e,w,c
+  1314  007FD6  100A               	iorwf	getRoadState@e+1,w,c
+  1315  007FD8  A4D8               	btfss	status,2,c
+  1316  007FDA  D002               	goto	l57
+  1317                           
+  1318                           ;main.c: 98: return off_right;
+  1319  007FDC  0E04               	movlw	4
+  1320  007FDE  0012               	return	
+  1321  007FE0                     l57:
+  1322                           
+  1323                           ;main.c: 99: }
+  1324                           ;main.c: 100: if (a == 0 && c == 0 && e == 1) {
+  1325  007FE0  5001               	movf	getRoadState@a,w,c
+  1326  007FE2  1002               	iorwf	getRoadState@a+1,w,c
+  1327  007FE4  A4D8               	btfss	status,2,c
+  1328  007FE6  D00A               	goto	l58
+  1329  007FE8  5005               	movf	getRoadState@c,w,c
+  1330  007FEA  1006               	iorwf	getRoadState@c+1,w,c
+  1331  007FEC  A4D8               	btfss	status,2,c
+  1332  007FEE  D006               	goto	l58
+  1333  007FF0  0409               	decf	getRoadState@e,w,c
+  1334  007FF2  100A               	iorwf	getRoadState@e+1,w,c
+  1335  007FF4  A4D8               	btfss	status,2,c
+  1336  007FF6  D002               	goto	l58
+  1337                           
+  1338                           ;main.c: 101: return off_left;
+  1339  007FF8  0E06               	movlw	6
+  1340  007FFA  0012               	return	
+  1341  007FFC                     l58:
+  1342                           
+  1343                           ;main.c: 102: }
+  1344                           ;main.c: 104: return on_track;
+  1345  007FFC  0E00               	movlw	0
+  1346  007FFE  0012               	return	
+  1347  008000                     __end_of_getRoadState:
+  1348                           	opt stack 0
+  1349                           tblptru	equ	0xFF8
+  1350                           indf2	equ	0xFDF
+  1351                           postinc2	equ	0xFDE
+  1352                           fsr2h	equ	0xFDA
+  1353                           fsr2l	equ	0xFD9
+  1354                           status	equ	0xFD8
+  1355                           
+  1356 ;; *************** function _accelerate *****************
+  1357 ;; Defined at:
+  1358 ;;		line 155 in file "main.c"
+  1359 ;; Parameters:    Size  Location     Type
+  1360 ;;		None
+  1361 ;; Auto vars:     Size  Location     Type
+  1362 ;;		None
+  1363 ;; Return value:  Size  Location     Type
+  1364 ;;                  2   75[None  ] int 
+  1365 ;; Registers used:
+  1366 ;;		wreg, status,2, status,0, cstack
+  1367 ;; Tracked objects:
+  1368 ;;		On entry : 0/0
+  1369 ;;		On exit  : 0/0
+  1370 ;;		Unchanged: 0/0
+  1371 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1372 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1373 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1374 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1375 ;;      Totals:         0       0       0       0       0       0       0       0       0
+  1376 ;;Total ram usage:        0 bytes
+  1377 ;; Hardware stack levels used:    1
+  1378 ;; Hardware stack levels required when called:    1
+  1379 ;; This function calls:
+  1380 ;;		_wait00
+  1381 ;; This function is called by:
+  1382 ;;		_main
+  1383 ;; This function uses a non-reentrant model
+  1384 ;;
+  1385                           
+  1386                           	psect	text9
+  1387  007B9E                     __ptext9:
+  1388                           	opt stack 0
+  1389  007B9E                     _accelerate:
+  1390                           	opt stack 29
+  1391                           
+  1392                           ;main.c: 156: PORTC=0x03;
+  1393                           
+  1394                           ;incstack = 0
+  1395  007B9E  0E03               	movlw	3
+  1396  007BA0  6E82               	movwf	3970,c	;volatile
+  1397                           
+  1398                           ;main.c: 157: wait00(55);
+  1399  007BA2  0E00               	movlw	0
+  1400  007BA4  6E02               	movwf	wait00@k+1,c
+  1401  007BA6  0E37               	movlw	55
+  1402  007BA8  6E01               	movwf	wait00@k,c
+  1403  007BAA  EC4D  F03E         	call	_wait00	;wreg free
+  1404                           
+  1405                           ;main.c: 158: PORTC=0x02;
+  1406  007BAE  0E02               	movlw	2
+  1407  007BB0  6E82               	movwf	3970,c	;volatile
+  1408                           
+  1409                           ;main.c: 159: wait00(5);
+  1410  007BB2  0E00               	movlw	0
+  1411  007BB4  6E02               	movwf	wait00@k+1,c
+  1412  007BB6  0E05               	movlw	5
+  1413  007BB8  6E01               	movwf	wait00@k,c
+  1414  007BBA  EC4D  F03E         	call	_wait00	;wreg free
+  1415                           
+  1416                           ;main.c: 160: PORTC=0x00;
+  1417  007BBE  0E00               	movlw	0
+  1418  007BC0  6E82               	movwf	3970,c	;volatile
+  1419                           
+  1420                           ;main.c: 161: wait00(20);
+  1421  007BC2  0E00               	movlw	0
+  1422  007BC4  6E02               	movwf	wait00@k+1,c
+  1423  007BC6  0E14               	movlw	20
+  1424  007BC8  6E01               	movwf	wait00@k,c
+  1425  007BCA  EC4D  F03E         	call	_wait00	;wreg free
+  1426  007BCE  0012               	return		;funcret
+  1427  007BD0                     __end_of_accelerate:
+  1428                           	opt stack 0
+  1429                           tblptru	equ	0xFF8
+  1430                           indf2	equ	0xFDF
+  1431                           postinc2	equ	0xFDE
+  1432                           fsr2h	equ	0xFDA
+  1433                           fsr2l	equ	0xFD9
+  1434                           status	equ	0xFD8
+  1435                           
+  1436 ;; *************** function _wait00 *****************
+  1437 ;; Defined at:
+  1438 ;;		line 13 in file "main.c"
+  1439 ;; Parameters:    Size  Location     Type
+  1440 ;;  k               2    0[COMRAM] short 
+  1441 ;; Auto vars:     Size  Location     Type
+  1442 ;;  i               2    5[COMRAM] short 
+  1443 ;;  j               2    3[COMRAM] short 
+  1444 ;; Return value:  Size  Location     Type
+  1445 ;;                  2    0[COMRAM] int 
+  1446 ;; Registers used:
+  1447 ;;		wreg, status,2, status,0
+  1448 ;; Tracked objects:
+  1449 ;;		On entry : 0/0
+  1450 ;;		On exit  : 0/0
+  1451 ;;		Unchanged: 0/0
+  1452 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1453 ;;      Params:         2       0       0       0       0       0       0       0       0
+  1454 ;;      Locals:         4       0       0       0       0       0       0       0       0
+  1455 ;;      Temps:          1       0       0       0       0       0       0       0       0
+  1456 ;;      Totals:         7       0       0       0       0       0       0       0       0
+  1457 ;;Total ram usage:        7 bytes
+  1458 ;; Hardware stack levels used:    1
+  1459 ;; This function calls:
+  1460 ;;		Nothing
+  1461 ;; This function is called by:
+  1462 ;;		_turnLeft
+  1463 ;;		_turnRight
+  1464 ;;		_turnLeftSmall
+  1465 ;;		_turnRightSmall
+  1466 ;;		_straight
+  1467 ;;		_accelerate
+  1468 ;; This function uses a non-reentrant model
+  1469 ;;
+  1470                           
+  1471                           	psect	text10
+  1472  007C9A                     __ptext10:
+  1473                           	opt stack 0
+  1474  007C9A                     _wait00:
+  1475                           	opt stack 29
+  1476                           
+  1477                           ;main.c: 16: short i;
+  1478                           ;main.c: 17: short j;
+  1479                           ;main.c: 18: for(j=0;j<k;j++){
+  1480                           
+  1481                           ;incstack = 0
+  1482  007C9A  0E00               	movlw	0
+  1483  007C9C  6E05               	movwf	wait00@j+1,c
+  1484  007C9E  0E00               	movlw	0
+  1485  007CA0  6E04               	movwf	wait00@j,c
+  1486  007CA2  D011               	goto	l21
+  1487  007CA4                     
+  1488                           ;main.c: 19: for(i=0;i<300;i++){
+  1489  007CA4  0E00               	movlw	0
+  1490  007CA6  6E07               	movwf	wait00@i+1,c
+  1491  007CA8  0E00               	movlw	0
+  1492  007CAA  6E06               	movwf	wait00@i,c
+  1493  007CAC                     l998:
+  1494  007CAC  BE07               	btfsc	wait00@i+1,7,c
+  1495  007CAE  D006               	goto	l23
+  1496  007CB0  0E2C               	movlw	44
+  1497  007CB2  5C06               	subwf	wait00@i,w,c
+  1498  007CB4  0E01               	movlw	1
+  1499  007CB6  5807               	subwfb	wait00@i+1,w,c
+  1500  007CB8  B0D8               	btfsc	status,0,c
+  1501  007CBA  D003               	goto	u690
+  1502  007CBC                     l23:
+  1503  007CBC  4A06               	infsnz	wait00@i,f,c
+  1504  007CBE  2A07               	incf	wait00@i+1,f,c
+  1505  007CC0  D7F5               	goto	l998
+  1506  007CC2                     u690:
+  1507  007CC2  4A04               	infsnz	wait00@j,f,c
+  1508  007CC4  2A05               	incf	wait00@j+1,f,c
+  1509  007CC6                     l21:
+  1510  007CC6  5001               	movf	wait00@k,w,c
+  1511  007CC8  5C04               	subwf	wait00@j,w,c
+  1512  007CCA  5005               	movf	wait00@j+1,w,c
+  1513  007CCC  0A80               	xorlw	128
+  1514  007CCE  6E03               	movwf	??_wait00& (0+255),c
+  1515  007CD0  5002               	movf	wait00@k+1,w,c
+  1516  007CD2  0A80               	xorlw	128
+  1517  007CD4  5803               	subwfb	??_wait00& (0+255),w,c
+  1518  007CD6  B0D8               	btfsc	status,0,c
+  1519  007CD8  0012               	return	
+  1520  007CDA  D7E4               	goto	l22
+  1521  007CDC                     __end_of_wait00:
+  1522                           	opt stack 0
+  1523  0000                     tblptru	equ	0xFF8
+  1524                           indf2	equ	0xFDF
+  1525                           postinc2	equ	0xFDE
+  1526                           fsr2h	equ	0xFDA
+  1527                           fsr2l	equ	0xFD9
+  1528                           status	equ	0xFD8
+  1529                           tblptru	equ	0xFF8
+  1530                           indf2	equ	0xFDF
+  1531                           postinc2	equ	0xFDE
+  1532                           fsr2h	equ	0xFDA
+  1533                           fsr2l	equ	0xFD9
+  1534                           status	equ	0xFD8
+  1535                           
+  1536                           	psect	rparam
+  1537  0000                     tblptru	equ	0xFF8
+  1538                           indf2	equ	0xFDF
+  1539                           postinc2	equ	0xFDE
+  1540                           fsr2h	equ	0xFDA
+  1541                           fsr2l	equ	0xFD9
+  1542                           status	equ	0xFD8
 
 
 Data Sizes:
     Strings     0
     Constant    0
     Data        0
-    BSS         0
+    BSS         4
     Persistent  0
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           95     17      17
+    COMRAM           95     18      22
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -1389,7 +1578,9 @@ Auto Spaces:
 
 Pointer List with Targets:
 
-    None.
+    isAllStraight@states	PTR enum E3329 size(2) Largest target is 4
+		 -> states(COMRAM[4]), 
+
 
 Critical Paths under _main in COMRAM
 
@@ -1438,10 +1629,11 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 7     7      0    9442
-                                             10 COMRAM     7     7      0
+ (0) _main                                                 9     9      0    9587
+                                             10 COMRAM     8     8      0
                          _accelerate
                        _getRoadState
+                      _isAllStraight
                            _led_sens
                            _straight
                            _turnLeft
@@ -1466,7 +1658,10 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (1) _led_sens                                             0     0      0       0
  ---------------------------------------------------------------------------------
- (1) _getRoadState                                        10     0     10    1480
+ (1) _isAllStraight                                        5     3      2     166
+                                              0 COMRAM     5     3      2
+ ---------------------------------------------------------------------------------
+ (1) _getRoadState                                        10     0     10    1436
                                               0 COMRAM    10     0     10
  ---------------------------------------------------------------------------------
  (1) _accelerate                                           0     0      0    1308
@@ -1484,6 +1679,7 @@ Call Graph Tables:
    _accelerate
      _wait00
    _getRoadState
+   _isAllStraight
    _led_sens
    _straight
      _wait00
@@ -1498,85 +1694,91 @@ Call Graph Tables:
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
-BITCOMRAM           5F      0       0       0        0.0%
+BIGRAM             7FF      0       0      21        0.0%
 EEDATA             100      0       0       0        0.0%
-NULL                 0      0       0       0        0.0%
-CODE                 0      0       0       0        0.0%
-COMRAM              5F     11      11       1       17.9%
-STACK                0      0       0       2        0.0%
-DATA                 0      0       0       3        0.0%
-BITBANK0            A0      0       0       4        0.0%
-BANK0               A0      0       0       5        0.0%
-BITBANK1           100      0       0       6        0.0%
-BANK1              100      0       0       7        0.0%
-BITBANK2           100      0       0       8        0.0%
-BANK2              100      0       0       9        0.0%
-BITBANK3           100      0       0      10        0.0%
-BANK3              100      0       0      11        0.0%
-BITBANK4           100      0       0      12        0.0%
-BANK4              100      0       0      13        0.0%
-BITBANK5           100      0       0      14        0.0%
-BANK5              100      0       0      15        0.0%
-BITBANK6           100      0       0      16        0.0%
-BANK6              100      0       0      17        0.0%
 BITBANK7           100      0       0      18        0.0%
 BANK7              100      0       0      19        0.0%
-ABS                  0      0       0      20        0.0%
-BIGRAM             7FF      0       0      21        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F     12      16       1       23.2%
 BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      16      20        0.0%
+DATA                 0      0      16       3        0.0%
+CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Wed Feb 21 16:57:10 2018
+Symbol Table                                                                                   Wed Feb 21 21:32:45 2018
 
-                     l21 7D38                       l22 7D16                       l23 7D2E  
-                     l32 7E98                       l50 7FFC                       l43 7F18  
-                     l44 7F44                       l45 7F60                       l46 7F7C  
-                     l38 7EEC                       l47 7FA0                       l48 7FC4  
-                     l80 7DF8                       l49 7FE0                       l73 7D6E  
-                     l74 7D6A                       l83 7DFE                       l84 7E04  
-                     l76 7D76                       l85 7E0A                       l78 7E1C  
-                     l86 7E10                       l87 7E16                       l79 7DEA  
-                     u45 7CE0                       u55 7CEA                       u47 7CE2  
-                     u65 7CF4                       u57 7CEC                       u75 7CFE  
-                     u67 7CF6                       u85 7D08                       u77 7D00  
-                     u87 7D0A                      l970 7D1E                      u740 7E6C  
-                    u680 7D34                      u840 7EC0                      u790 7E94  
-                    u890 7EE8         ??_turnRightSmall 0008                     u1210 7D88  
-                   u1220 7D9A                     u1230 7DAC                     u1240 7DBE  
-                   u1250 7DD0                     u1218 7D8A                     u1228 7D9C  
-                   u1238 7DAE                     u1248 7DC0                     u1258 7DD2  
-                   _main 7D4E                     start 2000             ___param_bank 000000  
+                     l21 7CC6                       l22 7CA4                       l23 7CBC  
+                     l40 7EA8                       l34 7CF4                       l51 7F20  
+                     l52 7F44                       l36 7D12                       l53 7F60  
+                     l54 7F7C                       l46 7EFC                       l55 7FA0  
+                     l56 7FC4                       l57 7FE0                       l81 7D42  
+                     l58 7FFC                       l82 7D3E                       l91 7E0E  
+                     l92 7E14                       l84 7D4E                       l93 7E1A  
+                     l85 7DC8                       l86 7E2C                       l94 7E20  
+                     l95 7E26                       l87 7DEE                       l88 7E08  
+                     u45 7C6E                       u55 7C78                       u47 7C70  
+                     u65 7C82                       u57 7C7A                       u75 7C8C  
+                     u67 7C84                       u85 7C96                       u77 7C8E  
+                     u87 7C98                      l998 7CAC                      u730 7D18  
+                    u830 7EA4                      u690 7CC2                      u930 7EF8  
+                    u780 7E7C                      u880 7ED0         ??_turnRightSmall 0008  
+                   l1012 7CE4                     l1026 7D18                     u1230 7D5C  
+                   u1240 7D6E                     u1250 7D80                     u1260 7D92  
+                   u1270 7DA4                     u1238 7D5E                     u1248 7D70  
+                   u1258 7D82                     u1268 7D94                     u1278 7DA6  
+            main@current 0010                     _main 7D22                     indf2 000FDF  
+                   fsr2l 000FD9                     start 2000             ___param_bank 000000  
                   ?_main 0001                    _PORTA 000F80                    _PORTB 000F81  
                   _PORTC 000F82                    _TRISA 000F92                    _TRISB 000F93  
-                  _TRISC 000F94                    status 000FD8          __initialization 2008  
-           __end_of_main 7E44                   ??_main 000B            __activetblptr 000002  
+                  _TRISC 000F94                    status 000FD8          __initialization 7B48  
+           __end_of_main 7E54                   ??_main 000B            __activetblptr 000002  
    __end_of_getRoadState 8000                   _ADCON1 000FC1   __size_of_turnLeftSmall 0032  
-       __end_of_led_sens 7D0C                   _wait00 7D0C                   tblptru 000FF8  
-       __end_of_straight 7C74         __end_of_turnLeft 7BEE               __accesstop 0060  
-__end_of__initialization 2008            ___rparam_used 000001           __pcstackCOMRAM 0001  
-             _accelerate 7C10            _turnLeftSmall 7C74                  ?_wait00 0001  
-  __size_of_getRoadState 01BC           ?_turnLeftSmall 0001                ?_led_sens 0001  
-     __size_of_turnRight 0022                  __Hparam 0000                  __Lparam 0000  
-           _getRoadState 7E44              ?_accelerate 0001                ?_straight 0001  
-                __pcinit 2008                  __ramtop 0800          __size_of_wait00 0042  
-              ?_turnLeft 0001                  __ptext0 7D4E                  __ptext1 7CA6  
-                __ptext2 7BEE                  __ptext3 7C74                  __ptext4 7BCC  
-                __ptext5 7C42                  __ptext6 7CD8                  __ptext7 7E44  
-                __ptext8 7C10                  __ptext9 7D0C           main@road_state 0011  
-   end_of_initialization 2008               ??_led_sens 0001            __Lmediumconst 0000  
+       __end_of_led_sens 7C9A                   _wait00 7C9A                   _states 0013  
+                 tblptru 000FF8         __end_of_straight 7C02         __end_of_turnLeft 7B7C  
+             __accesstop 0060  __end_of__initialization 7B50            ___rparam_used 000001  
+         __pcstackCOMRAM 0001               _accelerate 7B9E    __end_of_isAllStraight 7D22  
+          _turnLeftSmall 7C02                  ?_wait00 0001    __size_of_getRoadState 01AC  
+         ?_turnLeftSmall 0001                ?_led_sens 0001       __size_of_turnRight 0022  
+                __Hparam 0000                  __Lparam 0000             _getRoadState 7E54  
+            ?_accelerate 0001                ?_straight 0001                  __pcinit 7B48  
+                __ramtop 0800          __size_of_wait00 0042                ?_turnLeft 0001  
+                __ptext0 7D22                  __ptext1 7C34                  __ptext2 7B7C  
+                __ptext3 7C02                  __ptext4 7B5A                  __ptext5 7BD0  
+                __ptext6 7C66                  __ptext7 7CDC                  __ptext8 7E54  
+                __ptext9 7B9E           main@road_state 0012      isAllStraight@states 0001  
+   end_of_initialization 7B50               ??_led_sens 0001            __Lmediumconst 0000  
                 wait00@i 0006                  wait00@j 0004                  wait00@k 0001  
-__size_of_turnRightSmall 0032               ??_straight 0008               ??_turnLeft 0008  
-        ??_turnLeftSmall 0008                _PORTAbits 000F80                _PORTBbits 000F81  
-      __end_of_turnRight 7C10      __size_of_accelerate 0032           __end_of_wait00 7D4E  
-    start_initialization 2008  main@previous_road_state 0010                 ??_wait00 0003  
-      __size_of_led_sens 0034           _turnRightSmall 7CA6             ??_accelerate 0008  
-      __size_of_straight 0032        __size_of_turnLeft 0022       __end_of_accelerate 7C42  
- __end_of_turnRightSmall 7CD8                _turnRight 7BEE          ?_turnRightSmall 0001  
-               __Hrparam 0000                 __Lrparam 0000    __end_of_turnLeftSmall 7CA6  
-             ?_turnRight 0001                 _led_sens 7CD8            __size_of_main 00F6  
+__size_of_turnRightSmall 0032                  postinc2 000FDE               ??_straight 0008  
+             ??_turnLeft 0008          ??_turnLeftSmall 0008                _PORTAbits 000F80  
+              _PORTBbits 000F81        __end_of_turnRight 7B9E      __size_of_accelerate 0032  
+         isAllStraight@i 0004           __end_of_wait00 7CDC      start_initialization 7B48  
+               ??_wait00 0003              __pbssCOMRAM 0013   __size_of_isAllStraight 0046  
+      __size_of_led_sens 0034           _turnRightSmall 7C34             ??_accelerate 0008  
+      __size_of_straight 0032        __size_of_turnLeft 0022       __end_of_accelerate 7BD0  
+ __end_of_turnRightSmall 7C66            _isAllStraight 7CDC                _turnRight 7B7C  
+        ?_turnRightSmall 0001                 __Hrparam 0000                 __Lrparam 0000  
+         ?_isAllStraight 0001    __end_of_turnLeftSmall 7C34               ?_turnRight 0001  
+               __ptext10 7C9A                 _led_sens 7C66            __size_of_main 0132  
           getRoadState@a 0001            getRoadState@b 0003            getRoadState@c 0005  
-          getRoadState@d 0007            getRoadState@e 0009                 _straight 7C42  
-               _turnLeft 7BCC            ?_getRoadState 0001              ??_turnRight 0008  
-         ??_getRoadState 000B  
+          getRoadState@d 0007            getRoadState@e 0009                 _straight 7BD0  
+               _turnLeft 7B5A            ?_getRoadState 0001          ??_isAllStraight 0003  
+            ??_turnRight 0008           ??_getRoadState 000B  

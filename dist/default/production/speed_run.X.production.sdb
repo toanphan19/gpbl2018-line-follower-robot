@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F2553 ]
 [d frameptr 4065 ]
-"44 D:\Projects\2018_GPBL\speed_run.X\main.c
+"43 D:\Projects\2018_GPBL\speed_run.X\main.c
 [e E3329 road_state_codes `uc
 on_track 0
 off_track 1
@@ -37,21 +37,23 @@ off_left 6
 [v _wait00 wait00 `(i  1 e 2 0 ]
 "24
 [v _led_sens led_sens `(i  1 e 2 0 ]
-"44
+"46
+[v _isAllStraight isAllStraight `(i  1 e 2 0 ]
+"55
 [v _getRoadState getRoadState `(E3329  1 e 1 0 ]
-"101
+"112
 [v _turnLeft turnLeft `(i  1 e 2 0 ]
-"108
+"119
 [v _turnRight turnRight `(i  1 e 2 0 ]
-"116
+"127
 [v _turnLeftSmall turnLeftSmall `(i  1 e 2 0 ]
-"125
+"136
 [v _turnRightSmall turnRightSmall `(i  1 e 2 0 ]
-"135
+"146
 [v _straight straight `(i  1 e 2 0 ]
-"144
+"155
 [v _accelerate accelerate `(i  1 e 2 0 ]
-"154
+"165
 [v _main main `(i  1 e 2 0 ]
 "2115 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -120,46 +122,57 @@ off_left 6
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "5398
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"154 D:\Projects\2018_GPBL\speed_run.X\main.c
+"43 D:\Projects\2018_GPBL\speed_run.X\main.c
+[v _states states `[4]E3329  1 e 4 0 ]
+"165
 [v _main main `(i  1 e 2 0 ]
 {
-"174
-[v main@road_state road_state `E3329  1 a 1 16 ]
-"175
-[v main@previous_road_state previous_road_state `E3329  1 a 1 15 ]
-"216
+"187
+[v main@current current `i  1 a 2 15 ]
+"185
+[v main@road_state road_state `E3329  1 a 1 17 ]
+"229
 } 0
-"125
+"136
 [v _turnRightSmall turnRightSmall `(i  1 e 2 0 ]
 {
-"132
+"143
 } 0
-"108
+"119
 [v _turnRight turnRight `(i  1 e 2 0 ]
 {
-"113
+"124
 } 0
-"116
+"127
 [v _turnLeftSmall turnLeftSmall `(i  1 e 2 0 ]
 {
-"123
+"134
 } 0
-"101
+"112
 [v _turnLeft turnLeft `(i  1 e 2 0 ]
 {
-"106
+"117
 } 0
-"135
+"146
 [v _straight straight `(i  1 e 2 0 ]
 {
-"142
+"153
 } 0
 "24
 [v _led_sens led_sens `(i  1 e 2 0 ]
 {
 "31
 } 0
-"44
+"46
+[v _isAllStraight isAllStraight `(i  1 e 2 0 ]
+{
+"47
+[v isAllStraight@i i `i  1 a 2 3 ]
+"46
+[v isAllStraight@states states `*.39E3329  1 p 2 0 ]
+"53
+} 0
+"55
 [v _getRoadState getRoadState `(E3329  1 e 1 0 ]
 {
 [v getRoadState@a a `s  1 p 2 0 ]
@@ -167,12 +180,12 @@ off_left 6
 [v getRoadState@c c `s  1 p 2 4 ]
 [v getRoadState@d d `s  1 p 2 6 ]
 [v getRoadState@e e `s  1 p 2 8 ]
-"94
+"105
 } 0
-"144
+"155
 [v _accelerate accelerate `(i  1 e 2 0 ]
 {
-"151
+"162
 } 0
 "13
 [v _wait00 wait00 `(i  1 e 2 0 ]
