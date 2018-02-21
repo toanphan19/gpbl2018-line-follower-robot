@@ -99,14 +99,14 @@ int turnLeft(void) {
     PORTC=0x02; /* right motor on */
     wait00(10);
     PORTC = 0x00;
-    wait00(10);
+    wait00(5);
 }
 
 int turnRight(void) {
-    PORTC=0x01; /* left motor on */
-    wait00(8);
+    PORTC=0x01;/* left motor on */
+    wait00(8.5);
     PORTC = 0x00;
-    wait00(10);
+    wait00(5);
 }
 
 
@@ -116,7 +116,7 @@ int turnLeftWide(void) {
     PORTC=0x02; /* right motor on */
     wait00(8.5);
     PORTC = 0x00;
-    wait00(10);
+    wait00(5);
 }
 
 int turnRightWide(void) {
@@ -125,7 +125,7 @@ int turnRightWide(void) {
     PORTC=0x01; /* left motor on */
     wait00(7);
     PORTC = 0x00;
-    wait00(10);
+    wait00(5);
 }
 
 
@@ -133,16 +133,16 @@ int straight(void){
     PORTC=0x03; /* both motor on */
     wait00(8); 
     PORTC=0x02; /* right motor on */
-    wait00(1);
+    wait00(0.5);
     PORTC=0x00; /* both motor off */
     wait00(10); 
 }
 
 int accelerate(void) {
     PORTC=0x03; /* both motor on */
-    wait00(10);
+    wait00(12);
     PORTC=0x02; /* right motor on */
-    wait00(1.2);
+    wait00(0.5);
     PORTC=0x00; /* both motor off */
     wait00(4); 
 }
