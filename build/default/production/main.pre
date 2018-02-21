@@ -4266,7 +4266,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 10 "main.c"
+# 13 "main.c"
 wait00(short k)
 {
 
@@ -4350,10 +4350,8 @@ return off_left;
 return on_track;
 }
 
-# 98
+# 101
 int turnLeft(void) {
-PORTC=0x03;
-wait00(1);
 PORTC=0x02;
 wait00(50);
 PORTC = 0x00;
@@ -4361,8 +4359,6 @@ wait00(50);
 }
 
 int turnRight(void) {
-PORTC=0x03;
-wait00(1);
 PORTC=0x01;
 wait00(40);
 PORTC = 0x00;
@@ -4371,9 +4367,8 @@ wait00(50);
 
 
 int turnLeftSmall(void) {
-
 PORTC=0x03;
-wait00(8);
+wait00(5);
 PORTC=0x02;
 wait00(40);
 PORTC = 0x00;
@@ -4381,9 +4376,8 @@ wait00(50);
 }
 
 int turnRightSmall(void) {
-
 PORTC=0x03;
-wait00(8);
+wait00(5);
 PORTC=0x01;
 wait00(32);
 PORTC = 0x00;
@@ -4393,11 +4387,11 @@ wait00(50);
 
 int straight(void){
 PORTC=0x03;
-wait00(30);
+wait00(20);
 PORTC=0x02;
-wait00(3);
+wait00(2);
 PORTC=0x00;
-wait00(80);
+wait00(60);
 }
 
 int accelerate(void) {
@@ -4406,7 +4400,7 @@ wait00(60);
 PORTC=0x02;
 wait00(6);
 PORTC=0x00;
-wait00(60);
+wait00(40);
 }
 
 

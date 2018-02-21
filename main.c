@@ -7,6 +7,9 @@
 #include <xc.h>
 #include <p18f2553.h>
 
+#define MAXSIZE 4
+
+
 wait00(short k)
 { 	 
 /*Wait time about (~ k * 1 ms.) */ 		 
@@ -56,11 +59,11 @@ enum road_state_codes getRoadState(short a, short b, short c, short d, short e) 
      } 
      
      // White Background
-     if (a == 1 && b == 0 // && c == 1
+     if (a == 1 && b == 0 && c == 1
              && d == 1 && e == 1) {
          return off_right_little; 
      } 
-     if (a == 1 && b == 1 // && c == 1
+     if (a == 1 && b == 1 && c == 1
              && d == 0 && e == 1) {
          return off_left_little;
      } 
@@ -96,8 +99,6 @@ enum road_state_codes getRoadState(short a, short b, short c, short d, short e) 
 // 
 
 int turnLeft(void) {
-    PORTC=0x03; // both motor on
-    wait00(1);
     PORTC=0x02; /* right motor on */
     wait00(50);
     PORTC = 0x00;
@@ -105,8 +106,6 @@ int turnLeft(void) {
 }
 
 int turnRight(void) {
-    PORTC=0x03; // both motor on
-    wait00(1);
     PORTC=0x01;/* left motor on */
     wait00(40);
     PORTC = 0x00;
@@ -115,9 +114,8 @@ int turnRight(void) {
 
 
 int turnLeftSmall(void) {
-    
     PORTC=0x03; // both motor on
-    wait00(8);
+    wait00(5);
     PORTC=0x02; // right motor on
     wait00(40);
     PORTC = 0x00;
@@ -125,9 +123,8 @@ int turnLeftSmall(void) {
 }
 
 int turnRightSmall(void) {
-    
     PORTC=0x03; // both motor on
-    wait00(8);
+    wait00(5);
     PORTC=0x01; // left motor on
     wait00(32);
     PORTC = 0x00;
@@ -141,7 +138,7 @@ int straight(void){
     PORTC=0x02; /* right motor on */
     wait00(3);
     PORTC=0x00; /* both motor off */
-    wait00(80); 
+    wait00(60); 
 }
 
 int accelerate(void) {
@@ -150,7 +147,7 @@ int accelerate(void) {
     PORTC=0x02; /* right motor on */
     wait00(6);
     PORTC=0x00; /* both motor off */
-    wait00(60); 
+    wait00(40); 
 }
 
 

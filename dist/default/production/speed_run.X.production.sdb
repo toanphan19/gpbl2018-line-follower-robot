@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F2553 ]
 [d frameptr 4065 ]
-"41 D:\Projects\2018_GPBL\speed_run.X\main.c
+"44 D:\Projects\2018_GPBL\speed_run.X\main.c
 [e E3329 road_state_codes `uc
 on_track 0
 off_track 1
@@ -33,25 +33,25 @@ off_left 6
 [v ___flmul __flmul `(d  1 e 4 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"10 D:\Projects\2018_GPBL\speed_run.X\main.c
+"13 D:\Projects\2018_GPBL\speed_run.X\main.c
 [v _wait00 wait00 `(i  1 e 2 0 ]
-"21
+"24
 [v _led_sens led_sens `(i  1 e 2 0 ]
-"41
+"44
 [v _getRoadState getRoadState `(E3329  1 e 1 0 ]
-"98
+"101
 [v _turnLeft turnLeft `(i  1 e 2 0 ]
-"107
+"108
 [v _turnRight turnRight `(i  1 e 2 0 ]
-"117
+"116
 [v _turnLeftSmall turnLeftSmall `(i  1 e 2 0 ]
-"127
+"125
 [v _turnRightSmall turnRightSmall `(i  1 e 2 0 ]
-"138
+"135
 [v _straight straight `(i  1 e 2 0 ]
-"147
+"144
 [v _accelerate accelerate `(i  1 e 2 0 ]
-"157
+"154
 [v _main main `(i  1 e 2 0 ]
 "2115 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -120,46 +120,46 @@ off_left 6
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "5398
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"157 D:\Projects\2018_GPBL\speed_run.X\main.c
+"154 D:\Projects\2018_GPBL\speed_run.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"177
+"174
 [v main@road_state road_state `E3329  1 a 1 16 ]
-"178
+"175
 [v main@previous_road_state previous_road_state `E3329  1 a 1 15 ]
-"219
+"216
 } 0
-"127
+"125
 [v _turnRightSmall turnRightSmall `(i  1 e 2 0 ]
 {
-"135
+"132
 } 0
-"107
+"108
 [v _turnRight turnRight `(i  1 e 2 0 ]
 {
-"114
+"113
 } 0
-"117
+"116
 [v _turnLeftSmall turnLeftSmall `(i  1 e 2 0 ]
 {
-"125
+"123
 } 0
-"98
+"101
 [v _turnLeft turnLeft `(i  1 e 2 0 ]
 {
-"105
+"106
 } 0
-"138
+"135
 [v _straight straight `(i  1 e 2 0 ]
 {
-"145
+"142
 } 0
-"21
+"24
 [v _led_sens led_sens `(i  1 e 2 0 ]
 {
-"28
+"31
 } 0
-"41
+"44
 [v _getRoadState getRoadState `(E3329  1 e 1 0 ]
 {
 [v getRoadState@a a `s  1 p 2 0 ]
@@ -167,21 +167,21 @@ off_left 6
 [v getRoadState@c c `s  1 p 2 4 ]
 [v getRoadState@d d `s  1 p 2 6 ]
 [v getRoadState@e e `s  1 p 2 8 ]
-"91
+"94
 } 0
-"147
+"144
 [v _accelerate accelerate `(i  1 e 2 0 ]
 {
-"154
+"151
 } 0
-"10
+"13
 [v _wait00 wait00 `(i  1 e 2 0 ]
 {
-"13
+"16
 [v wait00@i i `s  1 a 2 5 ]
-"14
+"17
 [v wait00@j j `s  1 a 2 3 ]
-"10
+"13
 [v wait00@k k `s  1 p 2 0 ]
-"19
+"22
 } 0
