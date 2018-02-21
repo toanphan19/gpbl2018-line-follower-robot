@@ -4353,58 +4353,56 @@ return on_track;
 # 98
 int turnLeft(void) {
 PORTC=0x02;
-wait00(70);
+wait00(60);
 PORTC = 0x00;
-wait00(50);
+wait00(30);
 }
 
 int turnRight(void) {
 PORTC=0x01;
+wait00(50);
+PORTC = 0x00;
+wait00(30);
+}
+
+
+int turnLeftSmall(void) {
+
+PORTC=0x03;
+wait00(5);
+PORTC=0x02;
 wait00(60);
 PORTC = 0x00;
-wait00(50);
+wait00(80);
 }
 
-
-int turnLeftWide(void) {
-
-PORTC=0x03;
-wait00(10);
-PORTC=0x02;
-wait00(100);
-PORTC = 0x00;
-wait00(50);
-
-# 127
-}
-
-int turnRightWide(void) {
+int turnRightSmall(void) {
 
 PORTC=0x03;
-wait00(10);
+wait00(5);
 PORTC=0x01;
-wait00(85);
-PORTC = 0x00;
 wait00(50);
-
-# 143
+PORTC = 0x00;
+wait00(80);
 }
 
 
 int straight(void){
 PORTC=0x03;
-wait00(50);
+wait00(30);
+PORTC=0x02;
+wait00(2);
 PORTC=0x00;
-wait00(80);
+wait00(100);
 }
 
 int accelerate(void) {
 PORTC=0x03;
-wait00(120);
+wait00(60);
 PORTC=0x02;
-wait00(10);
+wait00(5);
 PORTC=0x00;
-wait00(20);
+wait00(100);
 }
 
 
@@ -4449,10 +4447,10 @@ case straight_line:
 accelerate();
 break;
 case off_left_little:
-turnRightWide();
+turnRightSmall();
 break;
 case off_right_little:
-turnLeftWide();
+turnLeftSmall();
 break;
 case off_left:
 turnRight();

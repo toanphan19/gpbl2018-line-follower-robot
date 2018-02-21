@@ -97,66 +97,56 @@ enum road_state_codes getRoadState(short a, short b, short c, short d, short e) 
 
 int turnLeft(void) {
     PORTC=0x02; /* right motor on */
-    wait00(70);
+    wait00(60);
     PORTC = 0x00;
-    wait00(50);
+    wait00(30);
 }
 
 int turnRight(void) {
     PORTC=0x01;/* left motor on */
+    wait00(50);
+    PORTC = 0x00;
+    wait00(30);
+}
+
+
+int turnLeftSmall(void) {
+    
+    PORTC=0x03; // both motor on
+    wait00(5);
+    PORTC=0x02; // right motor on
     wait00(60);
     PORTC = 0x00;
-    wait00(50);
+    wait00(80);
 }
 
-
-int turnLeftWide(void) {
+int turnRightSmall(void) {
     
     PORTC=0x03; // both motor on
-    wait00(10);
-    PORTC=0x02; // right motor on
-    wait00(100);
-    PORTC = 0x00;
-    wait00(50);
-    /*
-    PORTC=0x02; // right motor on
-    wait00(6);
-    PORTC = 0x00;
-    wait00(10);
-    */
-}
-
-int turnRightWide(void) {
-    
-    PORTC=0x03; // both motor on
-    wait00(10);
-    PORTC=0x01; // left motor on
-    wait00(85);
-    PORTC = 0x00;
-    wait00(50);
-    /*
-    PORTC=0x01; // left motor on
     wait00(5);
+    PORTC=0x01; // left motor on
+    wait00(50);
     PORTC = 0x00;
-    wait00(10);
-    */
+    wait00(80);
 }
 
 
 int straight(void){
     PORTC=0x03; /* both motor on */
-    wait00(50); 
+    wait00(30);
+    PORTC=0x02; /* right motor on */
+    wait00(2);
     PORTC=0x00; /* both motor off */
-    wait00(80); 
+    wait00(100); 
 }
 
 int accelerate(void) {
     PORTC=0x03; /* both motor on */
-    wait00(120);
+    wait00(60);
     PORTC=0x02; /* right motor on */
-    wait00(10);
+    wait00(5);
     PORTC=0x00; /* both motor off */
-    wait00(20); 
+    wait00(100); 
 }
 
 
@@ -201,10 +191,10 @@ main(void)
                 accelerate();
                 break;
             case off_left_little:
-                turnRightWide();
+                turnRightSmall();
                 break;
             case off_right_little:
-                turnLeftWide();
+                turnLeftSmall();
                 break;
             case off_left:
                 turnRight();
