@@ -3404,15 +3404,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 99: PORTC=0x02;
 "99
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;main.c: 100: wait00(60);
+[; ;main.c: 100: wait00(50);
 "100
-[e ( _wait00 (1 -> -> 60 `i `s ]
+[e ( _wait00 (1 -> -> 50 `i `s ]
 [; ;main.c: 101: PORTC = 0x00;
 "101
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 102: wait00(30);
+[; ;main.c: 102: wait00(80);
 "102
-[e ( _wait00 (1 -> -> 30 `i `s ]
+[e ( _wait00 (1 -> -> 80 `i `s ]
 [; ;main.c: 103: }
 "103
 [e :UE 342 ]
@@ -3426,15 +3426,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 106: PORTC=0x01;
 "106
 [e = _PORTC -> -> 1 `i `uc ]
-[; ;main.c: 107: wait00(50);
+[; ;main.c: 107: wait00(40);
 "107
-[e ( _wait00 (1 -> -> 50 `i `s ]
+[e ( _wait00 (1 -> -> 40 `i `s ]
 [; ;main.c: 108: PORTC = 0x00;
 "108
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 109: wait00(30);
+[; ;main.c: 109: wait00(80);
 "109
-[e ( _wait00 (1 -> -> 30 `i `s ]
+[e ( _wait00 (1 -> -> 80 `i `s ]
 [; ;main.c: 110: }
 "110
 [e :UE 343 ]
@@ -3448,15 +3448,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 115: PORTC=0x03;
 "115
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 116: wait00(5);
+[; ;main.c: 116: wait00(8);
 "116
-[e ( _wait00 (1 -> -> 5 `i `s ]
+[e ( _wait00 (1 -> -> 8 `i `s ]
 [; ;main.c: 117: PORTC=0x02;
 "117
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;main.c: 118: wait00(60);
+[; ;main.c: 118: wait00(40);
 "118
-[e ( _wait00 (1 -> -> 60 `i `s ]
+[e ( _wait00 (1 -> -> 40 `i `s ]
 [; ;main.c: 119: PORTC = 0x00;
 "119
 [e = _PORTC -> -> 0 `i `uc ]
@@ -3476,15 +3476,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 125: PORTC=0x03;
 "125
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 126: wait00(5);
+[; ;main.c: 126: wait00(8);
 "126
-[e ( _wait00 (1 -> -> 5 `i `s ]
+[e ( _wait00 (1 -> -> 8 `i `s ]
 [; ;main.c: 127: PORTC=0x01;
 "127
 [e = _PORTC -> -> 1 `i `uc ]
-[; ;main.c: 128: wait00(50);
+[; ;main.c: 128: wait00(32);
 "128
-[e ( _wait00 (1 -> -> 50 `i `s ]
+[e ( _wait00 (1 -> -> 32 `i `s ]
 [; ;main.c: 129: PORTC = 0x00;
 "129
 [e = _PORTC -> -> 0 `i `uc ]

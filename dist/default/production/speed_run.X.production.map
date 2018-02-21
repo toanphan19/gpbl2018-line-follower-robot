@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.45\dat\en_msgs.txt -cs \
   -h+dist/default/production\speed_run.X.production.sym \
   --cmf=dist/default/production\speed_run.X.production.cmf -z -Q18F2553 \
-  -oC:\Users\crowe\AppData\Local\Temp\scho.2 \
+  -oC:\Users\crowe\AppData\Local\Temp\s7ck.2 \
   -Mdist/default/production/speed_run.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=060h-07ffh -pstack=STACK \
   -ACODE=02000h-02005h,02008h-02015h,02018h-07FFFh \
@@ -25,7 +25,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\crowe\AppData\Local\Temp\scho.obj \
+  C:\Users\crowe\AppData\Local\Temp\s7ck.obj \
   dist/default/production\speed_run.X.production.obj 
 
 Object code version is 3.11
@@ -38,7 +38,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\crowe\AppData\Local\Temp\scho.obj
+C:\Users\crowe\AppData\Local\Temp\s7ck.obj
                 init                               2000     2000        4     1000       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
