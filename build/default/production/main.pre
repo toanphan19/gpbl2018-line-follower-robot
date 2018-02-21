@@ -4316,11 +4316,11 @@ return straight_line;
 }
 
 
-if (a == 1 && b == 0
+if (a == 1 && b == 0 && c == 1
 && d == 1 && e == 1) {
 return off_right_little;
 }
-if (a == 1 && b == 1
+if (a == 1 && b == 1 && c == 1
 && d == 0 && e == 1) {
 return off_left_little;
 }
@@ -4352,17 +4352,21 @@ return on_track;
 
 # 98
 int turnLeft(void) {
+PORTC=0x03;
+wait00(1);
 PORTC=0x02;
 wait00(50);
 PORTC = 0x00;
-wait00(80);
+wait00(50);
 }
 
 int turnRight(void) {
+PORTC=0x03;
+wait00(1);
 PORTC=0x01;
 wait00(40);
 PORTC = 0x00;
-wait00(80);
+wait00(50);
 }
 
 
@@ -4373,7 +4377,7 @@ wait00(8);
 PORTC=0x02;
 wait00(40);
 PORTC = 0x00;
-wait00(80);
+wait00(50);
 }
 
 int turnRightSmall(void) {
@@ -4383,7 +4387,7 @@ wait00(8);
 PORTC=0x01;
 wait00(32);
 PORTC = 0x00;
-wait00(80);
+wait00(50);
 }
 
 
@@ -4391,18 +4395,18 @@ int straight(void){
 PORTC=0x03;
 wait00(30);
 PORTC=0x02;
-wait00(2);
+wait00(3);
 PORTC=0x00;
-wait00(100);
+wait00(80);
 }
 
 int accelerate(void) {
 PORTC=0x03;
 wait00(60);
 PORTC=0x02;
-wait00(5);
+wait00(6);
 PORTC=0x00;
-wait00(100);
+wait00(60);
 }
 
 
@@ -4444,7 +4448,10 @@ road_state = previous_road_state;
 
 switch (road_state) {
 case straight_line:
+if (previous_road_state == straight_line)
 accelerate();
+else
+straight();
 break;
 case off_left_little:
 turnRightSmall();

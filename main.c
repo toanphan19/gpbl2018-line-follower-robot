@@ -96,17 +96,21 @@ enum road_state_codes getRoadState(short a, short b, short c, short d, short e) 
 // 
 
 int turnLeft(void) {
+    PORTC=0x03; // both motor on
+    wait00(1);
     PORTC=0x02; /* right motor on */
     wait00(50);
     PORTC = 0x00;
-    wait00(80);
+    wait00(50);
 }
 
 int turnRight(void) {
+    PORTC=0x03; // both motor on
+    wait00(1);
     PORTC=0x01;/* left motor on */
     wait00(40);
     PORTC = 0x00;
-    wait00(80);
+    wait00(50);
 }
 
 
@@ -117,7 +121,7 @@ int turnLeftSmall(void) {
     PORTC=0x02; // right motor on
     wait00(40);
     PORTC = 0x00;
-    wait00(80);
+    wait00(50);
 }
 
 int turnRightSmall(void) {
@@ -127,7 +131,7 @@ int turnRightSmall(void) {
     PORTC=0x01; // left motor on
     wait00(32);
     PORTC = 0x00;
-    wait00(80);
+    wait00(50);
 }
 
 
@@ -135,18 +139,18 @@ int straight(void){
     PORTC=0x03; /* both motor on */
     wait00(30);
     PORTC=0x02; /* right motor on */
-    wait00(2);
+    wait00(3);
     PORTC=0x00; /* both motor off */
-    wait00(100); 
+    wait00(80); 
 }
 
 int accelerate(void) {
     PORTC=0x03; /* both motor on */
     wait00(60);
     PORTC=0x02; /* right motor on */
-    wait00(5);
+    wait00(6);
     PORTC=0x00; /* both motor off */
-    wait00(100); 
+    wait00(60); 
 }
 
 
@@ -188,7 +192,10 @@ main(void)
         
         switch (road_state) {
             case straight_line:
-                accelerate();
+                if (previous_road_state == straight_line)
+                    accelerate();
+                else
+                    straight();
                 break;
             case off_left_little:
                 turnRightSmall();

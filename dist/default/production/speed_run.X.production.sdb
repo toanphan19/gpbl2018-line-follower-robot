@@ -41,17 +41,17 @@ off_left 6
 [v _getRoadState getRoadState `(E3329  1 e 1 0 ]
 "98
 [v _turnLeft turnLeft `(i  1 e 2 0 ]
-"105
+"107
 [v _turnRight turnRight `(i  1 e 2 0 ]
-"113
+"117
 [v _turnLeftSmall turnLeftSmall `(i  1 e 2 0 ]
-"123
+"127
 [v _turnRightSmall turnRightSmall `(i  1 e 2 0 ]
-"134
+"138
 [v _straight straight `(i  1 e 2 0 ]
-"143
+"147
 [v _accelerate accelerate `(i  1 e 2 0 ]
-"153
+"157
 [v _main main `(i  1 e 2 0 ]
 "2115 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -120,39 +120,39 @@ off_left 6
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "5398
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"153 D:\Projects\2018_GPBL\speed_run.X\main.c
+"157 D:\Projects\2018_GPBL\speed_run.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"173
+"177
 [v main@road_state road_state `E3329  1 a 1 16 ]
-"174
+"178
 [v main@previous_road_state previous_road_state `E3329  1 a 1 15 ]
-"212
+"219
 } 0
-"123
+"127
 [v _turnRightSmall turnRightSmall `(i  1 e 2 0 ]
 {
-"131
+"135
 } 0
-"105
+"107
 [v _turnRight turnRight `(i  1 e 2 0 ]
 {
-"110
+"114
 } 0
-"113
+"117
 [v _turnLeftSmall turnLeftSmall `(i  1 e 2 0 ]
 {
-"121
+"125
 } 0
 "98
 [v _turnLeft turnLeft `(i  1 e 2 0 ]
 {
-"103
+"105
 } 0
-"134
+"138
 [v _straight straight `(i  1 e 2 0 ]
 {
-"141
+"145
 } 0
 "21
 [v _led_sens led_sens `(i  1 e 2 0 ]
@@ -169,10 +169,10 @@ off_left 6
 [v getRoadState@e e `s  1 p 2 8 ]
 "91
 } 0
-"143
+"147
 [v _accelerate accelerate `(i  1 e 2 0 ]
 {
-"150
+"154
 } 0
 "10
 [v _wait00 wait00 `(i  1 e 2 0 ]
