@@ -172,7 +172,6 @@ main(void)
     enum road_state_codes previous_road_state;
     
     //Push Start SW to start
-    wait00(500);
     while (1) {
         led_sens();
         
