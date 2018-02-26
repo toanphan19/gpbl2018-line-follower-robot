@@ -4316,11 +4316,11 @@ return straight_line;
 }
 
 
-if (a == 1 && b == 0 && c == 1
+if (a == 1 && b == 0
 && d == 1 && e == 1) {
 return off_right_little;
 }
-if (a == 1 && b == 1 && c == 1
+if (a == 1 && b == 1
 && d == 0 && e == 1) {
 return off_left_little;
 }
@@ -4353,16 +4353,16 @@ return on_track;
 # 101
 int turnLeft(void) {
 PORTC=0x02;
-wait00(25);
+wait00(50);
 PORTC = 0x00;
-wait00(25);
+wait00(60);
 }
 
 int turnRight(void) {
 PORTC=0x01;
-wait00(20);
+wait00(40);
 PORTC = 0x00;
-wait00(25);
+wait00(60);
 }
 
 
@@ -4370,7 +4370,7 @@ int turnLeftSmall(void) {
 PORTC=0x03;
 wait00(5);
 PORTC=0x02;
-wait00(50);
+wait00(40);
 PORTC = 0x00;
 wait00(50);
 }
@@ -4379,7 +4379,7 @@ int turnRightSmall(void) {
 PORTC=0x03;
 wait00(5);
 PORTC=0x01;
-wait00(40);
+wait00(32);
 PORTC = 0x00;
 wait00(50);
 }
@@ -4387,7 +4387,7 @@ wait00(50);
 
 int straight(void){
 PORTC=0x03;
-wait00(40);
+wait00(48);
 PORTC=0x02;
 wait00(4);
 PORTC=0x00;
@@ -4398,9 +4398,9 @@ int accelerate(void) {
 PORTC=0x03;
 wait00(60);
 PORTC=0x02;
-wait00(6);
+wait00(5);
 PORTC=0x00;
-wait00(10);
+wait00(15);
 }
 
 

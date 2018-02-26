@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Wed Feb 21 21:46:26 2018
+                                                                                               Mon Feb 26 19:13:28 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F2553
@@ -468,10 +468,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    454  007CD6  0E00               	movlw	0
    455  007CD8  6E82               	movwf	3970,c	;volatile
    456                           
-   457                           ;main.c: 131: wait00(40);
+   457                           ;main.c: 131: wait00(50);
    458  007CDA  0E00               	movlw	0
    459  007CDC  6E02               	movwf	wait00@k+1,c
-   460  007CDE  0E28               	movlw	40
+   460  007CDE  0E32               	movlw	50
    461  007CE0  6E01               	movwf	wait00@k,c
    462  007CE2  EC8E  F03E         	call	_wait00	;wreg free
    463  007CE6  0012               	return		;funcret
@@ -533,10 +533,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    519  007C0E  0E00               	movlw	0
    520  007C10  6E82               	movwf	3970,c	;volatile
    521                           
-   522                           ;main.c: 112: wait00(50);
+   522                           ;main.c: 112: wait00(60);
    523  007C12  0E00               	movlw	0
    524  007C14  6E02               	movwf	wait00@k+1,c
-   525  007C16  0E32               	movlw	50
+   525  007C16  0E3C               	movlw	60
    526  007C18  6E01               	movwf	wait00@k,c
    527  007C1A  EC8E  F03E         	call	_wait00	;wreg free
    528  007C1E  0012               	return		;funcret
@@ -609,10 +609,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    595  007CA4  0E00               	movlw	0
    596  007CA6  6E82               	movwf	3970,c	;volatile
    597                           
-   598                           ;main.c: 122: wait00(40);
+   598                           ;main.c: 122: wait00(50);
    599  007CA8  0E00               	movlw	0
    600  007CAA  6E02               	movwf	wait00@k+1,c
-   601  007CAC  0E28               	movlw	40
+   601  007CAC  0E32               	movlw	50
    602  007CAE  6E01               	movwf	wait00@k,c
    603  007CB0  EC8E  F03E         	call	_wait00	;wreg free
    604  007CB4  0012               	return		;funcret
@@ -674,10 +674,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    660  007BEC  0E00               	movlw	0
    661  007BEE  6E82               	movwf	3970,c	;volatile
    662                           
-   663                           ;main.c: 105: wait00(50);
+   663                           ;main.c: 105: wait00(60);
    664  007BF0  0E00               	movlw	0
    665  007BF2  6E02               	movwf	wait00@k+1,c
-   666  007BF4  0E32               	movlw	50
+   666  007BF4  0E3C               	movlw	60
    667  007BF6  6E01               	movwf	wait00@k,c
    668  007BF8  EC8E  F03E         	call	_wait00	;wreg free
    669  007BFC  0012               	return		;funcret
@@ -728,10 +728,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    714  007C52  0E03               	movlw	3
    715  007C54  6E82               	movwf	3970,c	;volatile
    716                           
-   717                           ;main.c: 137: wait00(60);
+   717                           ;main.c: 137: wait00(48);
    718  007C56  0E00               	movlw	0
    719  007C58  6E02               	movwf	wait00@k+1,c
-   720  007C5A  0E3C               	movlw	60
+   720  007C5A  0E30               	movlw	48
    721  007C5C  6E01               	movwf	wait00@k,c
    722  007C5E  EC8E  F03E         	call	_wait00	;wreg free
    723                           
@@ -739,10 +739,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    725  007C62  0E02               	movlw	2
    726  007C64  6E82               	movwf	3970,c	;volatile
    727                           
-   728                           ;main.c: 139: wait00(5);
+   728                           ;main.c: 139: wait00(4);
    729  007C66  0E00               	movlw	0
    730  007C68  6E02               	movwf	wait00@k+1,c
-   731  007C6A  0E05               	movlw	5
+   731  007C6A  0E04               	movlw	4
    732  007C6C  6E01               	movwf	wait00@k,c
    733  007C6E  EC8E  F03E         	call	_wait00	;wreg free
    734                           
@@ -750,10 +750,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    736  007C72  0E00               	movlw	0
    737  007C74  6E82               	movwf	3970,c	;volatile
    738                           
-   739                           ;main.c: 141: wait00(80);
+   739                           ;main.c: 141: wait00(60);
    740  007C76  0E00               	movlw	0
    741  007C78  6E02               	movwf	wait00@k+1,c
-   742  007C7A  0E50               	movlw	80
+   742  007C7A  0E3C               	movlw	60
    743  007C7C  6E01               	movwf	wait00@k,c
    744  007C7E  EC8E  F03E         	call	_wait00	;wreg free
    745  007C82  0012               	return		;funcret
@@ -1250,10 +1250,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1236  007C40  0E00               	movlw	0
   1237  007C42  6E82               	movwf	3970,c	;volatile
   1238                           
-  1239                           ;main.c: 150: wait00(30);
+  1239                           ;main.c: 150: wait00(15);
   1240  007C44  0E00               	movlw	0
   1241  007C46  6E02               	movwf	wait00@k+1,c
-  1242  007C48  0E1E               	movlw	30
+  1242  007C48  0E0F               	movlw	15
   1243  007C4A  6E01               	movwf	wait00@k,c
   1244  007C4C  EC8E  F03E         	call	_wait00	;wreg free
   1245  007C50  0012               	return		;funcret
@@ -1520,7 +1520,7 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Wed Feb 21 21:46:26 2018
+Symbol Table                                                                                   Mon Feb 26 19:13:28 2018
 
                      l21 7D48                       l22 7D26                       l23 7D3E  
                      l32 7EA8                       l50 7FFC                       l43 7F20  

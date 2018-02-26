@@ -7,7 +7,7 @@
 #include <xc.h>
 #include <p18f2553.h>
 
-#define MAXSIZE 5
+#define MAXSIZE 4
 
 
 wait00(short k)
@@ -117,7 +117,7 @@ int turnLeftSmall(void) {
     PORTC=0x03; // both motor on
     wait00(5);
     PORTC=0x02; // right motor on
-    wait00(50);
+    wait00(40);
     PORTC = 0x00;
     wait00(50);
 }
@@ -126,7 +126,7 @@ int turnRightSmall(void) {
     PORTC=0x03; // both motor on
     wait00(5);
     PORTC=0x01; // left motor on
-    wait00(40);
+    wait00(32);
     PORTC = 0x00;
     wait00(50);
 }
@@ -147,7 +147,7 @@ int accelerate(void) {
     PORTC=0x02; /* right motor on */
     wait00(5);
     PORTC=0x00; /* both motor off */
-    wait00(5); 
+    wait00(20); 
 }
 
 
