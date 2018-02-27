@@ -4368,7 +4368,7 @@ wait00(60);
 
 int turnLeftSmall(void) {
 PORTC=0x03;
-wait00(5);
+wait00(3);
 PORTC=0x02;
 wait00(40);
 PORTC = 0x00;
@@ -4377,7 +4377,7 @@ wait00(50);
 
 int turnRightSmall(void) {
 PORTC=0x03;
-wait00(5);
+wait00(3);
 PORTC=0x01;
 wait00(32);
 PORTC = 0x00;
@@ -4400,7 +4400,7 @@ wait00(60);
 PORTC=0x02;
 wait00(5);
 PORTC=0x00;
-wait00(15);
+wait00(30);
 }
 
 
