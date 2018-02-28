@@ -137,16 +137,16 @@ int straight(void){
     PORTC=0x02; /* right motor on */
     wait00(4);
     PORTC=0x00; /* both motor off */
-    wait00(60); 
+    wait00(30); 
 }
 
 int accelerate(void) {
     PORTC=0x03; /* both motor on */
-    wait00(60);
+    wait00(48);
     PORTC=0x02; /* right motor on */
-    wait00(5);
+    wait00(4);
     PORTC=0x00; /* both motor off */
-    wait00(25); 
+    wait00(20); 
 }
 
 int isAllStraight(enum road_state_codes states[]) {

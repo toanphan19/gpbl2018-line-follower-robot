@@ -4391,16 +4391,16 @@ wait00(48);
 PORTC=0x02;
 wait00(4);
 PORTC=0x00;
-wait00(60);
+wait00(30);
 }
 
 int accelerate(void) {
 PORTC=0x03;
-wait00(60);
+wait00(48);
 PORTC=0x02;
-wait00(5);
+wait00(4);
 PORTC=0x00;
-wait00(25);
+wait00(20);
 }
 
 int isAllStraight(enum road_state_codes states[]) {
