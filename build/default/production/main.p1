@@ -3410,9 +3410,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 103: PORTC = 0x00;
 "103
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 104: wait00(60);
+[; ;main.c: 104: wait00(40);
 "104
-[e ( _wait00 (1 -> -> 60 `i `s ]
+[e ( _wait00 (1 -> -> 40 `i `s ]
 [; ;main.c: 105: }
 "105
 [e :UE 342 ]
@@ -3432,9 +3432,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 110: PORTC = 0x00;
 "110
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 111: wait00(60);
+[; ;main.c: 111: wait00(40);
 "111
-[e ( _wait00 (1 -> -> 60 `i `s ]
+[e ( _wait00 (1 -> -> 40 `i `s ]
 [; ;main.c: 112: }
 "112
 [e :UE 343 ]
@@ -3448,21 +3448,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 116: PORTC=0x03;
 "116
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 117: wait00(3);
+[; ;main.c: 117: wait00(10);
 "117
-[e ( _wait00 (1 -> -> 3 `i `s ]
+[e ( _wait00 (1 -> -> 10 `i `s ]
 [; ;main.c: 118: PORTC=0x02;
 "118
 [e = _PORTC -> -> 2 `i `uc ]
-[; ;main.c: 119: wait00(40);
+[; ;main.c: 119: wait00(10);
 "119
-[e ( _wait00 (1 -> -> 40 `i `s ]
+[e ( _wait00 (1 -> -> 10 `i `s ]
 [; ;main.c: 120: PORTC = 0x00;
 "120
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 121: wait00(50);
+[; ;main.c: 121: wait00(30);
 "121
-[e ( _wait00 (1 -> -> 50 `i `s ]
+[e ( _wait00 (1 -> -> 30 `i `s ]
 [; ;main.c: 122: }
 "122
 [e :UE 344 ]
@@ -3476,21 +3476,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 125: PORTC=0x03;
 "125
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 126: wait00(3);
+[; ;main.c: 126: wait00(10);
 "126
-[e ( _wait00 (1 -> -> 3 `i `s ]
+[e ( _wait00 (1 -> -> 10 `i `s ]
 [; ;main.c: 127: PORTC=0x01;
 "127
 [e = _PORTC -> -> 1 `i `uc ]
-[; ;main.c: 128: wait00(34);
+[; ;main.c: 128: wait00(8);
 "128
-[e ( _wait00 (1 -> -> 34 `i `s ]
+[e ( _wait00 (1 -> -> 8 `i `s ]
 [; ;main.c: 129: PORTC = 0x00;
 "129
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 130: wait00(50);
+[; ;main.c: 130: wait00(30);
 "130
-[e ( _wait00 (1 -> -> 50 `i `s ]
+[e ( _wait00 (1 -> -> 30 `i `s ]
 [; ;main.c: 131: }
 "131
 [e :UE 345 ]
@@ -3544,9 +3544,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 148: PORTC=0x00;
 "148
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 149: wait00(20);
+[; ;main.c: 149: wait00(15);
 "149
-[e ( _wait00 (1 -> -> 20 `i `s ]
+[e ( _wait00 (1 -> -> 15 `i `s ]
 [; ;main.c: 150: }
 "150
 [e :UE 347 ]

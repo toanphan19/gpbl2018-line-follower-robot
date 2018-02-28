@@ -101,33 +101,33 @@ int turnLeft(void) {
     PORTC=0x02; /* right motor on */
     wait00(50);
     PORTC = 0x00;
-    wait00(60);
+    wait00(40);
 }
 
 int turnRight(void) {
     PORTC=0x01;/* left motor on */
     wait00(42);
     PORTC = 0x00;
-    wait00(60);
+    wait00(40);
 }
 
 
 int turnLeftSmall(void) {
     PORTC=0x03; // both motor on
-    wait00(3);
+    wait00(8);
     PORTC=0x02; // right motor on
-    wait00(40);
+    wait00(10);
     PORTC = 0x00;
-    wait00(50);
+    wait00(30);
 }
 
 int turnRightSmall(void) {
     PORTC=0x03; // both motor on
-    wait00(3);
+    wait00(8);
     PORTC=0x01; // left motor on
-    wait00(34);
+    wait00(8);
     PORTC = 0x00;
-    wait00(50);
+    wait00(30);
 }
 
 
