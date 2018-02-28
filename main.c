@@ -9,7 +9,6 @@
 
 #define MAXSIZE 5
 
-
 wait00(short k)
 { 	 
 /*Wait time about (~ k * 1 ms.) */ 		 
@@ -150,6 +149,16 @@ int accelerate(void) {
     wait00(25); 
 }
 
+int isAllStraight(enum road_state_codes states[]) {
+    for (int i = 0; i < MAXSIZE; i++) {
+        if (states[i] != on_track && states[i] != straight_line) {
+            return 0;
+        }
+    }
+    
+    return 1;
+}
+
 
 main(void)
 {
@@ -174,22 +183,29 @@ main(void)
     enum road_state_codes road_state = on_track;
     enum road_state_codes previous_road_state;
     
+    int current = -1;
+    enum road_state_codes states[MAXSIZE];
+    
     //Push Start SW to start
     while (1) {
         led_sens();
         
-        previous_road_state = road_state;
         road_state = getRoadState(
             PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2,
             PORTBbits.RB3, PORTBbits.RB4
         );
         
-        if (road_state == off_track)
-            road_state = previous_road_state;
+        if (road_state == off_track) {
+            road_state = states[(current + MAXSIZE - 1) % MAXSIZE];
+        }
+        
+        current = (current + 1) % MAXSIZE;
+        states[current] = road_state;
+        
         
         switch (road_state) {
             case straight_line:
-                if (previous_road_state == straight_line)
+                if (isAllStraight(states))
                     accelerate();
                 else
                     straight();

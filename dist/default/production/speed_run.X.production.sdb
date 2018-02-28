@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F2553 ]
 [d frameptr 4065 ]
-"44 D:\Projects\2018_GPBL\speed_run.X\main.c
+"43 D:\Projects\2018_GPBL\speed_run.X\main.c
 [e E3329 road_state_codes `uc
 on_track 0
 off_track 1
@@ -13,6 +13,8 @@ off_right 4
 off_left_little 5
 off_left 6
 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -33,25 +35,27 @@ off_left 6
 [v ___flmul __flmul `(d  1 e 4 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"13 D:\Projects\2018_GPBL\speed_run.X\main.c
+"12 D:\Projects\2018_GPBL\speed_run.X\main.c
 [v _wait00 wait00 `(i  1 e 2 0 ]
-"24
+"23
 [v _led_sens led_sens `(i  1 e 2 0 ]
-"44
+"43
 [v _getRoadState getRoadState `(E3329  1 e 1 0 ]
-"101
+"100
 [v _turnLeft turnLeft `(i  1 e 2 0 ]
-"108
+"107
 [v _turnRight turnRight `(i  1 e 2 0 ]
-"116
+"115
 [v _turnLeftSmall turnLeftSmall `(i  1 e 2 0 ]
-"125
+"124
 [v _turnRightSmall turnRightSmall `(i  1 e 2 0 ]
-"135
+"134
 [v _straight straight `(i  1 e 2 0 ]
-"144
+"143
 [v _accelerate accelerate `(i  1 e 2 0 ]
-"154
+"152
+[v _isAllStraight isAllStraight `(i  1 e 2 0 ]
+"163
 [v _main main `(i  1 e 2 0 ]
 "2115 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -120,46 +124,57 @@ off_left 6
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "5398
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"154 D:\Projects\2018_GPBL\speed_run.X\main.c
+"163 D:\Projects\2018_GPBL\speed_run.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"174
-[v main@road_state road_state `E3329  1 a 1 16 ]
-"175
-[v main@previous_road_state previous_road_state `E3329  1 a 1 15 ]
-"216
+"187
+[v main@states states `[5]E3329  1 a 5 15 ]
+"186
+[v main@current current `i  1 a 2 20 ]
+"183
+[v main@road_state road_state `E3329  1 a 1 22 ]
+"232
 } 0
-"125
+"124
 [v _turnRightSmall turnRightSmall `(i  1 e 2 0 ]
 {
-"132
+"131
 } 0
-"108
+"107
 [v _turnRight turnRight `(i  1 e 2 0 ]
 {
-"113
+"112
 } 0
-"116
+"115
 [v _turnLeftSmall turnLeftSmall `(i  1 e 2 0 ]
 {
-"123
+"122
 } 0
-"101
+"100
 [v _turnLeft turnLeft `(i  1 e 2 0 ]
 {
-"106
+"105
 } 0
-"135
+"134
 [v _straight straight `(i  1 e 2 0 ]
 {
-"142
+"141
 } 0
-"24
+"23
 [v _led_sens led_sens `(i  1 e 2 0 ]
 {
-"31
+"30
 } 0
-"44
+"152
+[v _isAllStraight isAllStraight `(i  1 e 2 0 ]
+{
+"153
+[v isAllStraight@i i `i  1 a 2 3 ]
+"152
+[v isAllStraight@states states `*.39E3329  1 p 2 0 ]
+"160
+} 0
+"43
 [v _getRoadState getRoadState `(E3329  1 e 1 0 ]
 {
 [v getRoadState@a a `s  1 p 2 0 ]
@@ -167,21 +182,32 @@ off_left 6
 [v getRoadState@c c `s  1 p 2 4 ]
 [v getRoadState@d d `s  1 p 2 6 ]
 [v getRoadState@e e `s  1 p 2 8 ]
-"94
+"93
 } 0
-"144
+"143
 [v _accelerate accelerate `(i  1 e 2 0 ]
 {
-"151
+"150
 } 0
-"13
+"12
 [v _wait00 wait00 `(i  1 e 2 0 ]
 {
-"16
+"15
 [v wait00@i i `s  1 a 2 5 ]
-"17
+"16
 [v wait00@j j `s  1 a 2 3 ]
-"13
+"12
 [v wait00@k k `s  1 p 2 0 ]
-"22
+"21
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"8
+[v ___awmod@dividend dividend `i  1 p 2 0 ]
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+"35
 } 0
