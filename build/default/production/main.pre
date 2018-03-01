@@ -4372,7 +4372,7 @@ wait00(10);
 PORTC=0x02;
 wait00(15);
 PORTC = 0x00;
-wait00(50);
+wait00(40);
 }
 
 int turnRightSmall(void) {
@@ -4381,7 +4381,7 @@ wait00(10);
 PORTC=0x01;
 wait00(13);
 PORTC = 0x00;
-wait00(50);
+wait00(40);
 }
 
 
@@ -4400,7 +4400,7 @@ wait00(48);
 PORTC=0x02;
 wait00(4);
 PORTC=0x00;
-wait00(40);
+wait00(20);
 }
 
 int accelerate(void) {

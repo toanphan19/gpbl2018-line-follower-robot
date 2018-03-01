@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Thu Mar 01 11:30:20 2018
+                                                                                               Thu Mar 01 11:33:52 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F2553
@@ -577,10 +577,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    563  007B3A  0E00               	movlw	0
    564  007B3C  6E82               	movwf	3970,c	;volatile
    565                           
-   566                           ;main.c: 130: wait00(50);
+   566                           ;main.c: 130: wait00(40);
    567  007B3E  0E00               	movlw	0
    568  007B40  6E02               	movwf	wait00@k+1,c
-   569  007B42  0E32               	movlw	50
+   569  007B42  0E28               	movlw	40
    570  007B44  6E01               	movwf	wait00@k,c
    571  007B46  ECC0  F03D         	call	_wait00	;wreg free
    572  007B4A  0012               	return		;funcret
@@ -724,10 +724,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    710  007B08  0E00               	movlw	0
    711  007B0A  6E82               	movwf	3970,c	;volatile
    712                           
-   713                           ;main.c: 121: wait00(50);
+   713                           ;main.c: 121: wait00(40);
    714  007B0C  0E00               	movlw	0
    715  007B0E  6E02               	movwf	wait00@k+1,c
-   716  007B10  0E32               	movlw	50
+   716  007B10  0E28               	movlw	40
    717  007B12  6E01               	movwf	wait00@k,c
    718  007B14  ECC0  F03D         	call	_wait00	;wreg free
    719  007B18  0012               	return		;funcret
@@ -871,10 +871,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    857  007AD6  0E00               	movlw	0
    858  007AD8  6E82               	movwf	3970,c	;volatile
    859                           
-   860                           ;main.c: 149: wait00(40);
+   860                           ;main.c: 149: wait00(20);
    861  007ADA  0E00               	movlw	0
    862  007ADC  6E02               	movwf	wait00@k+1,c
-   863  007ADE  0E28               	movlw	40
+   863  007ADE  0E14               	movlw	20
    864  007AE0  6E01               	movwf	wait00@k,c
    865  007AE2  ECC0  F03D         	call	_wait00	;wreg free
    866  007AE6  0012               	return		;funcret
@@ -2094,7 +2094,7 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Thu Mar 01 11:30:20 2018
+Symbol Table                                                                                   Thu Mar 01 11:33:52 2018
 
                      l21 7BAC                       l22 7B8A                       l23 7BA2  
                      l32 7EA8                       l50 7FFC                       l43 7F20  
