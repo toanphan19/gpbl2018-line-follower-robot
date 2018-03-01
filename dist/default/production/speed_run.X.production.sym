@@ -1,5 +1,5 @@
 __S0 30000E 0 ABS 0
-__S1 27 0 ABS 0
+__S1 31 0 ABS 0
 __S2 0 0 ABS 0
 __size_of_turnLeft 0 0 ABS 0
 isAllStraight@i 4 0 COMRAM 1
@@ -191,7 +191,7 @@ __HcstackCOMRAM 0 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
 __pcstackCOMRAM 1 0 COMRAM 1
-__Hspace_1 27 0 ABS 0
+__Hspace_1 31 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hsmallconst 0 0 SMALLCONST 0
 __Lsmallconst 0 0 SMALLCONST 0
@@ -205,12 +205,12 @@ __Lcinit 0 0 ABS 0
 ?_isAllStraight 1 0 COMRAM 1
 __pcinit 2008 0 CODE 0
 __ramtop 800 0 RAM 0
-main@road_state 26 0 COMRAM 1
+main@road_state 30 0 COMRAM 1
 __mediumconst 0 0 MEDIUMCONST 0
 __size_of_main 0 0 ABS 0
 __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
-main@current 24 0 COMRAM 1
+main@current 2E 0 COMRAM 1
 __end_of_wait00 7BC2 0 CODE 0
 __Htext10 0 0 ABS 0
 __Ltext10 0 0 ABS 0
@@ -259,7 +259,7 @@ _getRoadState 7E54 0 CODE 0
 reset_vec 2000 2003 CODE 2000 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
-cstackCOMRAM 1 26 COMRAM 1 1
+cstackCOMRAM 1 30 COMRAM 1 1
 text10 7E54 7FFF CODE 7E54 0
 text0 7CE4 7E53 CODE 7CE4 0
 text13 7C74 7CE3 CODE 7C74 0
@@ -278,7 +278,7 @@ cinit 2008 2011 CODE 2008 0
 %locals
 dist/default/production\speed_run.X.production.obj
 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
-C:\Users\crowe\AppData\Local\Temp\s5fg.
+C:\Users\crowe\AppData\Local\Temp\s18o.
 404 2008 0 CODE 0
 406 2008 0 CODE 0
 409 2008 0 CODE 0

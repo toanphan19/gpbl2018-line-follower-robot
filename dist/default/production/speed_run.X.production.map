@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.45\dat\en_msgs.txt -cs \
   -h+dist/default/production\speed_run.X.production.sym \
   --cmf=dist/default/production\speed_run.X.production.cmf -z -Q18F2553 \
-  -oC:\Users\crowe\AppData\Local\Temp\s5fg.2 \
+  -oC:\Users\crowe\AppData\Local\Temp\s18o.2 \
   -Mdist/default/production/speed_run.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=060h-07ffh -pstack=STACK \
   -ACODE=02000h-02005h,02008h-02015h,02018h-07FFFh \
@@ -25,7 +25,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\crowe\AppData\Local\Temp\s5fg.obj \
+  C:\Users\crowe\AppData\Local\Temp\s18o.obj \
   dist/default/production\speed_run.X.production.obj 
 
 Object code version is 3.11
@@ -38,7 +38,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\crowe\AppData\Local\Temp\s5fg.obj
+C:\Users\crowe\AppData\Local\Temp\s18o.obj
                 init                               2000     2000        4     1000       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
@@ -57,7 +57,7 @@ dist/default/production\speed_run.X.production.obj
                 text2                              7A30     7A30       22     3D18       0
                 text1                              7B1A     7B1A       32     3D8D       0
                 text0                              7CE4     7CE4      170     3E72       0
-                cstackCOMRAM                          1        1       26        1       1
+                cstackCOMRAM                          1        1       30        1       1
                 cinit                              2008     2008        A     1004       0
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -88,7 +88,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                cstackCOMRAM                          1        1       26         1
+                cstackCOMRAM                          1        1       30         1
 
         CLASS   ABS1           
 
@@ -128,7 +128,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                cstackCOMRAM                   000001  000026  000027         1       1  COMRAM  
+                cstackCOMRAM                   000001  000030  000031         1       1  COMRAM  
                 reset_vec                      002000  000004  002004      1000       0  CODE    
                 cinit                          002008  00000A  002012      1004       0  CODE    
                 text4                          007A0E  000022  007A30      3D07       0  CODE    
@@ -160,11 +160,11 @@ UNUSED ADDRESS RANGES
         BANK5            000500-0005FF              100
         BANK6            000600-0006FF              100
         BANK7            000700-0007FF              100
-        BIGRAM           000027-0007FF              7D9
+        BIGRAM           000031-0007FF              7CF
         CODE             002004-002005                2
                          002012-002015                4
                          002018-007A0D             59F6
-        COMRAM           000027-00005F               39
+        COMRAM           000031-00005F               2F
         CONST            002004-002005                2
                          002012-002015                4
                          002018-007A0D             59F6
@@ -246,7 +246,7 @@ __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
 __Hsmallconst            smallconst   000000
 __Hspace_0               (abs)        30000E
-__Hspace_1               (abs)        000027
+__Hspace_1               (abs)        000031
 __Hspace_2               (abs)        000000
 __Hstack                 stack        000000
 __Hstruct                struct       000000
@@ -339,7 +339,7 @@ __Ltext7                 text7        000000
 __Ltext8                 text8        000000
 __Ltext9                 text9        000000
 __S0                     (abs)        30000E
-__S1                     (abs)        000027
+__S1                     (abs)        000031
 __S2                     (abs)        000000
 ___awmod                 text13       007C74
 ___awmod@counter         cstackCOMRAM 000005
@@ -429,8 +429,8 @@ isAllStraight@i          cstackCOMRAM 000004
 isAllStraight@states     cstackCOMRAM 000001
 isInCurve@i              cstackCOMRAM 000004
 isInCurve@states         cstackCOMRAM 000001
-main@current             cstackCOMRAM 000024
-main@road_state          cstackCOMRAM 000026
+main@current             cstackCOMRAM 00002E
+main@road_state          cstackCOMRAM 000030
 main@states              cstackCOMRAM 000010
 stackhi                  (abs)        0007FF
 stacklo                  (abs)        000060
@@ -449,9 +449,9 @@ FUNCTION INFORMATION:
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  states         20   15[COMRAM] enum E3329[20]
-  current         2   35[COMRAM] int 
-  road_state      1   37[COMRAM] enum E3329
+  states         30   15[COMRAM] enum E3329[30]
+  current         2   45[COMRAM] int 
+  road_state      1   47[COMRAM] enum E3329
   previous_roa    1    0        enum E3329
  Return value:  Size  Location     Type
                   2   89[None  ] int 
@@ -463,10 +463,10 @@ FUNCTION INFORMATION:
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:        23       0       0       0       0       0       0       0       0
+      Locals:        33       0       0       0       0       0       0       0       0
       Temps:          5       0       0       0       0       0       0       0       0
-      Totals:        28       0       0       0       0       0       0       0       0
-Total ram usage:       28 bytes
+      Totals:        38       0       0       0       0       0       0       0       0
+Total ram usage:       38 bytes
  Hardware stack levels required when called:    2
  This function calls:
 		___awmod
@@ -700,7 +700,7 @@ Total ram usage:        0 bytes
 		line 171 in file "main.c"
  Parameters:    Size  Location     Type
   states          2    0[COMRAM] PTR enum E3329
-		 -> main@states(20), 
+		 -> main@states(30), 
  Auto vars:     Size  Location     Type
   i               2    3[COMRAM] int 
  Return value:  Size  Location     Type
@@ -730,7 +730,7 @@ Total ram usage:        5 bytes
 		line 161 in file "main.c"
  Parameters:    Size  Location     Type
   states          2    0[COMRAM] PTR enum E3329
-		 -> main@states(20), 
+		 -> main@states(30), 
  Auto vars:     Size  Location     Type
   i               2    3[COMRAM] int 
  Return value:  Size  Location     Type

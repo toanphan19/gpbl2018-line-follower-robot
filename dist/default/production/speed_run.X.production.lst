@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Thu Mar 01 11:24:03 2018
+                                                                                               Thu Mar 01 11:30:20 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F2553
@@ -171,18 +171,18 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    157  000010                     main@states:
    158                           	opt stack 0
    159                           
-   160                           ; 20 bytes @ 0xF
-   161  000010                     	ds	20
-   162  000024                     main@current:
+   160                           ; 30 bytes @ 0xF
+   161  000010                     	ds	30
+   162  00002E                     main@current:
    163                           	opt stack 0
    164                           
-   165                           ; 2 bytes @ 0x23
-   166  000024                     	ds	2
-   167  000026                     main@road_state:
+   165                           ; 2 bytes @ 0x2D
+   166  00002E                     	ds	2
+   167  000030                     main@road_state:
    168                           	opt stack 0
    169                           
-   170                           ; 1 bytes @ 0x25
-   171  000026                     	ds	1
+   170                           ; 1 bytes @ 0x2F
+   171  000030                     	ds	1
    172                           tblptru	equ	0xFF8
    173                           
    174 ;;
@@ -194,9 +194,9 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    180 ;; Parameters:    Size  Location     Type
    181 ;;		None
    182 ;; Auto vars:     Size  Location     Type
-   183 ;;  states         20   15[COMRAM] enum E3329[20]
-   184 ;;  current         2   35[COMRAM] int 
-   185 ;;  road_state      1   37[COMRAM] enum E3329
+   183 ;;  states         30   15[COMRAM] enum E3329[30]
+   184 ;;  current         2   45[COMRAM] int 
+   185 ;;  road_state      1   47[COMRAM] enum E3329
    186 ;;  previous_roa    1    0        enum E3329
    187 ;; Return value:  Size  Location     Type
    188 ;;                  2   89[None  ] int 
@@ -208,10 +208,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    194 ;;		Unchanged: 0/0
    195 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
    196 ;;      Params:         0       0       0       0       0       0       0       0       0
-   197 ;;      Locals:        23       0       0       0       0       0       0       0       0
+   197 ;;      Locals:        33       0       0       0       0       0       0       0       0
    198 ;;      Temps:          5       0       0       0       0       0       0       0       0
-   199 ;;      Totals:        28       0       0       0       0       0       0       0       0
-   200 ;;Total ram usage:       28 bytes
+   199 ;;      Totals:        38       0       0       0       0       0       0       0       0
+   200 ;;Total ram usage:       38 bytes
    201 ;; Hardware stack levels required when called:    2
    202 ;; This function calls:
    203 ;;		___awmod
@@ -278,12 +278,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    264                           ;main.c: 200: }
    265                           ;main.c: 202: enum road_state_codes road_state = on_track;
    266  007D08  0E00               	movlw	0
-   267  007D0A  6E26               	movwf	main@road_state,c
+   267  007D0A  6E30               	movwf	main@road_state,c
    268                           
    269                           ;main.c: 203: enum road_state_codes previous_road_state;
    270                           ;main.c: 205: int current = -1;
-   271  007D0C  6824               	setf	main@current,c
-   272  007D0E  6825               	setf	main@current+1,c
+   271  007D0C  682E               	setf	main@current,c
+   272  007D0E  682F               	setf	main@current+1,c
    273  007D10                     
    274                           ;main.c: 210: led_sens();
    275  007D10  ECA6  F03D         	call	_led_sens	;wreg free
@@ -348,23 +348,23 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    334  007D6A  6E09               	movwf	getRoadState@e,c
    335  007D6C  6A0A               	clrf	getRoadState@e+1,c
    336  007D6E  EC2A  F03F         	call	_getRoadState	;wreg free
-   337  007D72  6E26               	movwf	main@road_state,c
+   337  007D72  6E30               	movwf	main@road_state,c
    338                           
    339                           ;main.c: 217: if (road_state == off_track) {
-   340  007D74  0426               	decf	main@road_state,w,c
+   340  007D74  0430               	decf	main@road_state,w,c
    341  007D76  A4D8               	btfss	status,2,c
    342  007D78  D014               	goto	l94
    343                           
-   344                           ;main.c: 218: road_state = states[(current + 20 - 1) % 20];
-   345  007D7A  0E13               	movlw	19
-   346  007D7C  2424               	addwf	main@current,w,c
+   344                           ;main.c: 218: road_state = states[(current + 30 - 1) % 30];
+   345  007D7A  0E1D               	movlw	29
+   346  007D7C  242E               	addwf	main@current,w,c
    347  007D7E  6E01               	movwf	___awmod@dividend,c
    348  007D80  0E00               	movlw	0
-   349  007D82  2025               	addwfc	main@current+1,w,c
+   349  007D82  202F               	addwfc	main@current+1,w,c
    350  007D84  6E02               	movwf	___awmod@dividend+1,c
    351  007D86  0E00               	movlw	0
    352  007D88  6E04               	movwf	___awmod@divisor+1,c
-   353  007D8A  0E14               	movlw	20
+   353  007D8A  0E1E               	movlw	30
    354  007D8C  6E03               	movwf	___awmod@divisor,c
    355  007D8E  EC3A  F03E         	call	___awmod	;wreg free
    356  007D92  0E10               	movlw	low main@states
@@ -374,33 +374,33 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    360  007D9A  2002               	addwfc	?___awmod+1,w,c
    361  007D9C  6EDA               	movwf	fsr2h,c
    362  007D9E  50DF               	movf	indf2,w,c
-   363  007DA0  6E26               	movwf	main@road_state,c
+   363  007DA0  6E30               	movwf	main@road_state,c
    364  007DA2                     l94:
    365                           
    366                           ;main.c: 219: }
-   367                           ;main.c: 221: current = (current + 1) % 20;
+   367                           ;main.c: 221: current = (current + 1) % 30;
    368  007DA2  0E01               	movlw	1
-   369  007DA4  2424               	addwf	main@current,w,c
+   369  007DA4  242E               	addwf	main@current,w,c
    370  007DA6  6E01               	movwf	___awmod@dividend,c
    371  007DA8  0E00               	movlw	0
-   372  007DAA  2025               	addwfc	main@current+1,w,c
+   372  007DAA  202F               	addwfc	main@current+1,w,c
    373  007DAC  6E02               	movwf	___awmod@dividend+1,c
    374  007DAE  0E00               	movlw	0
    375  007DB0  6E04               	movwf	___awmod@divisor+1,c
-   376  007DB2  0E14               	movlw	20
+   376  007DB2  0E1E               	movlw	30
    377  007DB4  6E03               	movwf	___awmod@divisor,c
    378  007DB6  EC3A  F03E         	call	___awmod	;wreg free
-   379  007DBA  C001  F024         	movff	?___awmod,main@current
-   380  007DBE  C002  F025         	movff	?___awmod+1,main@current+1
+   379  007DBA  C001  F02E         	movff	?___awmod,main@current
+   380  007DBE  C002  F02F         	movff	?___awmod+1,main@current+1
    381                           
    382                           ;main.c: 222: states[current] = road_state;
    383  007DC2  0E10               	movlw	low main@states
-   384  007DC4  2424               	addwf	main@current,w,c
+   384  007DC4  242E               	addwf	main@current,w,c
    385  007DC6  6ED9               	movwf	fsr2l,c
    386  007DC8  0E00               	movlw	high main@states
-   387  007DCA  2025               	addwfc	main@current+1,w,c
+   387  007DCA  202F               	addwfc	main@current+1,w,c
    388  007DCC  6EDA               	movwf	fsr2h,c
-   389  007DCE  C026  FFDF         	movff	main@road_state,indf2
+   389  007DCE  C030  FFDF         	movff	main@road_state,indf2
    390                           
    391                           ;main.c: 225: switch (road_state) {
    392  007DD2  D02C               	goto	l95
@@ -478,7 +478,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    464                           ;main.c: 249: break;
    465  007E2A  D772               	goto	l93
    466  007E2C                     l95:
-   467  007E2C  5026               	movf	main@road_state,w,c
+   467  007E2C  5030               	movf	main@road_state,w,c
    468                           
    469                           ; Switch size 1, requested type "space"
    470                           ; Number of cases is 6, Range of values is 0 to 6
@@ -555,10 +555,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    541  007B1A  0E03               	movlw	3
    542  007B1C  6E82               	movwf	3970,c	;volatile
    543                           
-   544                           ;main.c: 126: wait00(15);
+   544                           ;main.c: 126: wait00(10);
    545  007B1E  0E00               	movlw	0
    546  007B20  6E02               	movwf	wait00@k+1,c
-   547  007B22  0E0F               	movlw	15
+   547  007B22  0E0A               	movlw	10
    548  007B24  6E01               	movwf	wait00@k,c
    549  007B26  ECC0  F03D         	call	_wait00	;wreg free
    550                           
@@ -577,10 +577,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    563  007B3A  0E00               	movlw	0
    564  007B3C  6E82               	movwf	3970,c	;volatile
    565                           
-   566                           ;main.c: 130: wait00(30);
+   566                           ;main.c: 130: wait00(50);
    567  007B3E  0E00               	movlw	0
    568  007B40  6E02               	movwf	wait00@k+1,c
-   569  007B42  0E1E               	movlw	30
+   569  007B42  0E32               	movlw	50
    570  007B44  6E01               	movwf	wait00@k,c
    571  007B46  ECC0  F03D         	call	_wait00	;wreg free
    572  007B4A  0012               	return		;funcret
@@ -702,10 +702,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    688  007AE8  0E03               	movlw	3
    689  007AEA  6E82               	movwf	3970,c	;volatile
    690                           
-   691                           ;main.c: 117: wait00(15);
+   691                           ;main.c: 117: wait00(10);
    692  007AEC  0E00               	movlw	0
    693  007AEE  6E02               	movwf	wait00@k+1,c
-   694  007AF0  0E0F               	movlw	15
+   694  007AF0  0E0A               	movlw	10
    695  007AF2  6E01               	movwf	wait00@k,c
    696  007AF4  ECC0  F03D         	call	_wait00	;wreg free
    697                           
@@ -724,10 +724,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    710  007B08  0E00               	movlw	0
    711  007B0A  6E82               	movwf	3970,c	;volatile
    712                           
-   713                           ;main.c: 121: wait00(30);
+   713                           ;main.c: 121: wait00(50);
    714  007B0C  0E00               	movlw	0
    715  007B0E  6E02               	movwf	wait00@k+1,c
-   716  007B10  0E1E               	movlw	30
+   716  007B10  0E32               	movlw	50
    717  007B12  6E01               	movwf	wait00@k,c
    718  007B14  ECC0  F03D         	call	_wait00	;wreg free
    719  007B18  0012               	return		;funcret
@@ -950,10 +950,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    936  007AA4  0E00               	movlw	0
    937  007AA6  6E82               	movwf	3970,c	;volatile
    938                           
-   939                           ;main.c: 140: wait00(60);
+   939                           ;main.c: 140: wait00(40);
    940  007AA8  0E00               	movlw	0
    941  007AAA  6E02               	movwf	wait00@k+1,c
-   942  007AAC  0E3C               	movlw	60
+   942  007AAC  0E28               	movlw	40
    943  007AAE  6E01               	movwf	wait00@k,c
    944  007AB0  ECC0  F03D         	call	_wait00	;wreg free
    945  007AB4  0012               	return		;funcret
@@ -1060,7 +1060,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1046 ;;		line 171 in file "main.c"
   1047 ;; Parameters:    Size  Location     Type
   1048 ;;  states          2    0[COMRAM] PTR enum E3329
-  1049 ;;		 -> main@states(20), 
+  1049 ;;		 -> main@states(30), 
   1050 ;; Auto vars:     Size  Location     Type
   1051 ;;  i               2    3[COMRAM] int 
   1052 ;; Return value:  Size  Location     Type
@@ -1091,7 +1091,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1077  007C1A                     _isInCurve:
   1078                           	opt stack 30
   1079                           
-  1080                           ;main.c: 172: for (int i = 0; i < 20; i++) {
+  1080                           ;main.c: 172: for (int i = 0; i < 30; i++) {
   1081                           
   1082                           ;incstack = 0
   1083  007C1A  0E00               	movlw	0
@@ -1103,7 +1103,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1089  007C24  D006               	goto	l80
   1090  007C26  5005               	movf	isInCurve@i+1,w,c
   1091  007C28  E120               	bnz	l1337
-  1092  007C2A  0E14               	movlw	20
+  1092  007C2A  0E1E               	movlw	30
   1093  007C2C  5C04               	subwf	isInCurve@i,w,c
   1094  007C2E  B0D8               	btfsc	status,0,c
   1095  007C30  D01C               	goto	u1380
@@ -1167,7 +1167,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1153 ;;		line 161 in file "main.c"
   1154 ;; Parameters:    Size  Location     Type
   1155 ;;  states          2    0[COMRAM] PTR enum E3329
-  1156 ;;		 -> main@states(20), 
+  1156 ;;		 -> main@states(30), 
   1157 ;; Auto vars:     Size  Location     Type
   1158 ;;  i               2    3[COMRAM] int 
   1159 ;; Return value:  Size  Location     Type
@@ -1198,7 +1198,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1184  007BC2                     _isAllStraight:
   1185                           	opt stack 30
   1186                           
-  1187                           ;main.c: 162: for (int i = 0; i < 20; i++) {
+  1187                           ;main.c: 162: for (int i = 0; i < 30; i++) {
   1188                           
   1189                           ;incstack = 0
   1190  007BC2  0E00               	movlw	0
@@ -1210,7 +1210,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1196  007BCC  D006               	goto	l74
   1197  007BCE  5005               	movf	isAllStraight@i+1,w,c
   1198  007BD0  E11F               	bnz	l1315
-  1199  007BD2  0E14               	movlw	20
+  1199  007BD2  0E1E               	movlw	30
   1200  007BD4  5C04               	subwf	isAllStraight@i,w,c
   1201  007BD6  B0D8               	btfsc	status,0,c
   1202  007BD8  D01B               	goto	u1340
@@ -1916,7 +1916,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           95     38      38
+    COMRAM           95     48      48
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -1928,11 +1928,11 @@ Auto Spaces:
 
 Pointer List with Targets:
 
-    isInCurve@states	PTR enum E3329 size(2) Largest target is 20
-		 -> main@states(COMRAM[20]), 
+    isInCurve@states	PTR enum E3329 size(2) Largest target is 30
+		 -> main@states(COMRAM[30]), 
 
-    isAllStraight@states	PTR enum E3329 size(2) Largest target is 20
-		 -> main@states(COMRAM[20]), 
+    isAllStraight@states	PTR enum E3329 size(2) Largest target is 30
+		 -> main@states(COMRAM[30]), 
 
 
 Critical Paths under _main in COMRAM
@@ -1983,8 +1983,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                29    29      0   13440
-                                             10 COMRAM    28    28      0
+ (0) _main                                                39    39      0   13440
+                                             10 COMRAM    38    38      0
                             ___awmod
                          _accelerate
                        _getRoadState
@@ -2068,7 +2068,7 @@ BITCOMRAM           5F      0       0       0        0.0%
 EEDATA             100      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMRAM              5F     26      26       1       40.0%
+COMRAM              5F     30      30       1       50.5%
 STACK                0      0       0       2        0.0%
 DATA                 0      0       0       3        0.0%
 BITBANK0            A0      0       0       4        0.0%
@@ -2094,7 +2094,7 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Thu Mar 01 11:24:03 2018
+Symbol Table                                                                                   Thu Mar 01 11:30:20 2018
 
                      l21 7BAC                       l22 7B8A                       l23 7BA2  
                      l32 7EA8                       l50 7FFC                       l43 7F20  
@@ -2120,7 +2120,7 @@ Symbol Table                                                                    
                    u1380 7C6A                     u1508 7D68                     u1460 7D1E  
                    u1470 7D30                     u1480 7D42                     u1490 7D54  
                    u1468 7D20                     u1478 7D32                     u1488 7D44  
-                   u1498 7D56              main@current 0024                     _main 7CE4  
+                   u1498 7D56              main@current 002E                     _main 7CE4  
                    indf2 000FDF                     fsr2l 000FD9                     start 2000  
            ___param_bank 000000                    ?_main 0001          __end_of___awmod 7CE4  
                   _PORTA 000F80                    _PORTB 000F81                    _PORTC 000F82  
@@ -2142,7 +2142,7 @@ __end_of__initialization 2008            ___rparam_used 000001           __pcsta
                 __ptext0 7CE4                  __ptext1 7B1A                  __ptext2 7A30  
                 __ptext3 7AE8                  __ptext4 7A0E                  __ptext5 7AB6  
                 __ptext6 7A84                  __ptext7 7B4C                  __ptext8 7C1A  
-                __ptext9 7BC2         ___awmod@dividend 0001           main@road_state 0026  
+                __ptext9 7BC2         ___awmod@dividend 0001           main@road_state 0030  
     isAllStraight@states 0001     end_of_initialization 2008               ??_led_sens 0001  
           __Lmediumconst 0000                  wait00@i 0006                  wait00@j 0004  
                 wait00@k 0001  __size_of_turnRightSmall 0032          isInCurve@states 0001  

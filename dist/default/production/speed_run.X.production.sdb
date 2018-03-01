@@ -132,11 +132,11 @@ off_left 6
 [v _main main `(i  1 e 2 0 ]
 {
 "206
-[v main@states states `[20]E3329  1 a 20 15 ]
+[v main@states states `[30]E3329  1 a 30 15 ]
 "205
-[v main@current current `i  1 a 2 35 ]
+[v main@current current `i  1 a 2 45 ]
 "202
-[v main@road_state road_state `E3329  1 a 1 37 ]
+[v main@road_state road_state `E3329  1 a 1 47 ]
 "254
 } 0
 "124

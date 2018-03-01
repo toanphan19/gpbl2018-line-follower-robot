@@ -4368,20 +4368,20 @@ wait00(40);
 
 int turnLeftSmall(void) {
 PORTC=0x03;
-wait00(15);
+wait00(10);
 PORTC=0x02;
 wait00(15);
 PORTC = 0x00;
-wait00(30);
+wait00(50);
 }
 
 int turnRightSmall(void) {
 PORTC=0x03;
-wait00(15);
+wait00(10);
 PORTC=0x01;
 wait00(13);
 PORTC = 0x00;
-wait00(30);
+wait00(50);
 }
 
 
@@ -4391,7 +4391,7 @@ wait00(48);
 PORTC=0x02;
 wait00(4);
 PORTC=0x00;
-wait00(60);
+wait00(40);
 }
 
 int straight(void){
@@ -4413,7 +4413,7 @@ wait00(20);
 }
 
 int isAllStraight(enum road_state_codes states[]) {
-for (int i = 0; i < 20; i++) {
+for (int i = 0; i < 30; i++) {
 if (states[i] != on_track && states[i] != straight_line) {
 return 0;
 }
@@ -4423,7 +4423,7 @@ return 1;
 }
 
 int isInCurve(enum road_state_codes states[]) {
-for (int i = 0; i < 20; i++) {
+for (int i = 0; i < 30; i++) {
 if (states[i] == off_left || states[i] == off_right) {
 return 1;
 }
@@ -4457,7 +4457,7 @@ enum road_state_codes road_state = on_track;
 enum road_state_codes previous_road_state;
 
 int current = -1;
-enum road_state_codes states[20];
+enum road_state_codes states[30];
 
 
 while (1) {
@@ -4469,10 +4469,10 @@ PORTBbits.RB3, PORTBbits.RB4
 );
 
 if (road_state == off_track) {
-road_state = states[(current + 20 - 1) % 20];
+road_state = states[(current + 30 - 1) % 30];
 }
 
-current = (current + 1) % 20;
+current = (current + 1) % 30;
 states[current] = road_state;
 
 

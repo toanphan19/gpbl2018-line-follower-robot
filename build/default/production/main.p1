@@ -3448,9 +3448,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 116: PORTC=0x03;
 "116
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 117: wait00(15);
+[; ;main.c: 117: wait00(10);
 "117
-[e ( _wait00 (1 -> -> 15 `i `s ]
+[e ( _wait00 (1 -> -> 10 `i `s ]
 [; ;main.c: 118: PORTC=0x02;
 "118
 [e = _PORTC -> -> 2 `i `uc ]
@@ -3460,9 +3460,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 120: PORTC = 0x00;
 "120
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 121: wait00(30);
+[; ;main.c: 121: wait00(50);
 "121
-[e ( _wait00 (1 -> -> 30 `i `s ]
+[e ( _wait00 (1 -> -> 50 `i `s ]
 [; ;main.c: 122: }
 "122
 [e :UE 344 ]
@@ -3476,9 +3476,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 125: PORTC=0x03;
 "125
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 126: wait00(15);
+[; ;main.c: 126: wait00(10);
 "126
-[e ( _wait00 (1 -> -> 15 `i `s ]
+[e ( _wait00 (1 -> -> 10 `i `s ]
 [; ;main.c: 127: PORTC=0x01;
 "127
 [e = _PORTC -> -> 1 `i `uc ]
@@ -3488,9 +3488,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 129: PORTC = 0x00;
 "129
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 130: wait00(30);
+[; ;main.c: 130: wait00(50);
 "130
-[e ( _wait00 (1 -> -> 30 `i `s ]
+[e ( _wait00 (1 -> -> 50 `i `s ]
 [; ;main.c: 131: }
 "131
 [e :UE 345 ]
@@ -3516,9 +3516,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 139: PORTC=0x00;
 "139
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 140: wait00(60);
+[; ;main.c: 140: wait00(40);
 "140
-[e ( _wait00 (1 -> -> 60 `i `s ]
+[e ( _wait00 (1 -> -> 40 `i `s ]
 [; ;main.c: 141: }
 "141
 [e :UE 346 ]
@@ -3586,12 +3586,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _isAllStraight ]
 [v _states `*E3329 ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 162: for (int i = 0; i < 20; i++) {
+[; ;main.c: 162: for (int i = 0; i < 30; i++) {
 "162
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 20 `i 350  ]
+[e $ < _i -> 30 `i 350  ]
 [e $U 351  ]
 [e :U 350 ]
 {
@@ -3610,7 +3610,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "162
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 20 `i 350  ]
+[e $ < _i -> 30 `i 350  ]
 [e :U 351 ]
 "166
 }
@@ -3631,12 +3631,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _isInCurve ]
 [v _states `*E3329 ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 172: for (int i = 0; i < 20; i++) {
+[; ;main.c: 172: for (int i = 0; i < 30; i++) {
 "172
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 20 `i 355  ]
+[e $ < _i -> 30 `i 355  ]
 [e $U 356  ]
 [e :U 355 ]
 {
@@ -3655,7 +3655,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "172
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 20 `i 355  ]
+[e $ < _i -> 30 `i 355  ]
 [e :U 356 ]
 "176
 }
@@ -3726,8 +3726,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 205: int current = -1;
 [e = _current -U -> 1 `i ]
 "206
-[v _states `E3329 ~T0 @X0 -> 20 `i a ]
-[; ;main.c: 206: enum road_state_codes states[20];
+[v _states `E3329 ~T0 @X0 -> 30 `i a ]
+[; ;main.c: 206: enum road_state_codes states[30];
 [; ;main.c: 209: while (1) {
 "209
 [e :U 364 ]
@@ -3745,16 +3745,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 "217
 [e $ ! == -> _road_state `i -> . `E3329 1 `i 366  ]
 {
-[; ;main.c: 218: road_state = states[(current + 20 - 1) % 20];
+[; ;main.c: 218: road_state = states[(current + 30 - 1) % 30];
 "218
-[e = _road_state *U + &U _states * -> -> % - + _current -> 20 `i -> 1 `i -> 20 `i `ui `ux -> -> # *U &U _states `ui `ux ]
+[e = _road_state *U + &U _states * -> -> % - + _current -> 30 `i -> 1 `i -> 30 `i `ui `ux -> -> # *U &U _states `ui `ux ]
 "219
 }
 [e :U 366 ]
 [; ;main.c: 219: }
-[; ;main.c: 221: current = (current + 1) % 20;
+[; ;main.c: 221: current = (current + 1) % 30;
 "221
-[e = _current % + _current -> 1 `i -> 20 `i ]
+[e = _current % + _current -> 1 `i -> 30 `i ]
 [; ;main.c: 222: states[current] = road_state;
 "222
 [e = *U + &U _states * -> -> _current `ui `ux -> -> # *U &U _states `ui `ux _road_state ]
