@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.45\dat\en_msgs.txt -cs \
   -h+dist/default/production\speed_run.X.production.sym \
   --cmf=dist/default/production\speed_run.X.production.cmf -z -Q18F2553 \
-  -oC:\Users\crowe\AppData\Local\Temp\sc7k.2 \
+  -oC:\Users\crowe\AppData\Local\Temp\sc4k.2 \
   -Mdist/default/production/speed_run.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=060h-07ffh -pstack=STACK \
   -ACODE=02000h-02005h,02008h-02015h,02018h-07FFFh \
@@ -25,7 +25,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\crowe\AppData\Local\Temp\sc7k.obj \
+  C:\Users\crowe\AppData\Local\Temp\sc4k.obj \
   dist/default/production\speed_run.X.production.obj 
 
 Object code version is 3.11
@@ -38,24 +38,25 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\crowe\AppData\Local\Temp\sc7k.obj
+C:\Users\crowe\AppData\Local\Temp\sc4k.obj
                 init                               2000     2000        4     1000       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
 dist/default/production\speed_run.X.production.obj
-                text11                             7C8E     7C8E       70     3E47       0
-                text10                             7BF4     7BF4       42     3DFA       0
-                text9                              7AF8     7AF8       32     3D7C       0
-                text8                              7E54     7E54      1AC     3F2A       0
-                text7                              7C36     7C36       58     3E1B       0
-                text6                              7BC0     7BC0       34     3DE0       0
-                text5                              7B2A     7B2A       32     3D95       0
-                text4                              7AB4     7AB4       22     3D5A       0
-                text3                              7B5C     7B5C       32     3DAE       0
-                text2                              7AD6     7AD6       22     3D6B       0
-                text1                              7B8E     7B8E       32     3DC7       0
-                text0                              7CFE     7CFE      156     3E7F       0
-                cstackCOMRAM                          1        1       17        1       1
+                text12                             7C00     7C00       42     3E00       0
+                text11                             7AD2     7AD2       32     3D69       0
+                text10                             7E54     7E54      1AC     3F2A       0
+                text9                              7C42     7C42       58     3E21       0
+                text8                              7C9A     7C9A       5A     3E4D       0
+                text7                              7BCC     7BCC       34     3DE6       0
+                text6                              7B04     7B04       32     3D82       0
+                text5                              7B36     7B36       32     3D9B       0
+                text4                              7A8E     7A8E       22     3D47       0
+                text3                              7B68     7B68       32     3DB4       0
+                text2                              7AB0     7AB0       22     3D58       0
+                text1                              7B9A     7B9A       32     3DCD       0
+                text0                              7CF4     7CF4      160     3E7A       0
+                cstackCOMRAM                          1        1       1A        1       1
                 cinit                              2008     2008        A     1004       0
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -63,18 +64,19 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   CODE           
                 init                               2000     2000        4         0
-                text11                             7C8E     7C8E       70         0
-                text10                             7BF4     7BF4       42         0
-                text9                              7AF8     7AF8       32         0
-                text8                              7E54     7E54      1AC         0
-                text7                              7C36     7C36       58         0
-                text6                              7BC0     7BC0       34         0
-                text5                              7B2A     7B2A       32         0
-                text4                              7AB4     7AB4       22         0
-                text3                              7B5C     7B5C       32         0
-                text2                              7AD6     7AD6       22         0
-                text1                              7B8E     7B8E       32         0
-                text0                              7CFE     7CFE      156         0
+                text12                             7C00     7C00       42         0
+                text11                             7AD2     7AD2       32         0
+                text10                             7E54     7E54      1AC         0
+                text9                              7C42     7C42       58         0
+                text8                              7C9A     7C9A       5A         0
+                text7                              7BCC     7BCC       34         0
+                text6                              7B04     7B04       32         0
+                text5                              7B36     7B36       32         0
+                text4                              7A8E     7A8E       22         0
+                text3                              7B68     7B68       32         0
+                text2                              7AB0     7AB0       22         0
+                text1                              7B9A     7B9A       32         0
+                text0                              7CF4     7CF4      160         0
                 cinit                              2008     2008        A         0
 
         CLASS   CONST          
@@ -84,7 +86,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                cstackCOMRAM                          1        1       17         1
+                cstackCOMRAM                          1        1       1A         1
 
         CLASS   ABS1           
 
@@ -124,21 +126,22 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                cstackCOMRAM                   000001  000017  000018         1       1  COMRAM  
+                cstackCOMRAM                   000001  00001A  00001B         1       1  COMRAM  
                 reset_vec                      002000  000004  002004      1000       0  CODE    
                 cinit                          002008  00000A  002012      1004       0  CODE    
-                text4                          007AB4  000022  007AD6      3D5A       0  CODE    
-                text2                          007AD6  000022  007AF8      3D6B       0  CODE    
-                text9                          007AF8  000032  007B2A      3D7C       0  CODE    
-                text5                          007B2A  000032  007B5C      3D95       0  CODE    
-                text3                          007B5C  000032  007B8E      3DAE       0  CODE    
-                text1                          007B8E  000032  007BC0      3DC7       0  CODE    
-                text6                          007BC0  000034  007BF4      3DE0       0  CODE    
-                text10                         007BF4  000042  007C36      3DFA       0  CODE    
-                text7                          007C36  000058  007C8E      3E1B       0  CODE    
-                text11                         007C8E  000070  007CFE      3E47       0  CODE    
-                text0                          007CFE  000156  007E54      3E7F       0  CODE    
-                text8                          007E54  0001AC  008000      3F2A       0  CODE    
+                text4                          007A8E  000022  007AB0      3D47       0  CODE    
+                text2                          007AB0  000022  007AD2      3D58       0  CODE    
+                text11                         007AD2  000032  007B04      3D69       0  CODE    
+                text6                          007B04  000032  007B36      3D82       0  CODE    
+                text5                          007B36  000032  007B68      3D9B       0  CODE    
+                text3                          007B68  000032  007B9A      3DB4       0  CODE    
+                text1                          007B9A  000032  007BCC      3DCD       0  CODE    
+                text7                          007BCC  000034  007C00      3DE6       0  CODE    
+                text12                         007C00  000042  007C42      3E00       0  CODE    
+                text9                          007C42  000058  007C9A      3E21       0  CODE    
+                text8                          007C9A  00005A  007CF4      3E4D       0  CODE    
+                text0                          007CF4  000160  007E54      3E7A       0  CODE    
+                text10                         007E54  0001AC  008000      3F2A       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -154,30 +157,30 @@ UNUSED ADDRESS RANGES
         BANK5            000500-0005FF              100
         BANK6            000600-0006FF              100
         BANK7            000700-0007FF              100
-        BIGRAM           000018-0007FF              7E8
+        BIGRAM           00001B-0007FF              7E5
         CODE             002004-002005                2
                          002012-002015                4
-                         002018-007AB3             5A9C
-        COMRAM           000018-00005F               48
+                         002018-007A8D             5A76
+        COMRAM           00001B-00005F               45
         CONST            002004-002005                2
                          002012-002015                4
-                         002018-007AB3             5A9C
+                         002018-007A8D             5A76
         EEDATA           F00000-F000FF              100
         FARRAM           000000-000000                1
         MEDIUMCONST      002004-002005                2
                          002012-002015                4
-                         002018-007AB3             5A9C
+                         002018-007A8D             5A76
         RAM              000060-0007FF              100
         SFR              000F60-000FFF               A0
         SMALLCONST       002004-002005                2
                          002012-002015                4
-                         002018-007AB3              100
+                         002018-007A8D              100
         STACK            000060-0007FF              7A0
 
                                   Symbol Table
 
-?___awmod                cstackCOMRAM 000001
 ?_isAllStraight          cstackCOMRAM 000001
+?_isInCurve              cstackCOMRAM 000001
 _ADCON1                  (abs)        000FC1
 _PORTA                   (abs)        000F80
 _PORTAbits               (abs)        000F80
@@ -239,7 +242,7 @@ __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
 __Hsmallconst            smallconst   000000
 __Hspace_0               (abs)        30000E
-__Hspace_1               (abs)        000018
+__Hspace_1               (abs)        00001B
 __Hspace_2               (abs)        000000
 __Hstack                 stack        000000
 __Hstruct                struct       000000
@@ -249,6 +252,7 @@ __Htext0                 text0        000000
 __Htext1                 text1        000000
 __Htext10                text10       000000
 __Htext11                text11       000000
+__Htext12                text12       000000
 __Htext2                 text2        000000
 __Htext3                 text3        000000
 __Htext4                 text4        000000
@@ -319,6 +323,7 @@ __Ltext0                 text0        000000
 __Ltext1                 text1        000000
 __Ltext10                text10       000000
 __Ltext11                text11       000000
+__Ltext12                text12       000000
 __Ltext2                 text2        000000
 __Ltext3                 text3        000000
 __Ltext4                 text4        000000
@@ -328,13 +333,8 @@ __Ltext7                 text7        000000
 __Ltext8                 text8        000000
 __Ltext9                 text9        000000
 __S0                     (abs)        30000E
-__S1                     (abs)        000018
+__S1                     (abs)        00001B
 __S2                     (abs)        000000
-___awmod                 text11       007C8E
-___awmod@counter         cstackCOMRAM 000005
-___awmod@dividend        cstackCOMRAM 000001
-___awmod@divisor         cstackCOMRAM 000003
-___awmod@sign            cstackCOMRAM 000006
 ___inthi_sp              stack        000000
 ___intlo_sp              stack        000000
 ___param_bank            (abs)        000000
@@ -342,42 +342,45 @@ ___rparam_used           (abs)        000001
 ___sp                    stack        000000
 __accesstop              (abs)        000060
 __activetblptr           (abs)        000002
-__end_of___awmod         text11       007CFE
 __end_of__initialization cinit        002008
-__end_of_accelerate      text9        007B2A
-__end_of_getRoadState    text8        008000
-__end_of_isAllStraight   text7        007C8E
-__end_of_led_sens        text6        007BF4
+__end_of_accelerate      text11       007B04
+__end_of_getRoadState    text10       008000
+__end_of_isAllStraight   text9        007C9A
+__end_of_isInCurve       text8        007CF4
+__end_of_led_sens        text7        007C00
 __end_of_main            text0        007E54
-__end_of_straight        text5        007B5C
-__end_of_turnLeft        text4        007AD6
-__end_of_turnLeftSmall   text3        007B8E
-__end_of_turnRight       text2        007AF8
-__end_of_turnRightSmall  text1        007BC0
-__end_of_wait00          text10       007C36
+__end_of_slowDown        text6        007B36
+__end_of_straight        text5        007B68
+__end_of_turnLeft        text4        007AB0
+__end_of_turnLeftSmall   text3        007B9A
+__end_of_turnRight       text2        007AD2
+__end_of_turnRightSmall  text1        007BCC
+__end_of_wait00          text12       007C42
 __initialization         cinit        002008
 __mediumconst            mediumconst  000000
 __pcinit                 cinit        002008
 __pcstackCOMRAM          cstackCOMRAM 000001
-__ptext0                 text0        007CFE
-__ptext1                 text1        007B8E
-__ptext10                text10       007BF4
-__ptext11                text11       007C8E
-__ptext2                 text2        007AD6
-__ptext3                 text3        007B5C
-__ptext4                 text4        007AB4
-__ptext5                 text5        007B2A
-__ptext6                 text6        007BC0
-__ptext7                 text7        007C36
-__ptext8                 text8        007E54
-__ptext9                 text9        007AF8
+__ptext0                 text0        007CF4
+__ptext1                 text1        007B9A
+__ptext10                text10       007E54
+__ptext11                text11       007AD2
+__ptext12                text12       007C00
+__ptext2                 text2        007AB0
+__ptext3                 text3        007B68
+__ptext4                 text4        007A8E
+__ptext5                 text5        007B36
+__ptext6                 text6        007B04
+__ptext7                 text7        007BCC
+__ptext8                 text8        007C9A
+__ptext9                 text9        007C42
 __ramtop                 ramtop       000800
-__size_of___awmod        (abs)        000000
 __size_of_accelerate     (abs)        000000
 __size_of_getRoadState   (abs)        000000
 __size_of_isAllStraight  (abs)        000000
+__size_of_isInCurve      (abs)        000000
 __size_of_led_sens       (abs)        000000
 __size_of_main           (abs)        000000
+__size_of_slowDown       (abs)        000000
 __size_of_straight       (abs)        000000
 __size_of_turnLeft       (abs)        000000
 __size_of_turnLeftSmall  (abs)        000000
@@ -385,17 +388,19 @@ __size_of_turnRight      (abs)        000000
 __size_of_turnRightSmall (abs)        000000
 __size_of_wait00         (abs)        000000
 __smallconst             smallconst   000000
-_accelerate              text9        007AF8
-_getRoadState            text8        007E54
-_isAllStraight           text7        007C36
-_led_sens                text6        007BC0
-_main                    text0        007CFE
-_straight                text5        007B2A
-_turnLeft                text4        007AB4
-_turnLeftSmall           text3        007B5C
-_turnRight               text2        007AD6
-_turnRightSmall          text1        007B8E
-_wait00                  text10       007BF4
+_accelerate              text11       007AD2
+_getRoadState            text10       007E54
+_isAllStraight           text9        007C42
+_isInCurve               text8        007C9A
+_led_sens                text7        007BCC
+_main                    text0        007CF4
+_slowDown                text6        007B04
+_straight                text5        007B36
+_turnLeft                text4        007A8E
+_turnLeftSmall           text3        007B68
+_turnRight               text2        007AB0
+_turnRightSmall          text1        007B9A
+_wait00                  text12       007C00
 end_of_initialization    cinit        002008
 getRoadState@a           cstackCOMRAM 000001
 getRoadState@b           cstackCOMRAM 000003
@@ -408,8 +413,10 @@ intlevel2                text         000000
 intlevel3                text         000000
 isAllStraight@i          cstackCOMRAM 000004
 isAllStraight@states     cstackCOMRAM 000001
-main@current             cstackCOMRAM 000015
-main@road_state          cstackCOMRAM 000017
+isInCurve@i              cstackCOMRAM 000004
+isInCurve@states         cstackCOMRAM 000001
+main@current             cstackCOMRAM 000018
+main@road_state          cstackCOMRAM 00001A
 main@states              cstackCOMRAM 000010
 stackhi                  (abs)        0007FF
 stacklo                  (abs)        000060
@@ -424,16 +431,16 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 163 in file "main.c"
+		line 182 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  states          5   15[COMRAM] enum E3329[5]
-  current         2   20[COMRAM] int 
-  road_state      1   22[COMRAM] enum E3329
+  states          8   15[COMRAM] enum E3329[8]
+  current         2   23[COMRAM] int 
+  road_state      1   25[COMRAM] enum E3329
   previous_roa    1    0        enum E3329
  Return value:  Size  Location     Type
-                  2   78[None  ] int 
+                  2   89[None  ] int 
  Registers used:
 		wreg, fsr2l, fsr2h, status,2, status,0, cstack
  Tracked objects:
@@ -442,17 +449,18 @@ FUNCTION INFORMATION:
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         8       0       0       0       0       0       0       0       0
+      Locals:        11       0       0       0       0       0       0       0       0
       Temps:          5       0       0       0       0       0       0       0       0
-      Totals:        13       0       0       0       0       0       0       0       0
-Total ram usage:       13 bytes
+      Totals:        16       0       0       0       0       0       0       0       0
+Total ram usage:       16 bytes
  Hardware stack levels required when called:    2
  This function calls:
-		___awmod
 		_accelerate
 		_getRoadState
 		_isAllStraight
+		_isInCurve
 		_led_sens
+		_slowDown
 		_straight
 		_turnLeft
 		_turnLeftSmall
@@ -585,6 +593,36 @@ Total ram usage:        0 bytes
 
  *************** function _straight *****************
  Defined at:
+		line 143 in file "main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2   67[None  ] int 
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_wait00
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _slowDown *****************
+ Defined at:
 		line 134 in file "main.c"
  Parameters:    Size  Location     Type
 		None
@@ -642,12 +680,42 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
- *************** function _isAllStraight *****************
+ *************** function _isInCurve *****************
  Defined at:
-		line 152 in file "main.c"
+		line 171 in file "main.c"
  Parameters:    Size  Location     Type
   states          2    0[COMRAM] PTR enum E3329
-		 -> main@states(5), 
+		 -> main@states(8), 
+ Auto vars:     Size  Location     Type
+  i               2    3[COMRAM] int 
+ Return value:  Size  Location     Type
+                  2    0[COMRAM] int 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         2       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0
+      Totals:         5       0       0       0       0       0       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _isAllStraight *****************
+ Defined at:
+		line 161 in file "main.c"
+ Parameters:    Size  Location     Type
+  states          2    0[COMRAM] PTR enum E3329
+		 -> main@states(8), 
  Auto vars:     Size  Location     Type
   i               2    3[COMRAM] int 
  Return value:  Size  Location     Type
@@ -707,13 +775,13 @@ Total ram usage:       10 bytes
 
  *************** function _accelerate *****************
  Defined at:
-		line 143 in file "main.c"
+		line 152 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  2   67[None  ] int 
+                  2   70[None  ] int 
  Registers used:
 		wreg, status,2, status,0, cstack
  Tracked objects:
@@ -765,39 +833,9 @@ Total ram usage:        7 bytes
 		_turnRight
 		_turnLeftSmall
 		_turnRightSmall
+		_slowDown
 		_straight
 		_accelerate
- This function uses a non-reentrant model
-
-
- *************** function ___awmod *****************
- Defined at:
-		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c"
- Parameters:    Size  Location     Type
-  dividend        2    0[COMRAM] int 
-  divisor         2    2[COMRAM] int 
- Auto vars:     Size  Location     Type
-  sign            1    5[COMRAM] unsigned char 
-  counter         1    4[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-                  2    0[COMRAM] int 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         4       0       0       0       0       0       0       0       0
-      Locals:         2       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         6       0       0       0       0       0       0       0       0
-Total ram usage:        6 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_main
  This function uses a non-reentrant model
 
 
@@ -805,28 +843,25 @@ Total ram usage:        6 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-		___awmod       		CODE           	7C8E	0000	113
-
-C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c estimated size: 113
-
 shared
 		__initialization		CODE           	2008	0000	1
 
 shared estimated size: 1
 
 main.c
-		_led_sens      		CODE           	7BC0	0000	53
-		_straight      		CODE           	7B2A	0000	51
-		_turnLeft      		CODE           	7AB4	0000	35
-		_turnRight     		CODE           	7AD6	0000	35
-		_main          		CODE           	7CFE	0000	343
-		_turnLeftSmall 		CODE           	7B5C	0000	51
-		_turnRightSmall		CODE           	7B8E	0000	51
-		_wait00        		CODE           	7BF4	0000	67
+		_led_sens      		CODE           	7BCC	0000	53
+		_straight      		CODE           	7B36	0000	51
+		_turnLeft      		CODE           	7A8E	0000	35
+		_turnRight     		CODE           	7AB0	0000	35
+		_main          		CODE           	7CF4	0000	353
+		_turnLeftSmall 		CODE           	7B68	0000	51
+		_slowDown      		CODE           	7B04	0000	51
+		_isInCurve     		CODE           	7C9A	0000	91
+		_turnRightSmall		CODE           	7B9A	0000	51
+		_wait00        		CODE           	7C00	0000	67
 		_getRoadState  		CODE           	7E54	0000	429
-		_isAllStraight 		CODE           	7C36	0000	89
-		_accelerate    		CODE           	7AF8	0000	51
+		_isAllStraight 		CODE           	7C42	0000	89
+		_accelerate    		CODE           	7AD2	0000	51
 
-main.c estimated size: 1255
+main.c estimated size: 1407
 

@@ -7,7 +7,7 @@
 #include <xc.h>
 #include <p18f2553.h>
 
-#define MAXSIZE 5
+#define MAXSIZE 8
 
 wait00(short k)
 { 	 
@@ -101,14 +101,14 @@ int turnLeft(void) {
     PORTC=0x02; /* right motor on */
     wait00(50);
     PORTC = 0x00;
-    wait00(40);
+    wait00(20);
 }
 
 int turnRight(void) {
     PORTC=0x01;/* left motor on */
     wait00(42);
     PORTC = 0x00;
-    wait00(40);
+    wait00(20);
 }
 
 
@@ -131,13 +131,22 @@ int turnRightSmall(void) {
 }
 
 
+int slowDown(void) {
+    PORTC=0x03; /* both motor on */
+    wait00(48);
+    PORTC=0x02; /* right motor on */
+    wait00(4);
+    PORTC=0x00; /* both motor off */
+    wait00(40); 
+}
+
 int straight(void){
     PORTC=0x03; /* both motor on */
     wait00(48);
     PORTC=0x02; /* right motor on */
     wait00(4);
     PORTC=0x00; /* both motor off */
-    wait00(30); 
+    wait00(40); 
 }
 
 int accelerate(void) {
@@ -157,6 +166,16 @@ int isAllStraight(enum road_state_codes states[]) {
     }
     
     return 1;
+}
+
+int isInCurve(enum road_state_codes states[]) {
+    for (int i = 0; i < MAXSIZE; i++) {
+        if (states[i] == off_left || states[i] == off_right) {
+            return 1;
+        }
+    }
+    
+    return 0;
 }
 
 
@@ -207,8 +226,11 @@ main(void)
             case straight_line:
                 if (isAllStraight(states))
                     accelerate();
-                else
+                else if (isInCurve(states)) {
+                    slowDown();
+                } else {
                     straight();
+                }
                 break;
             case off_left_little:
                 turnRightSmall();

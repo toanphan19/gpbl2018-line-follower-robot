@@ -3410,9 +3410,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 103: PORTC = 0x00;
 "103
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 104: wait00(40);
+[; ;main.c: 104: wait00(20);
 "104
-[e ( _wait00 (1 -> -> 40 `i `s ]
+[e ( _wait00 (1 -> -> 20 `i `s ]
 [; ;main.c: 105: }
 "105
 [e :UE 342 ]
@@ -3432,9 +3432,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 110: PORTC = 0x00;
 "110
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 111: wait00(40);
+[; ;main.c: 111: wait00(20);
 "111
-[e ( _wait00 (1 -> -> 40 `i `s ]
+[e ( _wait00 (1 -> -> 20 `i `s ]
 [; ;main.c: 112: }
 "112
 [e :UE 343 ]
@@ -3448,9 +3448,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 116: PORTC=0x03;
 "116
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 117: wait00(10);
+[; ;main.c: 117: wait00(8);
 "117
-[e ( _wait00 (1 -> -> 10 `i `s ]
+[e ( _wait00 (1 -> -> 8 `i `s ]
 [; ;main.c: 118: PORTC=0x02;
 "118
 [e = _PORTC -> -> 2 `i `uc ]
@@ -3476,9 +3476,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 125: PORTC=0x03;
 "125
 [e = _PORTC -> -> 3 `i `uc ]
-[; ;main.c: 126: wait00(10);
+[; ;main.c: 126: wait00(8);
 "126
-[e ( _wait00 (1 -> -> 10 `i `s ]
+[e ( _wait00 (1 -> -> 8 `i `s ]
 [; ;main.c: 127: PORTC=0x01;
 "127
 [e = _PORTC -> -> 1 `i `uc ]
@@ -3496,10 +3496,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 345 ]
 }
 "134
-[v _straight `(i ~T0 @X0 1 ef ]
+[v _slowDown `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 134: int straight(void){
-[e :U _straight ]
+[; ;main.c: 134: int slowDown(void) {
+[e :U _slowDown ]
 [f ]
 [; ;main.c: 135: PORTC=0x03;
 "135
@@ -3516,18 +3516,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 139: PORTC=0x00;
 "139
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 140: wait00(30);
+[; ;main.c: 140: wait00(40);
 "140
-[e ( _wait00 (1 -> -> 30 `i `s ]
+[e ( _wait00 (1 -> -> 40 `i `s ]
 [; ;main.c: 141: }
 "141
 [e :UE 346 ]
 }
 "143
-[v _accelerate `(i ~T0 @X0 1 ef ]
+[v _straight `(i ~T0 @X0 1 ef ]
 {
-[; ;main.c: 143: int accelerate(void) {
-[e :U _accelerate ]
+[; ;main.c: 143: int straight(void){
+[e :U _straight ]
 [f ]
 [; ;main.c: 144: PORTC=0x03;
 "144
@@ -3544,239 +3544,327 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 148: PORTC=0x00;
 "148
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 149: wait00(15);
+[; ;main.c: 149: wait00(40);
 "149
-[e ( _wait00 (1 -> -> 15 `i `s ]
+[e ( _wait00 (1 -> -> 40 `i `s ]
 [; ;main.c: 150: }
 "150
 [e :UE 347 ]
 }
 "152
+[v _accelerate `(i ~T0 @X0 1 ef ]
+{
+[; ;main.c: 152: int accelerate(void) {
+[e :U _accelerate ]
+[f ]
+[; ;main.c: 153: PORTC=0x03;
+"153
+[e = _PORTC -> -> 3 `i `uc ]
+[; ;main.c: 154: wait00(48);
+"154
+[e ( _wait00 (1 -> -> 48 `i `s ]
+[; ;main.c: 155: PORTC=0x02;
+"155
+[e = _PORTC -> -> 2 `i `uc ]
+[; ;main.c: 156: wait00(4);
+"156
+[e ( _wait00 (1 -> -> 4 `i `s ]
+[; ;main.c: 157: PORTC=0x00;
+"157
+[e = _PORTC -> -> 0 `i `uc ]
+[; ;main.c: 158: wait00(20);
+"158
+[e ( _wait00 (1 -> -> 20 `i `s ]
+[; ;main.c: 159: }
+"159
+[e :UE 348 ]
+}
+"161
 [v _isAllStraight `(i ~T0 @X0 1 ef1`*E3329 ]
 {
-[; ;main.c: 152: int isAllStraight(enum road_state_codes states[]) {
+[; ;main.c: 161: int isAllStraight(enum road_state_codes states[]) {
 [e :U _isAllStraight ]
 [v _states `*E3329 ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 153: for (int i = 0; i < 5; i++) {
-"153
+[; ;main.c: 162: for (int i = 0; i < 8; i++) {
+"162
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 349  ]
-[e $U 350  ]
-[e :U 349 ]
-{
-[; ;main.c: 154: if (states[i] != on_track && states[i] != straight_line) {
-"154
-[e $ ! && != -> *U + _states * -> _i `x -> -> # *U _states `i `x `i -> . `E3329 0 `i != -> *U + _states * -> _i `x -> -> # *U _states `i `x `i -> . `E3329 2 `i 352  ]
-{
-[; ;main.c: 155: return 0;
-"155
-[e ) -> 0 `i ]
-[e $UE 348  ]
-"156
-}
-[e :U 352 ]
-"157
-}
-"153
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 349  ]
+[e $ < _i -> 8 `i 350  ]
+[e $U 351  ]
 [e :U 350 ]
-"157
-}
-[; ;main.c: 156: }
-[; ;main.c: 157: }
-[; ;main.c: 159: return 1;
-"159
-[e ) -> 1 `i ]
-[e $UE 348  ]
-[; ;main.c: 160: }
-"160
-[e :UE 348 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"163
-[v _main `(i ~T0 @X0 1 ef ]
-"164
 {
-[; ;main.c: 163: main(void)
-[; ;main.c: 164: {
-[e :U _main ]
-[f ]
-[; ;main.c: 166: ADCON1 = 0x0F;
+[; ;main.c: 163: if (states[i] != on_track && states[i] != straight_line) {
+"163
+[e $ ! && != -> *U + _states * -> _i `x -> -> # *U _states `i `x `i -> . `E3329 0 `i != -> *U + _states * -> _i `x -> -> # *U _states `i `x `i -> . `E3329 2 `i 353  ]
+{
+[; ;main.c: 164: return 0;
+"164
+[e ) -> 0 `i ]
+[e $UE 349  ]
+"165
+}
+[e :U 353 ]
 "166
-[e = _ADCON1 -> -> 15 `i `uc ]
-[; ;main.c: 169: TRISA = 0x20;
+}
+"162
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 8 `i 350  ]
+[e :U 351 ]
+"166
+}
+[; ;main.c: 165: }
+[; ;main.c: 166: }
+[; ;main.c: 168: return 1;
+"168
+[e ) -> 1 `i ]
+[e $UE 349  ]
+[; ;main.c: 169: }
 "169
-[e = _TRISA -> -> 32 `i `uc ]
-[; ;main.c: 170: TRISB = 0xFF;
-"170
-[e = _TRISB -> -> 255 `i `uc ]
-[; ;main.c: 171: TRISC = 0x00;
+[e :UE 349 ]
+}
 "171
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;main.c: 174: PORTA = 0x00;
-"174
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 175: PORTB = 0x00;
-"175
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 176: PORTC = 0x00;
-"176
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;main.c: 179: while(PORTAbits.RA5==1){
-"179
-[e $U 354  ]
+[v _isInCurve `(i ~T0 @X0 1 ef1`*E3329 ]
+{
+[; ;main.c: 171: int isInCurve(enum road_state_codes states[]) {
+[e :U _isInCurve ]
+[v _states `*E3329 ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 172: for (int i = 0; i < 8; i++) {
+"172
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 8 `i 355  ]
+[e $U 356  ]
 [e :U 355 ]
 {
-[; ;main.c: 180: led_sens();
-"180
-[e ( _led_sens ..  ]
-"181
+[; ;main.c: 173: if (states[i] == off_left || states[i] == off_right) {
+"173
+[e $ ! || == -> *U + _states * -> _i `x -> -> # *U _states `i `x `i -> . `E3329 6 `i == -> *U + _states * -> _i `x -> -> # *U _states `i `x `i -> . `E3329 4 `i 358  ]
+{
+[; ;main.c: 174: return 1;
+"174
+[e ) -> 1 `i ]
+[e $UE 354  ]
+"175
 }
-[e :U 354 ]
-"179
-[e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 355  ]
-[e :U 356 ]
-"183
-[v _road_state `E3329 ~T0 @X0 1 a ]
-[; ;main.c: 181: }
-[; ;main.c: 183: enum road_state_codes road_state = on_track;
-[e = _road_state . `E3329 0 ]
-"184
-[v _previous_road_state `E3329 ~T0 @X0 1 a ]
-"186
-[v _current `i ~T0 @X0 1 a ]
-[; ;main.c: 184: enum road_state_codes previous_road_state;
-[; ;main.c: 186: int current = -1;
-[e = _current -U -> 1 `i ]
-"187
-[v _states `E3329 ~T0 @X0 -> 5 `i a ]
-[; ;main.c: 187: enum road_state_codes states[5];
-[; ;main.c: 190: while (1) {
-"190
 [e :U 358 ]
+"176
+}
+"172
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 8 `i 355  ]
+[e :U 356 ]
+"176
+}
+[; ;main.c: 175: }
+[; ;main.c: 176: }
+[; ;main.c: 178: return 0;
+"178
+[e ) -> 0 `i ]
+[e $UE 354  ]
+[; ;main.c: 179: }
+"179
+[e :UE 354 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"182
+[v _main `(i ~T0 @X0 1 ef ]
+"183
 {
-[; ;main.c: 191: led_sens();
-"191
-[e ( _led_sens ..  ]
-[; ;main.c: 193: road_state = getRoadState(
-[; ;main.c: 194: PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2,
-[; ;main.c: 195: PORTBbits.RB3, PORTBbits.RB4
-[; ;main.c: 196: );
-"196
-[e = _road_state ( _getRoadState (4 , , , , -> . . _PORTBbits 0 0 `s -> . . _PORTBbits 0 1 `s -> . . _PORTBbits 0 2 `s -> . . _PORTBbits 0 3 `s -> . . _PORTBbits 0 4 `s ]
-[; ;main.c: 198: if (road_state == off_track) {
+[; ;main.c: 182: main(void)
+[; ;main.c: 183: {
+[e :U _main ]
+[f ]
+[; ;main.c: 185: ADCON1 = 0x0F;
+"185
+[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;main.c: 188: TRISA = 0x20;
+"188
+[e = _TRISA -> -> 32 `i `uc ]
+[; ;main.c: 189: TRISB = 0xFF;
+"189
+[e = _TRISB -> -> 255 `i `uc ]
+[; ;main.c: 190: TRISC = 0x00;
+"190
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;main.c: 193: PORTA = 0x00;
+"193
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;main.c: 194: PORTB = 0x00;
+"194
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;main.c: 195: PORTC = 0x00;
+"195
+[e = _PORTC -> -> 0 `i `uc ]
+[; ;main.c: 198: while(PORTAbits.RA5==1){
 "198
-[e $ ! == -> _road_state `i -> . `E3329 1 `i 360  ]
+[e $U 360  ]
+[e :U 361 ]
 {
-[; ;main.c: 199: road_state = states[(current + 5 - 1) % 5];
+[; ;main.c: 199: led_sens();
 "199
-[e = _road_state *U + &U _states * -> -> % - + _current -> 5 `i -> 1 `i -> 5 `i `ui `ux -> -> # *U &U _states `ui `ux ]
+[e ( _led_sens ..  ]
 "200
 }
 [e :U 360 ]
-[; ;main.c: 200: }
-[; ;main.c: 202: current = (current + 1) % 5;
-"202
-[e = _current % + _current -> 1 `i -> 5 `i ]
-[; ;main.c: 203: states[current] = road_state;
-"203
-[e = *U + &U _states * -> -> _current `ui `ux -> -> # *U &U _states `ui `ux _road_state ]
-[; ;main.c: 206: switch (road_state) {
-"206
-[e $U 362  ]
-{
-[; ;main.c: 207: case straight_line:
-"207
-[e :U 363 ]
-[; ;main.c: 208: if (isAllStraight(states))
-"208
-[e $ ! != ( _isAllStraight (1 &U _states -> 0 `i 364  ]
-[; ;main.c: 209: accelerate();
-"209
-[e ( _accelerate ..  ]
-[e $U 365  ]
-"210
-[e :U 364 ]
-[; ;main.c: 210: else
-[; ;main.c: 211: straight();
-"211
-[e ( _straight ..  ]
-[e :U 365 ]
-[; ;main.c: 212: break;
-"212
-[e $U 361  ]
-[; ;main.c: 213: case off_left_little:
-"213
-[e :U 366 ]
-[; ;main.c: 214: turnRightSmall();
-"214
-[e ( _turnRightSmall ..  ]
-[; ;main.c: 215: break;
-"215
-[e $U 361  ]
-[; ;main.c: 216: case off_right_little:
-"216
-[e :U 367 ]
-[; ;main.c: 217: turnLeftSmall();
-"217
-[e ( _turnLeftSmall ..  ]
-[; ;main.c: 218: break;
-"218
-[e $U 361  ]
-[; ;main.c: 219: case off_left:
-"219
-[e :U 368 ]
-[; ;main.c: 220: turnRight();
-"220
-[e ( _turnRight ..  ]
-[; ;main.c: 221: break;
-"221
-[e $U 361  ]
-[; ;main.c: 222: case off_right:
-"222
-[e :U 369 ]
-[; ;main.c: 223: turnLeft();
-"223
-[e ( _turnLeft ..  ]
-[; ;main.c: 224: break;
-"224
-[e $U 361  ]
-[; ;main.c: 225: case on_track:
-"225
-[e :U 370 ]
-[; ;main.c: 226: straight();
-"226
-[e ( _straight ..  ]
-[; ;main.c: 227: break;
-"227
-[e $U 361  ]
-"228
-}
-[; ;main.c: 228: }
-[e $U 361  ]
-"206
+"198
+[e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 361  ]
 [e :U 362 ]
-[e [\ _road_state , $ . `E3329 2 363
- , $ . `E3329 5 366
- , $ . `E3329 3 367
- , $ . `E3329 6 368
- , $ . `E3329 4 369
- , $ . `E3329 0 370
- 361 ]
-"228
-[e :U 361 ]
-"230
+"202
+[v _road_state `E3329 ~T0 @X0 1 a ]
+[; ;main.c: 200: }
+[; ;main.c: 202: enum road_state_codes road_state = on_track;
+[e = _road_state . `E3329 0 ]
+"203
+[v _previous_road_state `E3329 ~T0 @X0 1 a ]
+"205
+[v _current `i ~T0 @X0 1 a ]
+[; ;main.c: 203: enum road_state_codes previous_road_state;
+[; ;main.c: 205: int current = -1;
+[e = _current -U -> 1 `i ]
+"206
+[v _states `E3329 ~T0 @X0 -> 8 `i a ]
+[; ;main.c: 206: enum road_state_codes states[8];
+[; ;main.c: 209: while (1) {
+"209
+[e :U 364 ]
+{
+[; ;main.c: 210: led_sens();
+"210
+[e ( _led_sens ..  ]
+[; ;main.c: 212: road_state = getRoadState(
+[; ;main.c: 213: PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2,
+[; ;main.c: 214: PORTBbits.RB3, PORTBbits.RB4
+[; ;main.c: 215: );
+"215
+[e = _road_state ( _getRoadState (4 , , , , -> . . _PORTBbits 0 0 `s -> . . _PORTBbits 0 1 `s -> . . _PORTBbits 0 2 `s -> . . _PORTBbits 0 3 `s -> . . _PORTBbits 0 4 `s ]
+[; ;main.c: 217: if (road_state == off_track) {
+"217
+[e $ ! == -> _road_state `i -> . `E3329 1 `i 366  ]
+{
+[; ;main.c: 218: road_state = states[(current + 8 - 1) % 8];
+"218
+[e = _road_state *U + &U _states * -> -> % - + _current -> 8 `i -> 1 `i -> 8 `i `ui `ux -> -> # *U &U _states `ui `ux ]
+"219
 }
-[e :U 357 ]
-"190
-[e $U 358  ]
-[e :U 359 ]
-[; ;main.c: 230: }
-[; ;main.c: 232: }
+[e :U 366 ]
+[; ;main.c: 219: }
+[; ;main.c: 221: current = (current + 1) % 8;
+"221
+[e = _current % + _current -> 1 `i -> 8 `i ]
+[; ;main.c: 222: states[current] = road_state;
+"222
+[e = *U + &U _states * -> -> _current `ui `ux -> -> # *U &U _states `ui `ux _road_state ]
+[; ;main.c: 225: switch (road_state) {
+"225
+[e $U 368  ]
+{
+[; ;main.c: 226: case straight_line:
+"226
+[e :U 369 ]
+[; ;main.c: 227: if (isAllStraight(states))
+"227
+[e $ ! != ( _isAllStraight (1 &U _states -> 0 `i 370  ]
+[; ;main.c: 228: accelerate();
+"228
+[e ( _accelerate ..  ]
+[e $U 371  ]
+"229
+[e :U 370 ]
+[; ;main.c: 229: else if (isInCurve(states)) {
+[e $ ! != ( _isInCurve (1 &U _states -> 0 `i 372  ]
+{
+[; ;main.c: 230: slowDown();
+"230
+[e ( _slowDown ..  ]
+"231
+}
+[; ;main.c: 231: } else {
+[e $U 373  ]
+[e :U 372 ]
+{
+[; ;main.c: 232: straight();
 "232
-[e :UE 353 ]
+[e ( _straight ..  ]
+"233
+}
+[e :U 373 ]
+[e :U 371 ]
+[; ;main.c: 233: }
+[; ;main.c: 234: break;
+"234
+[e $U 367  ]
+[; ;main.c: 235: case off_left_little:
+"235
+[e :U 374 ]
+[; ;main.c: 236: turnRightSmall();
+"236
+[e ( _turnRightSmall ..  ]
+[; ;main.c: 237: break;
+"237
+[e $U 367  ]
+[; ;main.c: 238: case off_right_little:
+"238
+[e :U 375 ]
+[; ;main.c: 239: turnLeftSmall();
+"239
+[e ( _turnLeftSmall ..  ]
+[; ;main.c: 240: break;
+"240
+[e $U 367  ]
+[; ;main.c: 241: case off_left:
+"241
+[e :U 376 ]
+[; ;main.c: 242: turnRight();
+"242
+[e ( _turnRight ..  ]
+[; ;main.c: 243: break;
+"243
+[e $U 367  ]
+[; ;main.c: 244: case off_right:
+"244
+[e :U 377 ]
+[; ;main.c: 245: turnLeft();
+"245
+[e ( _turnLeft ..  ]
+[; ;main.c: 246: break;
+"246
+[e $U 367  ]
+[; ;main.c: 247: case on_track:
+"247
+[e :U 378 ]
+[; ;main.c: 248: straight();
+"248
+[e ( _straight ..  ]
+[; ;main.c: 249: break;
+"249
+[e $U 367  ]
+"250
+}
+[; ;main.c: 250: }
+[e $U 367  ]
+"225
+[e :U 368 ]
+[e [\ _road_state , $ . `E3329 2 369
+ , $ . `E3329 5 374
+ , $ . `E3329 3 375
+ , $ . `E3329 6 376
+ , $ . `E3329 4 377
+ , $ . `E3329 0 378
+ 367 ]
+"250
+[e :U 367 ]
+"252
+}
+[e :U 363 ]
+"209
+[e $U 364  ]
+[e :U 365 ]
+[; ;main.c: 252: }
+[; ;main.c: 254: }
+"254
+[e :UE 359 ]
 }
