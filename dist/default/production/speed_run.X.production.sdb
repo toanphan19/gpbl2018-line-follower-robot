@@ -13,6 +13,8 @@ off_right 4
 off_left_little 5
 off_left 6
 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -130,11 +132,11 @@ off_left 6
 [v _main main `(i  1 e 2 0 ]
 {
 "206
-[v main@states states `[8]E3329  1 a 8 15 ]
+[v main@states states `[20]E3329  1 a 20 15 ]
 "205
-[v main@current current `i  1 a 2 23 ]
+[v main@current current `i  1 a 2 35 ]
 "202
-[v main@road_state road_state `E3329  1 a 1 25 ]
+[v main@road_state road_state `E3329  1 a 1 37 ]
 "254
 } 0
 "124
@@ -215,4 +217,15 @@ off_left 6
 "12
 [v wait00@k k `s  1 p 2 0 ]
 "21
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"8
+[v ___awmod@dividend dividend `i  1 p 2 0 ]
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+"35
 } 0
