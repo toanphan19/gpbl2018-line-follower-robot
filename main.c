@@ -1,11 +1,14 @@
 
-
+#include <stdlib.h>
+#include <math.h>
 #include <xc.h>
 #include <p18f2553.h>
 
-float kp = 20;
+#define MAXARR 50
+
+float kp = 15;
 float ki = 0;
-float kd = 0;
+float kd = 20;
 
 float P = 0,
         I = 0,
@@ -16,11 +19,11 @@ int error = 0,
 float pid = 0;
 
 
-wait00(float k)
+wait00(short k)
 { 	 
 /*Wait time about (~ k * 1 ms.) */ 		
-    float i; 		 
-    float j; 	 
+    short i; 		 
+    short j; 	 
     for(j=0;j < k;j++){ /*(~ k * 300) times iteration */ 	 
 		for(i=0;i<300;i++){ 	 
 		}	 
@@ -36,11 +39,11 @@ PORTAbits.RA3 = PORTBbits.RB3;
 PORTAbits.RA4 = PORTBbits.RB4;      
 }
 
-
+/*
 float abs(float a) {
     return (a > 0) ? a : -a;
 }
-
+*/
 
 float getPID() {
     P = error;
@@ -51,6 +54,31 @@ float getPID() {
     return ((kp*P) + (ki*I) + (kd*D));
 }
 
+
+void motorRun(float left, float right) {
+    short both = (short)min(left, right);
+    short l = (short)left;
+    short r = (short)right;
+    
+    PORTC=0x03; /* both motor on */
+    wait00(both);
+    PORTC=0x01; /* left motor on */
+    wait00(l - both);
+    PORTC=0x02; /* right motor on */
+    wait00(r - both);
+    PORTC=0x00; /* both motor off */
+    wait00(40); 
+}
+
+
+int straight(void){
+    PORTC=0x03; /* both motor on */
+    wait00(48); 
+    PORTC=0x02; /* right motor on */
+    wait00(4);
+    PORTC=0x00; /* both motor off */
+    wait00(40); 
+}
 
 main(void)
 {
@@ -71,6 +99,9 @@ main(void)
     while(PORTAbits.RA5==1){
         led_sens();
     }
+    
+    
+    int last_error = 0;
     
     //Push Start SW to start
     while (1) {
@@ -121,18 +152,23 @@ main(void)
         else if (PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==0){
             error = 1;
         }
-        
+        // out of the track
+        else if ((PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0)
+                  || 
+                 (PORTBbits.RB0==1  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1)){
+            error = last_error;
+        }
         
         pid = getPID();
         
-        PORTC=0x03; /* both motor on */
-        wait00(30);
-        PORTC=0x01; /* left motor on */
-        wait00(0 + pid);
-        PORTC=0x02; /* right motor on */
-        wait00(0 );
-        PORTC=0x00; /* both motor off */
-        wait00(20); 
+        
+        if (error == 0) {
+            straight();
+        } else {
+            motorRun(10 + pid, 10 - pid);
+        }
+        
+        last_error = error;
     }
     
     return 0;

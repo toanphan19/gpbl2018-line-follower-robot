@@ -9,6 +9,8 @@
 [v ___flneg __flneg `(d  1 e 4 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
+"43 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftdiv.c
@@ -29,13 +31,17 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"19 D:\Projects\2018_GPBL\speed_run.X\main.c
+"22 D:\Projects\2018_GPBL\speed_run.X\main.c
 [v _wait00 wait00 `(i  1 e 2 0 ]
-"30
+"33
 [v _led_sens led_sens `(i  1 e 2 0 ]
-"45
+"48
 [v _getPID getPID `(f  1 e 4 0 ]
-"55
+"58
+[v _motorRun motorRun `(v  1 e 1 0 ]
+"74
+[v _straight straight `(i  1 e 2 0 ]
+"83
 [v _main main `(i  1 e 2 0 ]
 "2115 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f2553.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -104,39 +110,70 @@
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "5398
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"6 D:\Projects\2018_GPBL\speed_run.X\main.c
+"9 D:\Projects\2018_GPBL\speed_run.X\main.c
 [v _kp kp `f  1 e 4 0 ]
-"7
-[v _ki ki `f  1 e 4 0 ]
-"8
-[v _kd kd `f  1 e 4 0 ]
 "10
-[v _P P `f  1 e 4 0 ]
+[v _ki ki `f  1 e 4 0 ]
 "11
-[v _I I `f  1 e 4 0 ]
-"12
-[v _D D `f  1 e 4 0 ]
+[v _kd kd `f  1 e 4 0 ]
+"13
+[v _P P `f  1 e 4 0 ]
 "14
-[v _error error `i  1 e 2 0 ]
+[v _I I `f  1 e 4 0 ]
 "15
+[v _D D `f  1 e 4 0 ]
+"17
+[v _error error `i  1 e 2 0 ]
+"18
 [v _previous_error previous_error `i  1 e 2 0 ]
-"16
+"19
 [v _pid pid `f  1 e 4 0 ]
-"55
+"83
 [v _main main `(i  1 e 2 0 ]
 {
-"139
+"104
+[v main@last_error last_error `i  1 a 2 65 ]
+"175
 } 0
-"19
+"74
+[v _straight straight `(i  1 e 2 0 ]
+{
+"81
+} 0
+"58
+[v _motorRun motorRun `(v  1 e 1 0 ]
+{
+"59
+[v motorRun@both both `s  1 a 2 63 ]
+"61
+[v motorRun@r r `s  1 a 2 57 ]
+"60
+[v motorRun@l l `s  1 a 2 55 ]
+"58
+[v motorRun@left left `f  1 p 4 45 ]
+[v motorRun@right right `f  1 p 4 49 ]
+"71
+} 0
+"22
 [v _wait00 wait00 `(i  1 e 2 0 ]
 {
+"25
+[v wait00@i i `s  1 a 2 5 ]
+"26
+[v wait00@j j `s  1 a 2 3 ]
 "22
-[v wait00@i i `f  1 a 4 53 ]
-"23
-[v wait00@j j `f  1 a 4 49 ]
-"19
-[v wait00@k k `f  1 p 4 45 ]
-"28
+[v wait00@k k `s  1 p 2 0 ]
+"31
+} 0
+"43 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 9 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 8 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 0 ]
+"70
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\flge.c
 [v ___flge __flge `(b  1 e 0 0 ]
@@ -145,15 +182,15 @@
 [v ___flge@ff2 ff2 `d  1 p 4 4 ]
 "19
 } 0
-"30 D:\Projects\2018_GPBL\speed_run.X\main.c
+"33 D:\Projects\2018_GPBL\speed_run.X\main.c
 [v _led_sens led_sens `(i  1 e 2 0 ]
 {
-"37
+"40
 } 0
-"45
+"48
 [v _getPID getPID `(f  1 e 4 0 ]
 {
-"52
+"55
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -173,17 +210,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S435 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S444 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S440 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S443 . 4 `l 1 i 4 0 `d 1 f 4 0 `S435 1 fAsBytes 4 0 `S440 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S443  1 a 4 19 ]
+[s S449 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S452 . 4 `l 1 i 4 0 `d 1 f 4 0 `S444 1 fAsBytes 4 0 `S449 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S452  1 a 4 19 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 13 ]
-[s S511 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S520 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S514 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S511 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S514  1 a 2 23 ]
+[u S523 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S520 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S523  1 a 2 23 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 18 ]
 "11
@@ -210,4 +247,10 @@
 [v ___fladd@b b `d  1 p 4 25 ]
 [v ___fladd@a a `d  1 p 4 29 ]
 "237
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\flneg.c
+[v ___flneg __flneg `(d  1 e 4 0 ]
+{
+[v ___flneg@f1 f1 `d  1 p 4 0 ]
+"20
 } 0
