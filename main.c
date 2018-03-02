@@ -1,20 +1,27 @@
-//
-// Notes
-// 1. Left & right motor run time ratio for straight: 4 : 5 
-// (left motor is stronger))
-// 
+
 
 #include <xc.h>
 #include <p18f2553.h>
 
-#define MAXSIZE 30
+float kp = 20;
+float ki = 0;
+float kd = 0;
 
-wait00(short k)
+float P = 0,
+        I = 0,
+        D = 0;
+
+int error = 0,
+        previous_error = 0;
+float pid = 0;
+
+
+wait00(float k)
 { 	 
-/*Wait time about (~ k * 1 ms.) */ 		 
-    short i; 		 
-    short j; /* Declaration of 16 bit variables 	*/ 	 
-    for(j=0;j<k;j++){ /*(~ k * 300) times iteration */ 	 
+/*Wait time about (~ k * 1 ms.) */ 		
+    float i; 		 
+    float j; 	 
+    for(j=0;j < k;j++){ /*(~ k * 300) times iteration */ 	 
 		for(i=0;i<300;i++){ 	 
 		}	 
 	} 		 
@@ -29,153 +36,19 @@ PORTAbits.RA3 = PORTBbits.RB3;
 PORTAbits.RA4 = PORTBbits.RB4;      
 }
 
-//
-// States
-//
-enum road_state_codes {
-    on_track, off_track,
-    straight_line, // for accel
-    off_right_little, off_right,
-    off_left_little, off_left
-};
+
+float abs(float a) {
+    return (a > 0) ? a : -a;
+}
 
 
-enum road_state_codes getRoadState(short a, short b, short c, short d, short e) {
-    if (    (a == 1 && b == 1 && c == 1
-          && d == 1 && e == 1)
-         || (a == 0 && b == 0 && c == 0
-          && d == 0 && e == 0)) {
-        return off_track;
-    }
+float getPID() {
+    P = error;
+    I = I + error;
+    D = error - previous_error;
+    previous_error = error;
     
-     if (  (c == 0
-         && a == 1 && b == 1
-         && d == 1 && e == 1)
-         || (c == 1
-         && a == 0 && b == 0
-         && d == 0 && e == 0)) {
-         return straight_line;
-     } 
-     
-     // White Background
-     if (a == 1 && b == 0 // && c == 1
-             && d == 1 && e == 1) {
-         return off_right_little; 
-     } 
-     if (a == 1 && b == 1 // && c == 1
-             && d == 0 && e == 1) {
-         return off_left_little;
-     } 
-     if (a == 0 && c == 1 && e == 1) {
-        return off_right;
-     } 
-     if (a == 1 && c == 1  && e == 0) {
-         return off_left;
-     }
-     
-     // Black Background
-     if (a == 0 && b == 1 // && c == 0
-             && d == 0 && e == 0) {
-         return off_right_little; 
-     } 
-     if (a == 0 && b == 0 // && c == 0
-             && d == 1 && e == 0) {
-         return off_left_little;
-     } 
-     if (a == 1 && c == 0 && e == 0) {
-        return off_right;
-     } 
-     if (a == 0 && c == 0 && e == 1) {
-         return off_left;
-     }
-     
-     return on_track;
-}
-
-//
-// Turning
-// - Note: the car used has better left motor, so right motor has to run more
-// 
-
-int turnLeft(void) {
-    PORTC=0x02; /* right motor on */
-    wait00(50);
-    PORTC = 0x00;
-    wait00(40);
-}
-
-int turnRight(void) {
-    PORTC=0x01;/* left motor on */
-    wait00(42);
-    PORTC = 0x00;
-    wait00(40);
-}
-
-
-int turnLeftSmall(void) {
-    PORTC=0x03; // both motor on
-    wait00(10);
-    PORTC=0x02; // right motor on
-    wait00(15);
-    PORTC = 0x00;
-    wait00(50);
-}
-
-int turnRightSmall(void) {
-    PORTC=0x03; // both motor on
-    wait00(10);
-    PORTC=0x01; // left motor on
-    wait00(13);
-    PORTC = 0x00;
-    wait00(50);
-}
-
-
-int slowDown(void) {
-    PORTC=0x03; /* both motor on */
-    wait00(48);
-    PORTC=0x02; /* right motor on */
-    wait00(4);
-    PORTC=0x00; /* both motor off */
-    wait00(60); 
-}
-
-int straight(void){
-    PORTC=0x03; /* both motor on */
-    wait00(48);
-    PORTC=0x02; /* right motor on */
-    wait00(4);
-    PORTC=0x00; /* both motor off */
-    wait00(40); 
-}
-
-int accelerate(void) {
-    PORTC=0x03; /* both motor on */
-    wait00(48);
-    PORTC=0x02; /* right motor on */
-    wait00(4);
-    PORTC=0x00; /* both motor off */
-    wait00(20); 
-}
-
-int isAllStraight(enum road_state_codes states[]) {
-    for (int i = 0; i < MAXSIZE; i++) {
-        if (states[i] != on_track && states[i] != straight_line) {
-            return 0;
-        }
-    }
-    
-    return 1;
-}
-
-int isInCurve(enum road_state_codes states[]) {
-    for (int i = 0; i < MAXSIZE; i++) {
-        if (states[i] == off_left || states[i] == off_right) {
-            return 1;
-        }
-    }
-    
-    return 0;
+    return ((kp*P) + (ki*I) + (kd*D));
 }
 
 
@@ -199,56 +72,68 @@ main(void)
         led_sens();
     }
     
-    enum road_state_codes road_state = on_track;
-    enum road_state_codes previous_road_state;
-    
-    int current = -1;
-    enum road_state_codes states[MAXSIZE];
-    
     //Push Start SW to start
     while (1) {
         led_sens();
         
-        road_state = getRoadState(
-            PORTBbits.RB0, PORTBbits.RB1, PORTBbits.RB2,
-            PORTBbits.RB3, PORTBbits.RB4
-        );
-        
-        if (road_state == off_track) {
-            road_state = states[(current + MAXSIZE - 1) % MAXSIZE];
+        error = 0;
+        if(PORTBbits.RB0==0  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1){ 
+           /*White White White White black*/
+            error = -3;
+        }
+        else if (PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1){
+            error = -2;
+        }
+        else if (PORTBbits.RB0==1  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==1){
+            error = -1;
         }
         
-        current = (current + 1) % MAXSIZE;
-        states[current] = road_state;
-        
-        
-        switch (road_state) {
-            case straight_line:
-                if (isAllStraight(states))
-                    accelerate();
-                else if (isInCurve(states)) {
-                    slowDown();
-                } else {
-                    straight();
-                }
-                break;
-            case off_left_little:
-                turnRightSmall();
-                break;
-            case off_right_little:
-                turnLeftSmall();
-                break;
-            case off_left:
-                turnRight();
-                break;
-            case off_right:
-                turnLeft();
-                break;
-            case on_track:
-                straight();
-                break;
+        //right
+        else if (PORTBbits.RB0==1  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==1 && PORTBbits.RB3==1 && PORTBbits.RB4==0){
+            error = 3;
+        }
+        else if (PORTBbits.RB0==1  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
+            error = 2;
+        }
+        else if (PORTBbits.RB0==1  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==1 && PORTBbits.RB3==0 && PORTBbits.RB4==1){
+            error = 1;
         }
         
+        // white line
+        //left
+        else if (PORTBbits.RB0==1  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
+            error = -3;
+        }
+        else if (PORTBbits.RB0==1  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
+            error = -2;
+        }
+        else if (PORTBbits.RB0==0  &&  PORTBbits.RB1==1 &&  PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==0){
+            error = -1;
+        }
+        
+        //right
+        else if (PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==0 && PORTBbits.RB3==0 && PORTBbits.RB4==1){
+            error = 3;
+        }
+        else if (PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==1){
+            error = 2;
+        }
+        else if (PORTBbits.RB0==0  &&  PORTBbits.RB1==0 &&  PORTBbits.RB2==0 && PORTBbits.RB3==1 && PORTBbits.RB4==0){
+            error = 1;
+        }
+        
+        
+        pid = getPID();
+        
+        PORTC=0x03; /* both motor on */
+        wait00(30);
+        PORTC=0x01; /* left motor on */
+        wait00(0 + pid);
+        PORTC=0x02; /* right motor on */
+        wait00(0 );
+        PORTC=0x00; /* both motor off */
+        wait00(20); 
     }
-            
+    
+    return 0;
 }
